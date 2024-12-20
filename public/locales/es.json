@@ -1,0 +1,29 @@
+{
+  "consoleLines": [
+    "print(\"Francisco González\")",
+    "print(\"Científico de Datos e Ingeniero de Software\")",
+    "print(\"¡Bienvenido a mi portafolio profesional!\")"
+  ],
+  "name": "Francisco Javier González-Barriga",
+  "title": "Científico de Datos e Ingeniero de Software",
+  "aboutMeTitle": "Sobre Mí",
+  "aboutMeText": "Soy un apasionado Científico de Datos e Ingeniero de Software con una sólida formación en ciencias de la computación y análisis de datos. Disfruto resolviendo problemas complejos y creando soluciones innovadoras que marcan la diferencia.",
+  "hobbiesTitle": "Pasatiempos",
+  "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías, leer libros sobre diversos temas y jugar al ajedrez. También disfruto de las caminatas y pasar tiempo en la naturaleza.",
+  "interestsTitle": "Intereses",
+  "interestsText": "Me interesa particularmente la inteligencia artificial, el aprendizaje automático y la visualización de datos. Siempre estoy ansioso por aprender cosas nuevas y mantenerme actualizado con las últimas tendencias en tecnología.",
+  "navbar": {
+    "home": "/francisco",
+    "projects": "/proyectos",
+    "skills": "/habilidades",
+    "experience": "/experiencia",
+    "contact": "/contacto"
+  },
+  "footer": {
+    "degree": "Licenciatura en Ingeniería en Computación",
+    "university": "Universidad de Guadalajara",
+    "location": "Guadalajara, Jalisco, México.",
+    "findMe": "También encuéntrame en:",
+    "rights": "© 2025 Francisco González. Todos los derechos reservados."
+  }
+}

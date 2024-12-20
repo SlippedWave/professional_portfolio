@@ -1,0 +1,29 @@
+{
+  "aboutMeTitle": "About Me",
+  "consoleLines": [
+    "print(\"Francisco González\")",
+    "print(\"Data Scientist and Software Engineer\")",
+    "print(\"Welcome to my professional portfolio!\")"
+  ],
+  "name": "Francisco Javier González-Barriga",
+  "title": "Data Scientist and Software Engineer",
+  "aboutMeText": "I am a passionate Data Scientist and Software Engineer with a strong background in computer science and data analysis. I enjoy solving complex problems and creating innovative solutions that make a difference.",
+  "hobbiesTitle": "Hobbies",
+  "hobbiesText": "In my free time, I love exploring new technologies, reading books on various topics, and playing chess. I also enjoy hiking and spending time in nature.",
+  "interestsTitle": "Interests",
+  "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization. I am always eager to learn new things and stay updated with the latest trends in technology.",
+  "navbar": {
+    "home": "/francisco",
+    "projects": "/projects",
+    "skills": "/skills",
+    "experience": "/experience",
+    "contact": "/contact"
+  },
+  "footer": {
+    "degree": "Bachelor of Science in Computer Engineering",
+    "university": "Universidad de Guadalajara",
+    "location": "Guadalajara, Jalisco, Mexico.",
+    "findMe": "Also find me on:",
+    "rights": "© 2025 Francisco González. All rights reserved."
+  }
+}
