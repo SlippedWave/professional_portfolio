@@ -1,27 +1,20 @@
 <template>
     <div class="card bg-dark text-white d-flex justify-content-center align-items-center w-100">
         <div class="card-body text-center py-5">
-            <h1 class="mb-4">{{ title }}</h1>
+            <h1 class="mb-4">
+                <slot name="title"></slot>
+            </h1>
             <hr>
             <div class="about-me-text">
-                <p class="card-text">{{ text }}</p>
+                <p class="card-text">
+                    <slot name="text"></slot>
+                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-
-const props = defineProps({
-    title: {
-        type: String,
-        required: true,
-    },
-    text: {
-        type: String,
-        required: true,
-    }
-});
 
 </script>
 

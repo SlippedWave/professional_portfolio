@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useIntersectionObserver } from '@vueuse/core';
 import Console from '@/components/Console.vue';
@@ -8,53 +8,62 @@ import IntroductionCard from '@/components/IntroductionCard.vue';
 
 const { t } = useI18n();
 
+const headers = [
+  'presentation',
+  'about-me',
+  'hobbies',
+  'interests',
+]
+
+const currentSection = ref('');
+
 const lines = [];
 for (let i = 0; i < 3; i++) {
   lines.push(t(`consoleLines.${i}`));
 }
 
 const isConsolePoppedOut = ref(false);
-const handleTypingCompleted = () => {
+const handleTypingCompleted = async () => {
   isConsolePoppedOut.value = true;
-};
 
-const sections = ref([]);
-const activeSectionIndex = ref(0);
+  await nextTick();
 
-const registerSections = (el) => {
-  if (el && !sections.value.includes(el)) {
-    sections.value.push(el);
-  }
-};
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          currentSection.value = entry.target.getAttribute('id');
+          console.log('Current Section:', currentSection.value);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
 
-const scrollToNextSection = () => {
-  if (activeSectionIndex.value < sections.value.length - 1) {
-    activeSectionIndex.value += 1;
-    sections.value[activeSectionIndex.value].scrollIntoView({ behavior: 'smooth' });
-  }
-};
+  const sections = document.querySelectorAll('section');
+  console.log('Sections:', sections);
 
-sections.value.forEach((section, index) => {
-  useIntersectionObserver(section, ([entry]) => {
-    if (entry.isIntersecting) {
-      activeSectionIndex.value = index;
-    }
+  sections.forEach((section) => {
+    observer.observe(section);
   });
-});
+};
 </script>
 
 <template>
-  <main class="h-100 d-flex justify-content-center align-items-center">
-    <div v-if="!isConsolePoppedOut" class="console-container d-flex justify-content-center align-items-center">
+  <main v-if="!isConsolePoppedOut" class="h-100 d-flex justify-content-center align-items-center">
+    <div class="console-container d-flex justify-content-center align-items-center">
       <Console :lines="lines" @typing-completed="handleTypingCompleted" />
     </div>
+  </main>
+
+  <main class="d-flex justify-content-center align-items-center">
 
     <!-- Intro Section -->
     <div v-if="isConsolePoppedOut" class="intro-section">
       <div class="container-fluid">
         <div class="row flex-column">
           <!-- Card 1 -->
-          <section ref="registerSections">
+          <section id="presentation">
             <div v-motion-roll-visible-bottom>
               <PresentationCard :name="t('name')" :title="t('title')" :aboutme="t('aboutMeTitle')"
                 :text="t('aboutMeText')" imageref="../assets/images/my_photo.jpg" />
@@ -62,23 +71,32 @@ sections.value.forEach((section, index) => {
           </section>
 
           <!-- Card 2 -->
-          <section ref="registerSections">
+          <section id="about-me">
             <div v-motion-roll-visible-bottom>
-              <IntroductionCard :title="t('aboutMeTitle')" :text="t('aboutMeText')" />
+              <IntroductionCard>
+                <template #title>{{ t('aboutMeTitle') }}</template>
+                <template #text>{{ t('aboutMeText') }}</template>
+              </IntroductionCard>>
             </div>
           </section>
 
           <!-- Card 3 -->
-          <section ref="registerSections">
+          <section id="hobbies">
             <div v-motion-slide-visible-left>
-              <IntroductionCard :title="t('hobbiesTitle')" :text="t('hobbiesText')" />
+              <IntroductionCard>
+                <template #title>{{ t('hobbiesTitle') }}</template>
+                <template #text>{{ t('hobbiesText') }}</template>
+              </IntroductionCard>
             </div>
           </section>
 
           <!-- Card 4 -->
-          <section ref="registerSections">
+          <section id="interests">
             <div v-motion-slide-visible-right>
-              <IntroductionCard :title="t('interestsTitle')" :text="t('interestsText')" />
+              <IntroductionCard>
+                <template #title>{{ t('interestsTitle') }}</template>
+                <template #text>{{ t('interestsText') }}</template>
+              </IntroductionCard>
             </div>
           </section>
         </div>
@@ -117,7 +135,7 @@ section {
   max-width: 1000px;
   overflow-y: auto;
   height: 100vh;
-  position: absolute;
+  position: relative;
 }
 
 .intro-section .row {
