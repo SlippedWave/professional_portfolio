@@ -1,49 +1,48 @@
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, onUnmounted, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useIntersectionObserver } from '@vueuse/core';
 import Console from '@/components/Console.vue';
 import PresentationCard from '@/components/PresentationCard.vue';
 import IntroductionCard from '@/components/IntroductionCard.vue';
+import { useMotion } from '@vueuse/motion';
+import { popup } from '@/assets/js/animations';
 
 const { t } = useI18n();
 
-const headers = [
-  'presentation',
-  'about-me',
-  'hobbies',
-  'interests',
-]
-
 const currentSection = ref('');
+const consoleContainer = ref(null);
 
 const lines = [];
+let apply;
+
 for (let i = 0; i < 3; i++) {
   lines.push(t(`consoleLines.${i}`));
 }
 
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        currentSection.value = entry.target.getAttribute('id');
+        entry.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  },
+  { threshold: 0.1 }
+);
+
 const isConsolePoppedOut = ref(false);
 const handleTypingCompleted = async () => {
+
+  if (consoleContainer.value) {
+
+    await apply('leave');
+
+  }
+
   isConsolePoppedOut.value = true;
 
   await nextTick();
-
-  let scrollTimeout;
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          currentSection.value = entry.target.getAttribute('id');
-
-          clearTimeout(scrollTimeout);
-          scrollTimeout = setTimeout(() => {
-            entry.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }, 100); // Adjust delay as needed
-        }
-      });
-    },
-    { threshold: 0.6 }
-  );
 
   const sections = document.querySelectorAll('section');
 
@@ -51,12 +50,26 @@ const handleTypingCompleted = async () => {
     observer.observe(section);
   });
 };
+
+onMounted(() => {
+  if (consoleContainer.value) {
+    ({ apply } = useMotion(consoleContainer.value, popup(1000)));
+  }
+});
+
+onUnmounted(() => {
+  if (observer) {
+    observer.disconnect();
+  }
+});
 </script>
 
 <template>
   <main v-if="!isConsolePoppedOut" class="h-100 d-flex justify-content-center align-items-center">
-    <div class="console-container d-flex justify-content-center align-items-center">
-      <Console :lines="lines" @typing-completed="handleTypingCompleted" />
+    <div ref="consoleContainer">
+      <div class="console-container d-flex justify-content-center align-items-center">
+        <Console :lines="lines" @typing-completed="handleTypingCompleted" />
+      </div>
     </div>
   </main>
 
@@ -65,7 +78,6 @@ const handleTypingCompleted = async () => {
     <div class="container-fluid">
       <div class="row flex-column">
         <!-- Card 1 -->
-
         <div class="mini-page">
           <section id="presentation">
             <div v-motion-roll-visible-bottom>
@@ -82,7 +94,7 @@ const handleTypingCompleted = async () => {
               <IntroductionCard>
                 <template #title>{{ t('aboutMeTitle') }}</template>
                 <template #text>{{ t('aboutMeText') }}</template>
-              </IntroductionCard>>
+              </IntroductionCard>
             </div>
           </section>
         </div>

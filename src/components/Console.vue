@@ -28,11 +28,9 @@ const props = defineProps({
 const emit = defineEmits(['typing-completed']);
 
 const handleTypingCompleted = () => {
-  setTimeout(() => {
-    if (props.popOut) {
-      emit('typing-completed');
-    }
-  }, 700);
+  if (props.popOut) {
+    emit('typing-completed');
+  }
 };
 
 </script>
