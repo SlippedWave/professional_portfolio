@@ -31,13 +31,13 @@ const handleTypingCompleted = async () => {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.intersectionRatio > 0) {
           currentSection.value = entry.target.getAttribute('id');
           console.log('Current Section:', currentSection.value);
+          entry.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       });
     },
-    { threshold: 0.5 }
   );
 
   const sections = document.querySelectorAll('section');
@@ -56,21 +56,23 @@ const handleTypingCompleted = async () => {
     </div>
   </main>
 
-  <main class="d-flex justify-content-center align-items-center">
+  <!-- Intro Section -->
+  <main v-if="isConsolePoppedOut" class="d-flex justify-content-center align-items-center">
+    <div class="container-fluid">
+      <div class="row flex-column">
+        <!-- Card 1 -->
 
-    <!-- Intro Section -->
-    <div v-if="isConsolePoppedOut" class="intro-section">
-      <div class="container-fluid">
-        <div class="row flex-column">
-          <!-- Card 1 -->
+        <div class="mini-page">
           <section id="presentation">
             <div v-motion-roll-visible-bottom>
               <PresentationCard :name="t('name')" :title="t('title')" :aboutme="t('aboutMeTitle')"
                 :text="t('aboutMeText')" imageref="../assets/images/my_photo.jpg" />
             </div>
           </section>
+        </div>
 
-          <!-- Card 2 -->
+        <!-- Card 2 -->
+        <div class="mini-page">
           <section id="about-me">
             <div v-motion-roll-visible-bottom>
               <IntroductionCard>
@@ -79,8 +81,10 @@ const handleTypingCompleted = async () => {
               </IntroductionCard>>
             </div>
           </section>
+        </div>
 
-          <!-- Card 3 -->
+        <!-- Card 3 -->
+        <div class="mini-page">
           <section id="hobbies">
             <div v-motion-slide-visible-left>
               <IntroductionCard>
@@ -89,8 +93,10 @@ const handleTypingCompleted = async () => {
               </IntroductionCard>
             </div>
           </section>
+        </div>
 
-          <!-- Card 4 -->
+        <!-- Card 4 -->
+        <div class="mini-page">
           <section id="interests">
             <div v-motion-slide-visible-right>
               <IntroductionCard>
@@ -106,11 +112,15 @@ const handleTypingCompleted = async () => {
 </template>
 
 <style scoped>
-section {
+.mini-page {
   display: grid;
   place-items: center;
   align-content: center;
   min-height: 100vh;
+}
+
+section {
+  padding: 20%;
 }
 
 .flex-column {
@@ -130,17 +140,6 @@ section {
 
 }
 
-.intro-section {
-  width: 100%;
-  max-width: 1000px;
-  overflow-y: auto;
-  height: 100vh;
-  position: relative;
-}
-
-.intro-section .row {
-  flex-direction: column;
-}
 
 .col-12 {
   width: 100%;
