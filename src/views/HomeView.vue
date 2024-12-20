@@ -28,20 +28,24 @@ const handleTypingCompleted = async () => {
 
   await nextTick();
 
+  let scrollTimeout;
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0) {
+        if (entry.isIntersecting) {
           currentSection.value = entry.target.getAttribute('id');
-          console.log('Current Section:', currentSection.value);
-          entry.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            entry.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 100); // Adjust delay as needed
         }
       });
     },
+    { threshold: 0.6 }
   );
 
   const sections = document.querySelectorAll('section');
-  console.log('Sections:', sections);
 
   sections.forEach((section) => {
     observer.observe(section);
