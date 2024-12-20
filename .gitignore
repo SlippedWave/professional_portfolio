@@ -30,3 +30,8 @@ coverage
 *.tsbuildinfo
 
 .venv
+.env
+.venv
+__pycache__
+keys
+.pytest_cache
