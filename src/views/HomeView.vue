@@ -1,22 +1,23 @@
 <script setup>
 import { ref, nextTick, onUnmounted, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { useMotion } from '@vueuse/motion';
 import Console from '@/components/Console.vue';
 import PresentationCard from '@/components/PresentationCard.vue';
 import IntroductionCard from '@/components/IntroductionCard.vue';
-import { useMotion } from '@vueuse/motion';
 import { popup } from '@/assets/js/animations';
 
 const { t } = useI18n();
 
 const currentSection = ref('');
 const consoleContainer = ref(null);
+const isConsolePoppedOut = ref(false);
 
 const lines = [];
 let apply;
 
 for (let i = 0; i < 3; i++) {
-  lines.push(t(`consoleLines.${i}`));
+  lines.push(t(`greetingConsoleLines.${i}`));
 }
 
 const observer = new IntersectionObserver(
@@ -31,7 +32,6 @@ const observer = new IntersectionObserver(
   { threshold: 0.1 }
 );
 
-const isConsolePoppedOut = ref(false);
 const handleTypingCompleted = async () => {
 
   if (consoleContainer.value) {

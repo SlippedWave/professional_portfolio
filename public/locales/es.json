@@ -1,9 +1,22 @@
 {
-  "consoleLines": [
+  "consoleGreetingLines": [
     "print(\"Francisco González\")",
     "print(\"Científico de Datos e Ingeniero de Software\")",
     "print(\"¡Bienvenido a mi portafolio profesional!\")"
   ],
+  "consoleNotFoundErrorLines": [
+    "print(\"Error 404: Página no encontrada\")",
+    "print(\"Lo siento, pero la página que buscas no existe.\")"
+  ],
+  "serverErrorConsoleLines": [
+    "print(\"Error 500: Error Interno del Servidor\")",
+    "print(\"Lo siento, pero hubo un error en el servidor.\")"
+  ],
+  "unknownErrorConsoleLines": [
+    "print(\"Error Desconocido\")",
+    "print(\"Lo siento, pero ocurrió un error desconocido.\")"
+  ],
+  "clickToRedirectHome": "Haz clic aquí para volver a la página de inicio...",
   "name": "Francisco Javier González-Barriga",
   "title": "Científico de Datos e Ingeniero de Software",
   "aboutMeTitle": "Sobre Mí",

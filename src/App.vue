@@ -7,7 +7,7 @@ import { RouterView, useRoute } from 'vue-router';
 
 const route = useRoute();
 
-const isErrorPage = computed(() => route.name === 'not-found' || route.name === 'server-error');
+const isErrorPage = computed(() => route.name === 'error');
 </script>
 
 <template>

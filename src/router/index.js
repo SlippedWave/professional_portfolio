@@ -4,7 +4,7 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: () => import('../views/HomeView.vue'), 
+    component: () => import('../views/HomeView.vue'),
   },
   {
     path: '/projects',
@@ -27,18 +27,20 @@ const routes = [
     component: () => import('../views/ContactView.vue'),
   },
   {
+    path: '/error/:code',
+    name: 'error',
+    component: () => import('../views/ErrorView.vue'),
+    props: true,
+  },
+  {
     path: '/:pathMatch(.*)*',
-    name: 'not-found',
-    component: () => import('../views/NotFoundView.vue'),
+    redirect: { name: 'error', params: { code: 404 } },
   },
 ];
-
 
 const router = createRouter({
   history: createWebHistory(),
   routes: routes,
-  
 });
-
 
 export default router;

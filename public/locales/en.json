@@ -1,10 +1,23 @@
 {
   "aboutMeTitle": "About Me",
-  "consoleLines": [
+  "greetingConsoleLines": [
     "print(\"Francisco González\")",
     "print(\"Data Scientist and Software Engineer\")",
     "print(\"Welcome to my professional portfolio!\")"
   ],
+  "notFoundErrorConsoleLines": [
+    "print(\"Error 404: Page Not Found\")",
+    "print(\"I'm sorry, but the page you are looking for does not exist.\")"
+  ],
+  "serverErrorConsoleLines": [
+    "print(\"Error 500: Internal Server Error\")",
+    "print(\"I'm sorry, but there was an error on the server.\")"
+  ],
+  "unknownErrorConsoleLines": [
+    "print(\"Unknown Error\")",
+    "print(\"I'm sorry, but an unknown error occurred.\")"
+  ],
+  "clickToRedirectHome": "Click here to return to the home page...",
   "name": "Francisco Javier González-Barriga",
   "title": "Data Scientist and Software Engineer",
   "aboutMeText": "I am a passionate Data Scientist and Software Engineer with a strong background in computer science and data analysis. I enjoy solving complex problems and creating innovative solutions that make a difference.",

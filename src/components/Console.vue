@@ -1,7 +1,9 @@
 <script setup>
 import TypingAnimation from '../components/TypingAnimation.vue';
 import { RouterLink } from 'vue-router';
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, ref, defineEmits } from 'vue';
+
+const linesAlreadyStopped = ref(false);
 
 const props = defineProps({
   lines: {
@@ -21,16 +23,21 @@ const props = defineProps({
     default: false,
   },
   returnMessage: {
-    type: String,
+    type: Array,
   }
 });
 
 const emit = defineEmits(['typing-completed']);
 
 const handleTypingCompleted = () => {
+  if (props.isError) {
+    linesAlreadyStopped.value = true;
+    return;
+  }
   if (props.popOut) {
     emit('typing-completed');
   }
+
 };
 
 </script>
@@ -48,7 +55,7 @@ const handleTypingCompleted = () => {
       </div>
       <div class="terminal-body p-3" :style="{ color: props.letterColor }">
         <TypingAnimation :lines="props.lines" :keepCursor="false" @typing-completed="handleTypingCompleted" />
-        <RouterLink class="redirect-link" v-if="props.isError" to="/">
+        <RouterLink class="redirect-link" v-if="props.isError && linesAlreadyStopped" to="/">
           <TypingAnimation :lines="props.returnMessage" />
         </RouterLink>
       </div>
