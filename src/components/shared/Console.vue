@@ -1,5 +1,5 @@
 <script setup>
-import TypingAnimation from '../components/TypingAnimation.vue';
+import TypingAnimation from './TypingAnimation.vue';
 import { RouterLink } from 'vue-router';
 import { defineProps, ref, defineEmits } from 'vue';
 

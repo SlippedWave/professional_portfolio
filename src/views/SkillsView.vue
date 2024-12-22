@@ -1,9 +1,9 @@
-// filepath: /D:/Repos/professional_portfolio/professional_portfolio/src/views/SkillsView.vue
 <script setup>
-import Console from '@/components/Console.vue';
+import Console from '@/components/shared/Console.vue';
 import { ref, nextTick, onMounted } from 'vue';
 import { popup } from '@/assets/js/animations';
 import { useMotion } from '@vueuse/motion';
+import SkillsMindMap from '@/components/Skills/SkillsMindMap.vue';
 
 const isConsolePoppedOut = ref(false);
 const consoleContainer = ref(null);
@@ -15,7 +15,6 @@ const lines = [
 ];
 
 let apply;
-
 
 const handleTypingCompleted = async () => {
 
@@ -52,7 +51,11 @@ onMounted(() => {
     </div>
   </main>
 
-
+  <main v-else class="h-100 d-flex justify-content-center align-items-center">
+    <div class="container">
+      <SkillsMindMap />
+    </div>
+  </main>
 </template>
 
 <style scoped></style>

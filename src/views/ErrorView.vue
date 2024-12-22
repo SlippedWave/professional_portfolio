@@ -2,7 +2,7 @@
 import { ref, onMounted, defineProps } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-import Console from '@/components/Console.vue';
+import Console from '@/components/shared/Console.vue';
 import { popup } from '@/assets/js/animations';
 import { useMotion } from '@vueuse/motion';
 

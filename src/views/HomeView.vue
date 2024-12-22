@@ -2,9 +2,9 @@
 import { ref, nextTick, onUnmounted, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useMotion } from '@vueuse/motion';
-import Console from '@/components/Console.vue';
-import PresentationCard from '@/components/PresentationCard.vue';
-import IntroductionCard from '@/components/IntroductionCard.vue';
+import Console from '@/components/shared/Console.vue';
+import PresentationCard from '@/components/Home/PresentationCard.vue';
+import IntroductionCard from '@/components/Home/IntroductionCard.vue';
 import { popup } from '@/assets/js/animations';
 
 const { t } = useI18n();
@@ -74,7 +74,7 @@ onUnmounted(() => {
   </main>
 
   <!-- Intro Section -->
-  <main v-if="isConsolePoppedOut" class="d-flex justify-content-center align-items-center">
+  <main v-else class="d-flex justify-content-center align-items-center">
     <div class="container-fluid">
       <div class="row flex-column">
         <!-- Card 1 -->
@@ -82,7 +82,7 @@ onUnmounted(() => {
           <section id="presentation">
             <div v-motion-roll-visible-bottom>
               <PresentationCard :name="t('name')" :title="t('title')" :aboutme="t('aboutMeTitle')"
-                :text="t('aboutMeText')" imageref="../assets/images/my_photo.jpg" />
+                :text="t('aboutMeText')" imageref="../../assets/images/my_photo.jpg" />
             </div>
           </section>
         </div>

@@ -1,8 +1,8 @@
 <script setup>
 import { computed } from 'vue';
-import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
-import MatrixBackground from './components/MatrixBackground.vue';
+import Navbar from './components/shared/Navbar.vue';
+import Footer from './components/shared/Footer.vue';
+import MatrixBackground from './components/shared/MatrixBackground.vue';
 import { RouterView, useRoute } from 'vue-router';
 
 const route = useRoute();
