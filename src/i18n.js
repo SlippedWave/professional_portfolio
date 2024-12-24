@@ -1,17 +1,18 @@
 import { createI18n } from 'vue-i18n';
-import en from './assets/locales/en.json';
-import es from './assets/locales/es.json';
-import de from './assets/locales/de.json';
+import en from './locales/en.json';
+import es from './locales/es.json';
+import de from './locales/de.json';
 
 const messages = {
-  en,
-  es,
-  de
+  en: en,
+  es: es,
+  de: de
 };
 
 const i18n = createI18n({
   locale: 'en',
-  messages,
+  fallbackLocale: 'en',
+  messages: messages,
 });
 
 export default i18n;

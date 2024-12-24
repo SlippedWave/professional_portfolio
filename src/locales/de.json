@@ -1,0 +1,165 @@
+{
+  "aboutMeTitle": "Über Mich",
+  "greetingConsoleLines": [
+    "print(\"Francisco González\")",
+    "print(\"Datenwissenschaftler und Softwareingenieur\")",
+    "print(\"Willkommen in meinem professionellen Portfolio!\")"
+  ],
+  "notFoundErrorConsoleLines": [
+    "print(\"Fehler 404: Seite nicht gefunden\")",
+    "print(\"Es tut mir leid, aber die Seite, die Sie suchen, existiert nicht.\")"
+  ],
+  "serverErrorConsoleLines": [
+    "print(\"Fehler 500: Interner Serverfehler\")",
+    "print(\"Es tut mir leid, aber auf dem Server ist ein Fehler aufgetreten.\")"
+  ],
+  "unknownErrorConsoleLines": [
+    "print(\"Unbekannter Fehler\")",
+    "print(\"Es tut mir leid, aber ein unbekannter Fehler ist aufgetreten.\")"
+  ],
+  "clickToRedirectHome": "Klicken Sie hier, um zur Startseite zurückzukehren...",
+  "name": "Francisco Javier González-Barriga",
+  "title": "Datenwissenschaftler und Softwareingenieur",
+  "aboutMeText": "Ich bin ein leidenschaftlicher Datenwissenschaftler und Softwareingenieur mit einem starken Hintergrund in Informatik und Datenanalyse. Ich genieße es, komplexe Probleme zu lösen und innovative Lösungen zu schaffen, die einen Unterschied machen.",
+  "hobbiesTitle": "Hobbys",
+  "hobbiesText": "In meiner Freizeit liebe ich es, neue Technologien zu erkunden, Bücher zu verschiedenen Themen zu lesen und Schach zu spielen. Ich genieße auch Wandern und Zeit in der Natur zu verbringen.",
+  "interestsTitle": "Interessen",
+  "interestsText": "Ich interessiere mich besonders für künstliche Intelligenz, maschinelles Lernen und Datenvisualisierung. Ich bin immer bestrebt, neue Dinge zu lernen und mit den neuesten Trends in der Technologie Schritt zu halten.",
+  "navbar": {
+    "home": "/francisco",
+    "projects": "/projekte",
+    "skills": "/fähigkeiten",
+    "experience": "/erfahrung",
+    "contact": "/kontakt"
+  },
+  "skills": {
+    "description": "Eine detaillierte Übersicht über berufliche Fähigkeiten, kategorisiert nach Programmierung, Technologien, Soft Skills, Sprachen und Projekterfahrung.",
+    "categories": [
+      {
+        "name": "Programmiersprachen",
+        "description": "Sprachen für die Softwareentwicklung.",
+        "children": [
+          "Java",
+          "SQL",
+          "Python",
+          "JavaScript",
+          "HTML",
+          "C/C++",
+          "JS",
+          "PHP",
+          "C#"
+        ]
+      },
+      {
+        "name": "Technologien",
+        "description": "Werkzeuge und Plattformen, die häufig in der Entwicklung verwendet werden.",
+        "children": [
+          "Git",
+          "LaTeX",
+          "ClickUp",
+          "Docker",
+          "D3.js",
+          "Vue.js",
+          "React.js",
+          "Laravel",
+          "MSSQL",
+          "SharePoint",
+          "Excel-Makros"
+        ]
+      },
+      {
+        "name": "Webentwicklung",
+        "description": "Fähigkeiten zur Erstellung von Webanwendungen, sowohl Frontend als auch Backend.",
+        "children": [
+          {
+            "name": "Frontend",
+            "description": "Technologien zur Erstellung der Benutzeroberfläche von Web-Apps.",
+            "children": [
+              "React",
+              "Vue",
+              "HTML",
+              "CSS"
+            ]
+          },
+          {
+            "name": "Backend",
+            "description": "Werkzeuge und Frameworks für die Backend-Entwicklung.",
+            "children": [
+              "PHP",
+              "Laravel",
+              ".NET"
+            ]
+          },
+          {
+            "name": "Datenbanken",
+            "description": "Fähigkeiten im Zusammenhang mit Datenbankdesign und -optimierung.",
+            "children": [
+              "MSSQL",
+              "SQL-Normalisierung",
+              "Tabellendesign"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "description": "Persönliche Eigenschaften, die Teamarbeit und Anpassungsfähigkeit fördern.",
+        "children": [
+          "Teamarbeit",
+          "Führung",
+          "Problemlösung",
+          "Anpassungsfähigkeit",
+          "Einfallsreichtum",
+          "Neugier",
+          "Analytisches Denken",
+          "Kreativität"
+        ]
+      },
+      {
+        "name": "Sprachen",
+        "description": "Sprachkenntnisniveaus.",
+        "children": [
+          {
+            "name": "Englisch",
+            "description": "Sprachniveau: C1"
+          },
+          {
+            "name": "Deutsch",
+            "description": "Sprachniveau: B2"
+          },
+          {
+            "name": "Spanisch",
+            "description": "Muttersprache"
+          }
+        ]
+      },
+      {
+        "name": "Projekterfahrung",
+        "description": "Wichtige Projekte, die Entwicklungsfähigkeiten zeigen.",
+        "children": [
+          "Website zur Förderung von Kryptowährungen mit React",
+          "Mini-Casino-Spiel mit .NET",
+          "ERP-Systementwicklung mit PHP und Laravel",
+          "Entwicklung eines CRM- und Inventarverwaltungssystems"
+        ]
+      },
+      {
+        "name": "Werkzeuge und Methodologien",
+        "description": "Software und Methoden, die in der beruflichen Entwicklung verwendet werden.",
+        "children": [
+          "Agile Entwicklung",
+          "Versionskontrolle mit Git",
+          "Zusammenarbeitstools wie ClickUp",
+          "Datenbankmodellierung und -optimierung"
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "degree": "Bachelor-Abschluss in Technische Informatik",
+    "university": "Universidad de Guadalajara",
+    "location": "Guadalajara, Jalisco, Mexiko.",
+    "findMe": "Finden Sie mich auch auf:",
+    "rights": "© 2025 Francisco González. Alle Rechte vorbehalten."
+  }
+}
