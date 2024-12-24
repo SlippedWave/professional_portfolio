@@ -1,21 +1,45 @@
-<template>
-    <div id="mind-map-container" ref="mindMap"></div>
-</template>
-
 <script setup>
-import * as d3 from "d3";
-import { onMounted, ref, nextTick } from "vue";
+import { ref, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
+import * as d3 from 'd3';
+import { Modal } from 'bootstrap';
 
 const mindMap = ref(null);
+const modalRef = ref(null);
+const modalTitle = ref('');
+const modalDescription = ref('');
 
-const props = defineProps({
-    skills: {
-        type: Object,
-        required: true,
-    },
-});
+const getSkillsJson = async (locale) => {
+    let json;
 
-const drawMindMap = () => {
+    switch (locale) {
+        case 'en':
+            json = await import('@/assets/data/skills_en.json');
+            break;
+        case 'es':
+            json = await import('@/assets/data/skills_es.json');
+            break;
+        case 'de':
+            json = await import('@/assets/data/skills_de.json');
+            break;
+        default:
+            json = await import('@/assets/data/skills_en.json');
+            break;
+    }
+
+    return json.default;
+};
+
+const { locale } = useI18n();
+
+const showModal = (title, description) => {
+    modalTitle.value = title;
+    modalDescription.value = description;
+    const modal = new Modal(modalRef.value);
+    modal.show();
+};
+
+const drawMindMap = async () => {
     const margin = [20, 120, 20, 20];
     const width = 1280 - margin[1] - margin[3];
     const height = 800 - margin[0] - margin[2];
@@ -35,7 +59,12 @@ const drawMindMap = () => {
         .append("g")
         .attr("transform", `translate(${margin[3]},${margin[0]})`);
 
-    let root = d3.hierarchy(props.skills);
+    let skillsData = await getSkillsJson(locale.value);
+    console.log('Skills Data:', skillsData);
+
+    let root = d3.hierarchy(skillsData);
+    console.log('Hierarchy Root:', root);
+
     root.x0 = height / 2;
     root.y0 = 0;
 
@@ -57,54 +86,59 @@ const drawMindMap = () => {
             .attr("class", "node")
             .attr("transform", `translate(${source.y0},${source.x0})`)
             .on("click", (event, d) => {
-                toggle(d);
-                update(d);
+                showModal(d.data.name, d.data.description);
+            })
+            .on("mouseover", (event, d) => {
+                d3.select(event.currentTarget).select("circle").style("fill", "#ffeb3b");
+            })
+            .on("mouseout", (event, d) => {
+                d3.select(event.currentTarget).select("circle").style("fill", "#fff");
             });
 
         nodeEnter
             .append("circle")
-            .attr("r", 1e-6)
-            .style("fill", (d) => (d._children ? "lightsteelblue" : "#fff"));
+            .attr("r", 10)
+            .style("fill", "#fff")
+            .style("stroke", "#000")
+            .style("stroke-width", "3px");
 
         nodeEnter
-            .append("a")
-            .attr("xlink:href", (d) => d.data.url || null)
             .append("text")
-            .attr("x", (d) => (d.children || d._children ? -10 : 10))
             .attr("dy", ".35em")
-            .attr("text-anchor", (d) =>
-                d.children || d._children ? "end" : "start"
-            )
-            .text((d) => d.data.name)
-            .style("fill", (d) => (d.data.free ? "black" : "#999"))
-            .style("fill-opacity", 1e-6);
+            .attr("x", (d) => (d.children || d._children ? -13 : 13))
+            .attr("text-anchor", (d) => (d.children || d._children ? "end" : "start"))
+            .text((d) => d.data.name);
 
-        nodeEnter
-            .append("title")
-            .text((d) => d.data.description || "");
+        const nodeUpdate = nodeEnter.merge(node);
 
-        const nodeUpdate = node
-            .merge(nodeEnter)
+        nodeUpdate
             .transition()
-            .duration(500)
+            .duration(200)
             .attr("transform", (d) => `translate(${d.y},${d.x})`);
 
-        nodeUpdate.select("circle").attr("r", 6).style("fill", (d) =>
-            d._children ? "lightsteelblue" : "#fff"
-        );
+        nodeUpdate
+            .select("circle")
+            .attr("r", 10)
+            .style("fill", "#fff");
 
-        nodeUpdate.select("text").style("fill-opacity", 1);
+        nodeUpdate
+            .select("text")
+            .style("fill-opacity", 1);
 
         const nodeExit = node
             .exit()
             .transition()
-            .duration(500)
-            .attr("transform", `translate(${source.y},${source.x})`)
+            .duration(200)
+            .attr("transform", (d) => `translate(${source.y},${source.x})`)
             .remove();
 
-        nodeExit.select("circle").attr("r", 1e-6);
+        nodeExit
+            .select("circle")
+            .attr("r", 1e-6);
 
-        nodeExit.select("text").style("fill-opacity", 1e-6);
+        nodeExit
+            .select("text")
+            .style("fill-opacity", 1e-6);
 
         const link = svg
             .selectAll("path.link")
@@ -122,14 +156,15 @@ const drawMindMap = () => {
         linkEnter
             .merge(link)
             .transition()
-            .duration(500)
+            .duration(200)
             .attr("d", diagonal);
 
-        link.exit()
+        link
+            .exit()
             .transition()
-            .duration(500)
+            .duration(200)
             .attr("d", (d) => {
-                const o = { x: source.x, y: source.y };
+                const o = { x: source.x0, y: source.y0 };
                 return diagonal({ source: o, target: o });
             })
             .remove();
@@ -140,38 +175,40 @@ const drawMindMap = () => {
         });
     };
 
-    const toggle = (d) => {
-        if (d.children) {
-            d._children = d.children;
-            d.children = null;
-        } else {
-            d.children = d._children;
-            d._children = null;
-        }
-    };
-
-    const toggleAll = (d) => {
-        if (d.children) {
-            d.children.forEach(toggleAll);
-            toggle(d);
-        }
-    };
-
-    toggleAll(root);
     update(root);
 };
 
-onMounted(async () => {
-    await nextTick();
+onMounted(() => {
     drawMindMap();
 });
 </script>
 
+<template>
+    <div ref="mindMap"></div>
+
+    <!-- Modal -->
+    <div ref="modalRef" class="modal fade" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">{{ modalTitle }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ modalDescription }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
 <style scoped>
 .node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 3px;
+    cursor: pointer;
+    transition: fill 0.3s;
 }
 
 .node text {

@@ -1,0 +1,242 @@
+{
+    "name": "Skills",
+    "description": "These are the professional skills I use in my projects.",
+    "children": [
+        {
+            "name": "Programming Languages",
+            "description": "Languages used in various areas of software development, each specialized in different contexts.",
+            "children": [
+                {
+                    "name": "High-Level Languages",
+                    "description": "Languages I use for most of my projects that simplify development and learning.",
+                    "children": [
+                        {
+                            "name": "Python",
+                            "description": "Mainly used for data analysis, artificial intelligence, and web development, thanks to the wide variety of libraries."
+                        },
+                        {
+                            "name": "Java",
+                            "description": "Used for developing robust business applications like point-of-sale systems."
+                        },
+                        {
+                            "name": "C#",
+                            "description": "Used for developing .NET applications."
+                        }
+                    ]
+                },
+                {
+                    "name": "Web Development Languages",
+                    "description": "Along with Python, these are the main languages I work with for web development.",
+                    "children": [
+                        {
+                            "name": "JavaScript",
+                            "description": "Used to develop more responsive client-side applications."
+                        },
+                        {
+                            "name": "PHP",
+                            "description": "Used for dynamic web applications."
+                        },
+                        {
+                            "name": "HTML",
+                            "description": "The basic framework for the structure of any webpage, essential for frontend development."
+                        }
+                    ]
+                },
+                {
+                    "name": "Systems and Performance Languages",
+                    "description": "Languages designed for precise hardware control or high performance.",
+                    "children": [
+                        {
+                            "name": "C/C++",
+                            "description": "Mostly used for solving ICPC problems and console applications, with a solid foundation in data structures in this language."
+                        },
+                        {
+                            "name": "SQL",
+                            "description": "Used to create queries and update information in the databases of my projects."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Technologies",
+            "description": "Tools and platforms frequently used in development to increase productivity and software quality.",
+            "children": [
+                {
+                    "name": "Git",
+                    "description": "A version control system for managing codebases."
+                },
+                {
+                    "name": "LaTeX",
+                    "description": "Used for creating high-quality technical documents."
+                },
+                {
+                    "name": "ClickUp",
+                    "description": "A collaboration and project management tool."
+                },
+                {
+                    "name": "Docker",
+                    "description": "A container platform for building and deploying applications."
+                },
+                {
+                    "name": "Vue.js",
+                    "description": "A progressive JavaScript framework for building user interfaces."
+                },
+                {
+                    "name": "React.js",
+                    "description": "A JavaScript library for component-based user interfaces."
+                },
+                {
+                    "name": "Laravel",
+                    "description": "A PHP framework for backend development."
+                },
+                {
+                    "name": "MSSQL",
+                    "description": "A relational database management system."
+                }
+            ]
+        },
+        {
+            "name": "Web Development",
+            "description": "Skills for creating web applications, both frontend and backend.",
+            "children": [
+                {
+                    "name": "Frontend",
+                    "description": "Technologies for creating the user interface of web applications.",
+                    "children": [
+                        {
+                            "name": "React",
+                            "description": "A JavaScript library for creating interactive user interfaces."
+                        },
+                        {
+                            "name": "Vue",
+                            "description": "A progressive framework for frontend development."
+                        },
+                        {
+                            "name": "HTML",
+                            "description": "The markup language that forms the foundation of any webpage."
+                        },
+                        {
+                            "name": "CSS",
+                            "description": "Used to style and layout webpages."
+                        }
+                    ]
+                },
+                {
+                    "name": "Backend",
+                    "description": "Tools and frameworks for backend development.",
+                    "children": [
+                        {
+                            "name": "PHP",
+                            "description": "A server-side scripting language framework."
+                        },
+                        {
+                            "name": "Laravel",
+                            "description": "A PHP framework for rapid web application development."
+                        },
+                        {
+                            "name": "Flask",
+                            "description": "A lightweight Python framework for web development."
+                        }
+                    ]
+                },
+                {
+                    "name": "Databases",
+                    "description": "Skills related to database design and optimization.",
+                    "children": [
+                        {
+                            "name": "MSSQL",
+                            "description": "A relational database management system."
+                        },
+                        {
+                            "name": "SQL Normalization",
+                            "description": "A method for organizing databases for optimal efficiency."
+                        },
+                        {
+                            "name": "Table Design",
+                            "description": "Creating effective and scalable database table structures."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Soft Skills",
+            "description": "Help me work efficiently and amicably in a team.",
+            "children": [
+                {
+                    "name": "Teamwork",
+                    "description": "Ability to collaborate with others to achieve common goals."
+                },
+                {
+                    "name": "Leadership",
+                    "description": "The ability to lead and motivate teams."
+                },
+                {
+                    "name": "Problem Solving",
+                    "description": "Analytical approaches to tackling challenges."
+                },
+                {
+                    "name": "Adaptability",
+                    "description": "Quickly adapting to new environments or technologies."
+                },
+                {
+                    "name": "Resourcefulness",
+                    "description": "Creative thinking to find innovative solutions."
+                },
+                {
+                    "name": "Curiosity",
+                    "description": "Constant pursuit of knowledge and improvement."
+                },
+                {
+                    "name": "Analytical Thinking",
+                    "description": "Structured and methodical problem analysis."
+                },
+                {
+                    "name": "Creativity",
+                    "description": "The ability to develop original and innovative ideas."
+                }
+            ]
+        },
+        {
+            "name": "Languages",
+            "description": "Language skills I use for communication.",
+            "children": [
+                {
+                    "name": "English",
+                    "description": "Language level: C1. Ideal for international projects and advanced technical communication."
+                },
+                {
+                    "name": "German",
+                    "description": "Language level: B2. Useful for interaction in German-speaking environments and technical documents."
+                },
+                {
+                    "name": "Spanish",
+                    "description": "Native language. Essential for collaborating with Spanish-speaking teams and local clients."
+                }
+            ]
+        },
+        {
+            "name": "Tools and Methodologies",
+            "description": "Software and methods used in professional development to ensure quality and efficiency.",
+            "children": [
+                {
+                    "name": "Agile Development",
+                    "description": "An iterative approach to software development."
+                },
+                {
+                    "name": "Version Control with Git",
+                    "description": "A system for tracking changes in source code."
+                },
+                {
+                    "name": "Collaboration Tools like ClickUp",
+                    "description": "Platforms for team organization and project tracking."
+                },
+                {
+                    "name": "Database Modeling and Optimization",
+                    "description": "Efficient design and management of databases."
+                }
+            ]
+        }
+    ]
+}

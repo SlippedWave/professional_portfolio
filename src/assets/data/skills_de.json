@@ -1,0 +1,242 @@
+{
+    "name": "Fähigkeiten",
+    "description": "Dies sind die beruflichen Fähigkeiten, die ich in meinen Projekten einsetze.",
+    "children": [
+        {
+            "name": "Programmiersprachen",
+            "description": "Sprachen, die in verschiedenen Bereichen der Softwareentwicklung verwendet werden und jeweils in unterschiedlichen Kontexten spezialisiert sind.",
+            "children": [
+                {
+                    "name": "Hochsprachen",
+                    "description": "Sprachen, die ich für die meisten meiner Projekte verwende und die die Entwicklung und das Lernen vereinfachen.",
+                    "children": [
+                        {
+                            "name": "Python",
+                            "description": "Hauptsächlich für Datenanalyse, künstliche Intelligenz und Webentwicklung genutzt, dank der großen Vielfalt an Bibliotheken."
+                        },
+                        {
+                            "name": "Java",
+                            "description": "Verwendet zur Entwicklung robuster Geschäftsanwendungen wie Kassensysteme."
+                        },
+                        {
+                            "name": "C#",
+                            "description": "Verwendet zur Entwicklung von .NET-Anwendungen."
+                        }
+                    ]
+                },
+                {
+                    "name": "Webentwicklungssprachen",
+                    "description": "Zusammen mit Python sind dies die Hauptsprachen, mit denen ich Webanwendungen entwickle.",
+                    "children": [
+                        {
+                            "name": "JavaScript",
+                            "description": "Verwendet zur Entwicklung von responsiveren clientseitigen Anwendungen."
+                        },
+                        {
+                            "name": "PHP",
+                            "description": "Verwendet für dynamische Webanwendungen."
+                        },
+                        {
+                            "name": "HTML",
+                            "description": "Das grundlegende Framework für die Struktur jeder Webseite, unerlässlich für die Frontend-Entwicklung."
+                        }
+                    ]
+                },
+                {
+                    "name": "System- und Performancesprachen",
+                    "description": "Sprachen, die für präzise Hardwarekontrolle oder hohe Leistung entwickelt wurden.",
+                    "children": [
+                        {
+                            "name": "C/C++",
+                            "description": "Hauptsächlich verwendet zur Lösung von ICPC-Problemen und für Konsolenanwendungen, mit einer soliden Basis in Datenstrukturen in dieser Sprache."
+                        },
+                        {
+                            "name": "SQL",
+                            "description": "Verwendet zur Erstellung von Abfragen und zur Aktualisierung von Informationen in den Datenbanken meiner Projekte."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Technologien",
+            "description": "Tools und Plattformen, die häufig in der Entwicklung verwendet werden, um Produktivität und Softwarequalität zu erhöhen.",
+            "children": [
+                {
+                    "name": "Git",
+                    "description": "Ein Versionskontrollsystem zur Verwaltung von Codebasen."
+                },
+                {
+                    "name": "LaTeX",
+                    "description": "Verwendet zur Erstellung hochwertiger technischer Dokumente."
+                },
+                {
+                    "name": "ClickUp",
+                    "description": "Ein Tool für Zusammenarbeit und Projektmanagement."
+                },
+                {
+                    "name": "Docker",
+                    "description": "Eine Containerplattform zur Erstellung und Bereitstellung von Anwendungen."
+                },
+                {
+                    "name": "Vue.js",
+                    "description": "Ein progressives JavaScript-Framework zur Erstellung von Benutzeroberflächen."
+                },
+                {
+                    "name": "React.js",
+                    "description": "Eine JavaScript-Bibliothek für komponentenbasierte Benutzeroberflächen."
+                },
+                {
+                    "name": "Laravel",
+                    "description": "Ein PHP-Framework für Backend-Entwicklung."
+                },
+                {
+                    "name": "MSSQL",
+                    "description": "Ein relationales Datenbankmanagementsystem."
+                }
+            ]
+        },
+        {
+            "name": "Webentwicklung",
+            "description": "Fähigkeiten zur Erstellung von Webanwendungen, sowohl im Frontend als auch im Backend.",
+            "children": [
+                {
+                    "name": "Frontend",
+                    "description": "Technologien zur Erstellung der Benutzeroberfläche von Webanwendungen.",
+                    "children": [
+                        {
+                            "name": "React",
+                            "description": "Eine JavaScript-Bibliothek zur Erstellung interaktiver Benutzeroberflächen."
+                        },
+                        {
+                            "name": "Vue",
+                            "description": "Ein progressives Framework für die Frontend-Entwicklung."
+                        },
+                        {
+                            "name": "HTML",
+                            "description": "Die Auszeichnungssprache, die das Fundament jeder Webseite bildet."
+                        },
+                        {
+                            "name": "CSS",
+                            "description": "Verwendet zur Gestaltung und Anordnung von Webseiten."
+                        }
+                    ]
+                },
+                {
+                    "name": "Backend",
+                    "description": "Tools und Frameworks für Backend-Entwicklung.",
+                    "children": [
+                        {
+                            "name": "PHP",
+                            "description": "Ein serverseitiges Skriptsprachen-Framework."
+                        },
+                        {
+                            "name": "Laravel",
+                            "description": "Ein PHP-Framework zur schnellen Webanwendungsentwicklung."
+                        },
+                        {
+                            "name": "Flask",
+                            "description": "Ein leichtgewichtiges Python-Framework zur Webentwicklung."
+                        }
+                    ]
+                },
+                {
+                    "name": "Datenbanken",
+                    "description": "Fähigkeiten zur Datenbankgestaltung und -optimierung.",
+                    "children": [
+                        {
+                            "name": "MSSQL",
+                            "description": "Ein relationales Datenbankmanagementsystem."
+                        },
+                        {
+                            "name": "SQL-Normalisierung",
+                            "description": "Eine Methode zur Organisation von Datenbanken für optimale Effizienz."
+                        },
+                        {
+                            "name": "Tabellengestaltung",
+                            "description": "Erstellung effektiver und skalierbarer Datenbanktabellenstrukturen."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Soft Skills",
+            "description": "Helfen mir, effizient und freundlich im Team zu arbeiten.",
+            "children": [
+                {
+                    "name": "Teamarbeit",
+                    "description": "Fähigkeit, mit anderen zusammenzuarbeiten, um gemeinsame Ziele zu erreichen."
+                },
+                {
+                    "name": "Führung",
+                    "description": "Die Fähigkeit, Teams zu führen und zu motivieren."
+                },
+                {
+                    "name": "Problemlösung",
+                    "description": "Analytische Ansätze zur Bewältigung von Herausforderungen."
+                },
+                {
+                    "name": "Anpassungsfähigkeit",
+                    "description": "Schnelle Anpassung an neue Umgebungen oder Technologien."
+                },
+                {
+                    "name": "Einfallsreichtum",
+                    "description": "Kreatives Denken zur Entwicklung innovativer Lösungen."
+                },
+                {
+                    "name": "Neugier",
+                    "description": "Ständige Suche nach Wissen und Verbesserung."
+                },
+                {
+                    "name": "Analytisches Denken",
+                    "description": "Strukturierte und methodische Problemanalyse."
+                },
+                {
+                    "name": "Kreativität",
+                    "description": "Die Fähigkeit, originelle und innovative Ideen zu entwickeln."
+                }
+            ]
+        },
+        {
+            "name": "Sprachen",
+            "description": "Sprachkenntnisse, die ich zur Kommunikation einsetze.",
+            "children": [
+                {
+                    "name": "Englisch",
+                    "description": "Sprachniveau: C1. Ideal für internationale Projekte und fortgeschrittene technische Kommunikation."
+                },
+                {
+                    "name": "Deutsch",
+                    "description": "Sprachniveau: B2. Nützlich für die Interaktion in deutschsprachigen Umgebungen und technische Dokumente."
+                },
+                {
+                    "name": "Spanisch",
+                    "description": "Muttersprache. Wesentlich für die Zusammenarbeit mit spanischsprachigen Teams und lokalen Kunden."
+                }
+            ]
+        },
+        {
+            "name": "Werkzeuge und Methoden",
+            "description": "Software und Methoden, die in der professionellen Entwicklung zur Sicherung von Qualität und Effizienz verwendet werden.",
+            "children": [
+                {
+                    "name": "Agile Entwicklung",
+                    "description": "Ein iterativer Ansatz zur Softwareentwicklung."
+                },
+                {
+                    "name": "Versionskontrolle mit Git",
+                    "description": "Ein System zur Nachverfolgung von Änderungen im Quellcode."
+                },
+                {
+                    "name": "Zusammenarbeitstools wie ClickUp",
+                    "description": "Plattformen zur Teamorganisation und Projektverfolgung."
+                },
+                {
+                    "name": "Datenbankmodellierung und -optimierung",
+                    "description": "Effiziente Gestaltung und Verwaltung von Datenbanken."
+                }
+            ]
+        }
+    ]
+}

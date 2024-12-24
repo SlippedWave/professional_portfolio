@@ -1,0 +1,242 @@
+{
+    "name": "Habilidades",
+    "description": "Estas son las habilidades profesionales que utilizo en mis proyectos.",
+    "children": [
+        {
+            "name": "Lenguajes de Programación",
+            "description": "Lenguajes utilizados en varias áreas del desarrollo de software, cada uno especializado en diferentes contextos.",
+            "children": [
+                {
+                    "name": "Lenguajes de Alto Nivel",
+                    "description": "Lenguajes que utilizo para la mayoría de mis proyectos que simplifican el desarrollo y el aprendizaje.",
+                    "children": [
+                        {
+                            "name": "Python",
+                            "description": "Principalmente utilizado para análisis de datos, inteligencia artificial y desarrollo web, gracias a la gran variedad de bibliotecas."
+                        },
+                        {
+                            "name": "Java",
+                            "description": "Utilizado para desarrollar aplicaciones empresariales robustas como sistemas de punto de venta."
+                        },
+                        {
+                            "name": "C#",
+                            "description": "Utilizado para desarrollar aplicaciones .NET."
+                        }
+                    ]
+                },
+                {
+                    "name": "Lenguajes de Desarrollo Web",
+                    "description": "Junto con Python, estos son los principales lenguajes con los que trabajo para el desarrollo web.",
+                    "children": [
+                        {
+                            "name": "JavaScript",
+                            "description": "Utilizado para desarrollar aplicaciones del lado del cliente más responsivas."
+                        },
+                        {
+                            "name": "PHP",
+                            "description": "Utilizado para aplicaciones web dinámicas."
+                        },
+                        {
+                            "name": "HTML",
+                            "description": "El marco básico para la estructura de cualquier página web, esencial para el desarrollo frontend."
+                        }
+                    ]
+                },
+                {
+                    "name": "Lenguajes de Sistemas y Rendimiento",
+                    "description": "Lenguajes diseñados para un control preciso del hardware o alto rendimiento.",
+                    "children": [
+                        {
+                            "name": "C/C++",
+                            "description": "Principalmente utilizado para resolver problemas de ICPC y aplicaciones de consola, con una sólida base en estructuras de datos en este lenguaje."
+                        },
+                        {
+                            "name": "SQL",
+                            "description": "Utilizado para crear consultas y actualizar información en las bases de datos de mis proyectos."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Tecnologías",
+            "description": "Herramientas y plataformas frecuentemente utilizadas en el desarrollo para aumentar la productividad y la calidad del software.",
+            "children": [
+                {
+                    "name": "Git",
+                    "description": "Un sistema de control de versiones para gestionar bases de código."
+                },
+                {
+                    "name": "LaTeX",
+                    "description": "Utilizado para crear documentos técnicos de alta calidad."
+                },
+                {
+                    "name": "ClickUp",
+                    "description": "Una herramienta de colaboración y gestión de proyectos."
+                },
+                {
+                    "name": "Docker",
+                    "description": "Una plataforma de contenedores para construir y desplegar aplicaciones."
+                },
+                {
+                    "name": "Vue.js",
+                    "description": "Un framework progresivo de JavaScript para construir interfaces de usuario."
+                },
+                {
+                    "name": "React.js",
+                    "description": "Una biblioteca de JavaScript para interfaces de usuario basadas en componentes."
+                },
+                {
+                    "name": "Laravel",
+                    "description": "Un framework de PHP para el desarrollo backend."
+                },
+                {
+                    "name": "MSSQL",
+                    "description": "Un sistema de gestión de bases de datos relacional."
+                }
+            ]
+        },
+        {
+            "name": "Desarrollo Web",
+            "description": "Habilidades para crear aplicaciones web, tanto frontend como backend.",
+            "children": [
+                {
+                    "name": "Frontend",
+                    "description": "Tecnologías para crear la interfaz de usuario de aplicaciones web.",
+                    "children": [
+                        {
+                            "name": "React",
+                            "description": "Una biblioteca de JavaScript para crear interfaces de usuario interactivas."
+                        },
+                        {
+                            "name": "Vue",
+                            "description": "Un framework progresivo para el desarrollo frontend."
+                        },
+                        {
+                            "name": "HTML",
+                            "description": "El lenguaje de marcado que forma la base de cualquier página web."
+                        },
+                        {
+                            "name": "CSS",
+                            "description": "Utilizado para diseñar y maquetar páginas web."
+                        }
+                    ]
+                },
+                {
+                    "name": "Backend",
+                    "description": "Herramientas y frameworks para el desarrollo backend.",
+                    "children": [
+                        {
+                            "name": "PHP",
+                            "description": "Un framework de lenguaje de scripting del lado del servidor."
+                        },
+                        {
+                            "name": "Laravel",
+                            "description": "Un framework de PHP para el desarrollo rápido de aplicaciones web."
+                        },
+                        {
+                            "name": "Flask",
+                            "description": "Un framework ligero de Python para el desarrollo web."
+                        }
+                    ]
+                },
+                {
+                    "name": "Bases de Datos",
+                    "description": "Habilidades relacionadas con el diseño y la optimización de bases de datos.",
+                    "children": [
+                        {
+                            "name": "MSSQL",
+                            "description": "Un sistema de gestión de bases de datos relacional."
+                        },
+                        {
+                            "name": "Normalización de SQL",
+                            "description": "Un método para organizar bases de datos para una eficiencia óptima."
+                        },
+                        {
+                            "name": "Diseño de Tablas",
+                            "description": "Creación de estructuras de tablas de bases de datos efectivas y escalables."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Habilidades Blandas",
+            "description": "Me ayudan a trabajar de manera eficiente y amigable en equipo.",
+            "children": [
+                {
+                    "name": "Trabajo en Equipo",
+                    "description": "Capacidad para colaborar con otros para lograr objetivos comunes."
+                },
+                {
+                    "name": "Liderazgo",
+                    "description": "La capacidad de liderar y motivar equipos."
+                },
+                {
+                    "name": "Resolución de Problemas",
+                    "description": "Enfoques analíticos para abordar desafíos."
+                },
+                {
+                    "name": "Adaptabilidad",
+                    "description": "Adaptarse rápidamente a nuevos entornos o tecnologías."
+                },
+                {
+                    "name": "Ingenio",
+                    "description": "Pensamiento creativo para encontrar soluciones innovadoras."
+                },
+                {
+                    "name": "Curiosidad",
+                    "description": "Búsqueda constante de conocimiento y mejora."
+                },
+                {
+                    "name": "Pensamiento Analítico",
+                    "description": "Análisis estructurado y metódico de problemas."
+                },
+                {
+                    "name": "Creatividad",
+                    "description": "La capacidad de desarrollar ideas originales e innovadoras."
+                }
+            ]
+        },
+        {
+            "name": "Idiomas",
+            "description": "Habilidades lingüísticas que utilizo para la comunicación.",
+            "children": [
+                {
+                    "name": "Inglés",
+                    "description": "Nivel de idioma: C1. Ideal para proyectos internacionales y comunicación técnica avanzada."
+                },
+                {
+                    "name": "Alemán",
+                    "description": "Nivel de idioma: B2. Útil para la interacción en entornos de habla alemana y documentos técnicos."
+                },
+                {
+                    "name": "Español",
+                    "description": "Idioma nativo. Esencial para colaborar con equipos de habla hispana y clientes locales."
+                }
+            ]
+        },
+        {
+            "name": "Herramientas y Metodologías",
+            "description": "Software y métodos utilizados en el desarrollo profesional para garantizar calidad y eficiencia.",
+            "children": [
+                {
+                    "name": "Desarrollo Ágil",
+                    "description": "Un enfoque iterativo para el desarrollo de software."
+                },
+                {
+                    "name": "Control de Versiones con Git",
+                    "description": "Un sistema para rastrear cambios en el código fuente."
+                },
+                {
+                    "name": "Herramientas de Colaboración como ClickUp",
+                    "description": "Plataformas para la organización del equipo y el seguimiento de proyectos."
+                },
+                {
+                    "name": "Modelado y Optimización de Bases de Datos",
+                    "description": "Diseño y gestión eficiente de bases de datos."
+                }
+            ]
+        }
+    ]
+}
