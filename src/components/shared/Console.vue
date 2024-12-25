@@ -1,7 +1,7 @@
 <script setup>
+import { defineProps, ref } from 'vue';
 import TypingAnimation from './TypingAnimation.vue';
 import { RouterLink } from 'vue-router';
-import { defineProps, ref, defineEmits } from 'vue';
 
 const linesAlreadyStopped = ref(false);
 

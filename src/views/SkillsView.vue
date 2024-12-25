@@ -1,12 +1,17 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
-import { ref, nextTick, onMounted } from 'vue';
+import { ref, nextTick, onMounted, watch } from 'vue';
 import { popup } from '@/assets/js/animations';
 import { useMotion } from '@vueuse/motion';
 import SkillsMindMap from '@/components/Skills/SkillsMindMap.vue';
 
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
+
 const isConsolePoppedOut = ref(false);
 const consoleContainer = ref(null);
+const mindMap = ref(0);
 
 const lines = [
   'skills = ["Python", "JavaScript", "Vue.js", "Data Analysis", "Machine Learning"]',
@@ -33,6 +38,11 @@ onMounted(() => {
     ({ apply } = useMotion(consoleContainer.value, popup(1000)));
   }
 });
+
+watch(locale, () => {
+  mindMap.value += 1;
+});
+
 </script>
 
 <template>
@@ -45,28 +55,10 @@ onMounted(() => {
   </main>
 
   <main v-else class="h-100 d-flex justify-content-center align-items-center">
-    <div class="container mind-map-container">
+    <div class="container mind-map-container" :key="mindMap">
       <SkillsMindMap />
-      <div class="blur-background"></div> <!-- Add this element for the blur effect -->
     </div>
   </main>
 </template>
 
-<style scoped>
-.mind-map-container {
-  width: 100%;
-  height: 600px;
-  position: relative;
-}
-
-.blur-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.329);
-  filter: blur(5px);
-  z-index: -1;
-}
-</style>
+<style scoped></style>

@@ -1,12 +1,12 @@
 <script setup>
-import { ref, onMounted, defineProps } from 'vue';
+import { ref, onMounted, defineProps, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import Console from '@/components/shared/Console.vue';
 import { popup } from '@/assets/js/animations';
 import { useMotion } from '@vueuse/motion';
 
-const { t } = useI18n();
+const { t, locale } = useI18n();
 
 const props = defineProps({
   code: {
@@ -15,7 +15,7 @@ const props = defineProps({
   },
 });
 
-const consoleContainer = ref(null);
+const consoleContainer = ref(0);
 
 const lines = [];
 
@@ -30,14 +30,18 @@ onMounted(() => {
     useMotion(consoleContainer.value, popup(1000));
   }
 });
+
+watch(locale, () => {
+  consoleContainer.value += 1;
+});
 </script>
 
 <template>
   <main class="h-100 d-flex justify-content-center align-items-center">
-    <div ref="consoleContainer">
+    <div :key="consoleContainer">
       <div class="console-container d-flex justify-content-center align-items-center">
         <Console :lines="lines" :popOut="false" letterColor="rgb(255,0,0)" :isError="true"
-          :returnMessage="[t('clickToRedirectHome')]" />
+          :returnMessage="[t('clickToRedirectHome')]" :key="errorConsole" />
       </div>
     </div>
   </main>

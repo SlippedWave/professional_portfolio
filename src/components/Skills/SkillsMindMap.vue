@@ -1,13 +1,21 @@
+<template>
+    <div ref="mindMap"></div>
+    <div ref="popover" class="popover" v-show="showPopover">
+        <p>{{ popoverContent }}</p>
+    </div>
+</template>
+
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { ref, onMounted, nextTick, watch } from 'vue';
 import * as d3 from 'd3';
-import { Modal } from 'bootstrap';
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
 
 const mindMap = ref(null);
-const modalRef = ref(null);
-const modalTitle = ref('');
-const modalDescription = ref('');
+const popover = ref(null);
+const showPopover = ref(false);
+const popoverContent = ref('');
 
 const getSkillsJson = async (locale) => {
     let json;
@@ -30,146 +38,107 @@ const getSkillsJson = async (locale) => {
     return json.default;
 };
 
-const { locale } = useI18n();
-
-const showModal = (title, description) => {
-    modalTitle.value = title;
-    modalDescription.value = description;
-    const modal = new Modal(modalRef.value);
-    modal.show();
-};
 
 const drawMindMap = async () => {
-    const margin = [20, 120, 20, 20];
-    const width = 1280 - margin[1] - margin[3];
-    const height = 800 - margin[0] - margin[2];
+    const margin = { top: 20, right: 120, bottom: 20, left: 120 };
+    const width = 960 - margin.right - margin.left;
+    const height = 500 - margin.top - margin.bottom;
     let i = 0;
 
     const tree = d3.tree().size([height, width]);
-    const diagonal = d3
-        .linkHorizontal()
-        .x((d) => d.y)
-        .y((d) => d.x);
+    const diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x);
 
-    const svg = d3
-        .select(mindMap.value)
+    const svg = d3.select(mindMap.value)
         .append("svg")
-        .attr("width", width + margin[1] + margin[3])
-        .attr("height", height + margin[0] + margin[2])
+        .attr("width", width + margin.right + margin.left)
+        .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", `translate(${margin[3]},${margin[0]})`);
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    let skillsData = await getSkillsJson(locale.value);
-    console.log('Skills Data:', skillsData);
-
-    let root = d3.hierarchy(skillsData);
-    console.log('Hierarchy Root:', root);
-
-    root.x0 = height / 2;
+    const skillsData = await getSkillsJson(locale.value);
+    const root = d3.hierarchy(skillsData);
+    root.x0 = 0;
     root.y0 = 0;
 
     const update = (source) => {
         const nodes = tree(root).descendants();
         const links = tree(root).links();
 
-        nodes.forEach((d) => {
-            d.y = d.depth * 180;
-        });
+        nodes.forEach(d => d.y = d.depth * 180);
 
-        const node = svg
-            .selectAll("g.node")
-            .data(nodes, (d) => d.id || (d.id = ++i));
+        const node = svg.selectAll("g.node")
+            .data(nodes, d => d.id || (d.id = ++i));
 
-        const nodeEnter = node
-            .enter()
-            .append("g")
+        const nodeEnter = node.enter().append("g")
             .attr("class", "node")
-            .attr("transform", `translate(${source.y0},${source.x0})`)
-            .on("click", (event, d) => {
-                showModal(d.data.name, d.data.description);
-            })
-            .on("mouseover", (event, d) => {
-                d3.select(event.currentTarget).select("circle").style("fill", "#ffeb3b");
-            })
-            .on("mouseout", (event, d) => {
-                d3.select(event.currentTarget).select("circle").style("fill", "#fff");
+            .attr("transform", d => `translate(${source.y0},${source.x0})`)
+            .on("click", async (event, d) => {
+                showPopover.value = true;
+                popoverContent.value = d.data.description || 'No description available';
+                await nextTick();
+                const [x, y] = d3.pointer(event);
+                popover.value.style.left = `${x + 10}px`;
+                popover.value.style.top = `${y + 10}px`;
             });
 
-        nodeEnter
-            .append("circle")
-            .attr("r", 10)
-            .style("fill", "#fff")
-            .style("stroke", "#000")
-            .style("stroke-width", "3px");
+        nodeEnter.append("circle")
+            .attr("r", 1e-6)
+            .style("fill", d => d.children ? "lightsteelblue" : "#fff");
 
-        nodeEnter
-            .append("text")
+        nodeEnter.append("text")
+            .attr("x", d => d.children || d.children ? -13 : 13)
             .attr("dy", ".35em")
-            .attr("x", (d) => (d.children || d._children ? -13 : 13))
-            .attr("text-anchor", (d) => (d.children || d._children ? "end" : "start"))
-            .text((d) => d.data.name);
+            .attr("text-anchor", d => d.children || d._children ? "end" : "start")
+            .text(d => d.data.name)
+            .style("fill-opacity", 1e-6);
 
         const nodeUpdate = nodeEnter.merge(node);
 
-        nodeUpdate
-            .transition()
-            .duration(200)
-            .attr("transform", (d) => `translate(${d.y},${d.x})`);
+        nodeUpdate.transition()
+            .duration(750)
+            .attr("transform", d => `translate(${d.y},${d.x})`);
 
-        nodeUpdate
-            .select("circle")
+        nodeUpdate.select("circle")
             .attr("r", 10)
-            .style("fill", "#fff");
+            .style("fill", d => d.children ? "lightsteelblue" : "#fff");
 
-        nodeUpdate
-            .select("text")
+        nodeUpdate.select("text")
             .style("fill-opacity", 1);
 
-        const nodeExit = node
-            .exit()
-            .transition()
-            .duration(200)
-            .attr("transform", (d) => `translate(${source.y},${source.x})`)
+        const nodeExit = node.exit().transition()
+            .duration(750)
+            .attr("transform", d => `translate(${source.y},${source.x})`)
             .remove();
 
-        nodeExit
-            .select("circle")
+        nodeExit.select("circle")
             .attr("r", 1e-6);
 
-        nodeExit
-            .select("text")
+        nodeExit.select("text")
             .style("fill-opacity", 1e-6);
 
-        const link = svg
-            .selectAll("path.link")
-            .data(links, (d) => d.target.id);
+        const link = svg.selectAll("path.link")
+            .data(links, d => d.target.id);
 
-        const linkEnter = link
-            .enter()
-            .insert("path", "g")
+        const linkEnter = link.enter().insert("path", "g")
             .attr("class", "link")
-            .attr("d", (d) => {
+            .attr("d", d => {
                 const o = { x: source.x0, y: source.y0 };
                 return diagonal({ source: o, target: o });
             });
 
-        linkEnter
-            .merge(link)
-            .transition()
-            .duration(200)
+        linkEnter.merge(link).transition()
+            .duration(750)
             .attr("d", diagonal);
 
-        link
-            .exit()
-            .transition()
-            .duration(200)
-            .attr("d", (d) => {
-                const o = { x: source.x0, y: source.y0 };
+        link.exit().transition()
+            .duration(750)
+            .attr("d", d => {
+                const o = { x: source.x, y: source.y };
                 return diagonal({ source: o, target: o });
             })
             .remove();
 
-        nodes.forEach((d) => {
+        nodes.forEach(d => {
             d.x0 = d.x;
             d.y0 = d.y;
         });
@@ -178,37 +147,54 @@ const drawMindMap = async () => {
     update(root);
 };
 
+
+
 onMounted(() => {
     drawMindMap();
 });
+
+document.addEventListener('click', (e) => {
+    if (popover.value && !popover.value.contains(e.target)) {
+        showPopover.value = false;
+    }
+});
 </script>
 
-<template>
-    <div ref="mindMap"></div>
-
-    <!-- Modal -->
-    <div ref="modalRef" class="modal fade" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTitle">{{ modalTitle }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>{{ modalDescription }}</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
 <style scoped>
-.node circle {
+.popover {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    /* Optional: make it look better */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: auto;
+    /* Allow interaction with the popover */
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+}
+
+.popover {
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: scale(0.95);
+    /* Popover will grow in when shown */
+    opacity: 0;
+}
+
+.popover[v-show="true"] {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.node {
     cursor: pointer;
-    transition: fill 0.3s;
+}
+
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
 }
 
 .node text {
