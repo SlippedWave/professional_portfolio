@@ -155,9 +155,13 @@ const drawMindMap = () => {
             }
         });
 
+        const duration = 750;
+
+        // Create nodes first
         const node = container.selectAll("g.node")
             .data(descendants, d => d.id);
 
+        // Node enter with initial position
         const nodeEnter = node.enter().append("g")
             .attr("class", "node")
             .attr("transform", d => `translate(${source.y0},${source.x0})`);
@@ -178,69 +182,62 @@ const drawMindMap = () => {
                 render(vNode, container);
             });
 
+        // Update nodes with transition
         const nodeUpdate = nodeEnter.merge(node)
-            .transition()
-            .duration(750)
+            .transition("nodeTransition")
+            .duration(duration)
             .attr("transform", d => `translate(${d.y},${d.x})`);
 
-        nodeUpdate.select("circle")
-            .attr("r", 12)
-            .style("fill", d => d._children ? "#1a1a1a" : "#2a2a2a")
-            .style("stroke", "#fff");
-
-        nodeUpdate.select("text")
-            .style("fill-opacity", 1)
-            .style("fill", "#fff");
-
+        // Exit nodes with transition
         const nodeExit = node.exit()
-            .transition()
-            .duration(750)
+            .transition("nodeExit")
+            .duration(duration)
             .attr("transform", d => `translate(${source.y},${source.x})`)
             .remove();
 
-        nodeExit.select("circle").attr("r", 1e-6);
-        nodeExit.select("text").style("fill-opacity", 1e-6);
+        // Wait for node transitions to complete before animating links
+        nodeUpdate.end().then(() => {
+            // Update links after nodes are in position
+            const link = container.selectAll("path.link")
+                .data(links, d => d.target.id);
 
-        const link = container.selectAll("path.link")
-            .data(links, d => d.target.id)
-            .join("path")
-            .attr("class", "link")
-            .style("stroke", "#4A90E2")
-            .style("stroke-width", d => Math.max(1, 3 - d.target.depth) + "px")
-            .style("fill", "none")
-            .attr("d", diagonal);
+            // Enter links
+            const linkEnter = link.enter()
+                .insert("path", "g")
+                .attr("class", "link")
+                .style("stroke", "#4A90E2")
+                .style("stroke-width", "2px")
+                .style("fill", "none")
+                .attr("d", d => {
+                    const o = { x: source.x0, y: source.y0 };
+                    return diagonal({ source: o, target: o });
+                });
 
-        link.enter().insert("path", "g")
-            .attr("class", "link")
-            .style("stroke", "#4A90E2")
-            .style("stroke-width", "2px")
-            .style("fill", "none")
-            .attr("d", d => {
-                const o = { x: source.x0, y: source.y0 };
-                return diagonal({ source: o, target: o });
-            });
+            // Update links with transition
+            link.merge(linkEnter)
+                .transition("linkTransition")
+                .duration(duration * 0.8) // Slightly faster than nodes
+                .attr("d", diagonal)
+                .style("stroke-width", d => Math.max(1, 3 - d.target.depth) + "px");
 
-        link.merge(link).transition()
-            .duration(750)
-            .style("stroke", "#4A90E2")
-            .style("stroke-width", "2px")
-            .style("fill", "none")
-            .attr("d", diagonal);
+            // Exit links with transition
+            link.exit()
+                .transition("linkExit")
+                .duration(duration * 0.8)
+                .attr("d", d => {
+                    const o = { x: source.x, y: source.y };
+                    return diagonal({ source: o, target: o });
+                })
+                .style("opacity", 0)
+                .remove();
+        });
 
-        link.exit().transition()
-            .duration(750)
-            .style("stroke-opacity", 0)
-            .attr("d", d => {
-                const o = { x: source.x, y: source.y };
-                return diagonal({ source: o, target: o });
-            })
-            .remove();
-
+        // Store positions for next transition
         descendants.forEach(d => {
             d.x0 = d.x;
             d.y0 = d.y;
         });
-    };
+    }
 
     function toggleChildren(event, d) {
         if (d.children) {
@@ -309,13 +306,7 @@ svg {
     transition: transform 0.3s ease;
 }
 
-.link {
-    fill: none;
-    stroke: #4A90E2;
-    stroke-width: 2px;
-    stroke-linecap: round;
-    pointer-events: none;
-}
+
 
 .foreignObject {
     transition: all 0.3s ease;
