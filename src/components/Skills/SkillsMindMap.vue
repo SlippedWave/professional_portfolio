@@ -1,209 +1,313 @@
 <template>
-    <div ref="mindMap"></div>
-    <div ref="popover" class="popover" v-show="showPopover">
-        <p>{{ popoverContent }}</p>
+    <div class="mind-map-wrapper">
+        <div ref="mindMap" class="mind-map"></div>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted, nextTick, watch } from 'vue';
+import { ref, onMounted, onUnmounted, createVNode, render, defineProps, nextTick } from 'vue';
 import * as d3 from 'd3';
-import { useI18n } from 'vue-i18n';
+import SkillNode from './SkillNode.vue';
 
-const { locale } = useI18n();
+const props = defineProps({
+    skillsData: {
+        type: Object,
+        required: true
+    }
+});
 
 const mindMap = ref(null);
-const popover = ref(null);
-const showPopover = ref(false);
-const popoverContent = ref('');
+const currentScale = ref(1);
 
-const getSkillsJson = async (locale) => {
-    let json;
+const calculateNodeHeight = (d) => {
+    // Base height for node content
+    const baseHeight = 100;
 
-    switch (locale) {
-        case 'en':
-            json = await import('@/assets/data/skills_en.json');
-            break;
-        case 'es':
-            json = await import('@/assets/data/skills_es.json');
-            break;
-        case 'de':
-            json = await import('@/assets/data/skills_de.json');
-            break;
-        default:
-            json = await import('@/assets/data/skills_en.json');
-            break;
-    }
+    // Additional height for expanded nodes with children
+    const childrenHeight = d.children ? (d.children.length * 80) : 0;
 
-    return json.default;
+    // Total height with padding
+    return baseHeight + childrenHeight + 40; // 40px extra padding
 };
 
+const drawMindMap = () => {
+    if (!mindMap.value) return;
 
-const drawMindMap = async () => {
-    const margin = { top: 20, right: 120, bottom: 20, left: 120 };
-    const width = 960 - margin.right - margin.left;
-    const height = 500 - margin.top - margin.bottom;
-    let i = 0;
+    mindMap.value.innerHTML = '';
 
-    const tree = d3.tree().size([height, width]);
-    const diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x);
+    const containerWidth = mindMap.value.clientWidth;
+    const containerHeight = mindMap.value.clientHeight;
+    const width = Math.max(containerWidth, 2000);
+    const height = Math.max(containerHeight, 1000);
+
+    const centerX = width / 2;
+    const centerY = height / 2;
 
     const svg = d3.select(mindMap.value)
         .append("svg")
-        .attr("width", width + margin.right + margin.left)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .style("display", "block");
 
-    const skillsData = await getSkillsJson(locale.value);
-    const root = d3.hierarchy(skillsData);
+    const zoom = d3.zoom()
+        .scaleExtent([1, 4])
+        .on("zoom", (event) => {
+            currentScale.value = event.transform.k;
+            container.attr("transform", event.transform);
+        });
+
+    svg.call(zoom);
+
+    const container = svg.append("g")
+        .attr("transform", `translate(${centerX},${centerY})`);
+
+    const tree = d3.tree()
+        .nodeSize([300, 600]) // Increased vertical spacing
+        .separation((a, b) => {
+            const heightA = calculateNodeHeight(a);
+            const heightB = calculateNodeHeight(b);
+
+            // Minimum separation based on node heights
+            const minSeparation = (heightA + heightB) / 200;
+
+            // Base separation multiplier
+            const baseSeparation = a.parent === b.parent ? 1.2 : 2;
+
+            return Math.max(baseSeparation, minSeparation);
+        });
+
+    const diagonal = (d) => {
+        const sourceX = d.source.x;
+        const sourceY = d.source.y;
+        const targetX = d.target.x;
+        const targetY = d.target.y;
+
+        return `M ${sourceY},${sourceX}
+                C ${(sourceY + targetY) / 2},${sourceX}
+                  ${(sourceY + targetY) / 2},${targetX}
+                  ${targetY},${targetX}`;
+    };
+
+    const root = d3.hierarchy(props.skillsData);
     root.x0 = 0;
     root.y0 = 0;
 
-    const update = (source) => {
-        const nodes = tree(root).descendants();
-        const links = tree(root).links();
+    // Initialize root node - modified to only collapse beyond first level
+    root.descendants().forEach((d, i) => {
+        d.id = i;
+        // Only collapse nodes beyond the first level of children
+        if (d.depth > 0) {
+            d._children = d.children;
+            d.children = null;
+        }
+    });
 
-        nodes.forEach(d => d.y = d.depth * 180);
+    function update(source) {
+        const nodes = tree(root);
+        const descendants = nodes.descendants();
+        const links = nodes.links();
 
-        const node = svg.selectAll("g.node")
-            .data(nodes, d => d.id || (d.id = ++i));
+        let minX = Infinity;
+        let maxX = -Infinity;
+        let minY = Infinity;
+        let maxY = -Infinity;
+
+        descendants.forEach(d => {
+            minX = Math.min(minX, d.x);
+            maxX = Math.max(maxX, d.x);
+            minY = Math.min(minY, d.y);
+            maxY = Math.max(maxY, d.y);
+        });
+
+        const offsetX = -((maxX + minX) / 2);
+        const offsetY = -((maxY + minY) / 2);
+
+        descendants.forEach(d => {
+            d.x += offsetX;
+            d.y += offsetY;
+        });
+
+        // Adjust positions to prevent overlaps
+        descendants.forEach(d => {
+            if (d.parent) {
+                const siblings = d.parent.children;
+                const index = siblings.indexOf(d);
+
+                if (index > 0) {
+                    const prevSibling = siblings[index - 1];
+                    const minDistance = (calculateNodeHeight(prevSibling) + calculateNodeHeight(d)) / 2;
+
+                    // Check if nodes are too close
+                    if (d.x - prevSibling.x < minDistance) {
+                        // Move current node and all following siblings down
+                        const offset = minDistance - (d.x - prevSibling.x);
+                        for (let i = index; i < siblings.length; i++) {
+                            siblings[i].x += offset;
+                        }
+                    }
+                }
+            }
+        });
+
+        const node = container.selectAll("g.node")
+            .data(descendants, d => d.id);
 
         const nodeEnter = node.enter().append("g")
             .attr("class", "node")
-            .attr("transform", d => `translate(${source.y0},${source.x0})`)
-            .on("click", async (event, d) => {
-                showPopover.value = true;
-                popoverContent.value = d.data.description || 'No description available';
-                await nextTick();
-                const [x, y] = d3.pointer(event);
-                popover.value.style.left = `${x + 10}px`;
-                popover.value.style.top = `${y + 10}px`;
+            .attr("transform", d => `translate(${source.y0},${source.x0})`);
+
+        nodeEnter.append("foreignObject")
+            .attr("width", 300)
+            .attr("height", 300)
+            .attr("x", -100)
+            .attr("y", -60)
+            .each(function (d) {
+                const container = this;
+                const vNode = createVNode(SkillNode, {
+                    hasChildren: !!(d.children || d._children),
+                    skillName: d.data.name,
+                    skillDetails: d.data.description,
+                    onNodeClick: () => toggleChildren(null, d)
+                });
+                render(vNode, container);
             });
 
-        nodeEnter.append("circle")
-            .attr("r", 1e-6)
-            .style("fill", d => d.children ? "lightsteelblue" : "#fff");
-
-        nodeEnter.append("text")
-            .attr("x", d => d.children || d.children ? -13 : 13)
-            .attr("dy", ".35em")
-            .attr("text-anchor", d => d.children || d._children ? "end" : "start")
-            .text(d => d.data.name)
-            .style("fill-opacity", 1e-6);
-
-        const nodeUpdate = nodeEnter.merge(node);
-
-        nodeUpdate.transition()
+        const nodeUpdate = nodeEnter.merge(node)
+            .transition()
             .duration(750)
             .attr("transform", d => `translate(${d.y},${d.x})`);
 
         nodeUpdate.select("circle")
-            .attr("r", 10)
-            .style("fill", d => d.children ? "lightsteelblue" : "#fff");
+            .attr("r", 12)
+            .style("fill", d => d._children ? "#1a1a1a" : "#2a2a2a")
+            .style("stroke", "#fff");
 
         nodeUpdate.select("text")
-            .style("fill-opacity", 1);
+            .style("fill-opacity", 1)
+            .style("fill", "#fff");
 
-        const nodeExit = node.exit().transition()
+        const nodeExit = node.exit()
+            .transition()
             .duration(750)
             .attr("transform", d => `translate(${source.y},${source.x})`)
             .remove();
 
-        nodeExit.select("circle")
-            .attr("r", 1e-6);
+        nodeExit.select("circle").attr("r", 1e-6);
+        nodeExit.select("text").style("fill-opacity", 1e-6);
 
-        nodeExit.select("text")
-            .style("fill-opacity", 1e-6);
-
-        const link = svg.selectAll("path.link")
+        const link = container.selectAll("path.link")
             .data(links, d => d.target.id);
 
-        const linkEnter = link.enter().insert("path", "g")
+        link.enter().insert("path", "g")
             .attr("class", "link")
+            .style("stroke", "#4A90E2")
+            .style("stroke-width", "2px")
+            .style("fill", "none")
             .attr("d", d => {
                 const o = { x: source.x0, y: source.y0 };
                 return diagonal({ source: o, target: o });
             });
 
-        linkEnter.merge(link).transition()
+        link.merge(link).transition()
             .duration(750)
+            .style("stroke", "#4A90E2")
+            .style("stroke-width", "2px")
+            .style("fill", "none")
             .attr("d", diagonal);
 
         link.exit().transition()
             .duration(750)
+            .style("stroke-opacity", 0)
             .attr("d", d => {
                 const o = { x: source.x, y: source.y };
                 return diagonal({ source: o, target: o });
             })
             .remove();
 
-        nodes.forEach(d => {
+        descendants.forEach(d => {
             d.x0 = d.x;
             d.y0 = d.y;
         });
     };
 
+    function toggleChildren(event, d) {
+        if (d.children) {
+            d._children = d.children;
+            d.children = null;
+        } else {
+            d.children = d._children;
+            d._children = null;
+        }
+
+        if (d.parent) {
+            d.parent.children.forEach(sibling => {
+                if (sibling !== d && sibling.children) {
+                    sibling._children = sibling.children;
+                    sibling.children = null;
+                }
+            });
+        }
+
+        update(d);
+    }
+
     update(root);
+
 };
 
-
-
 onMounted(() => {
-    drawMindMap();
+    nextTick(() => {
+        drawMindMap();
+        window.addEventListener('resize', () => {
+            nextTick(drawMindMap);
+        });
+    });
 });
 
-document.addEventListener('click', (e) => {
-    if (popover.value && !popover.value.contains(e.target)) {
-        showPopover.value = false;
+onUnmounted(() => {
+    window.removeEventListener('resize', drawMindMap);
+
+    const container = mindMap.value;
+    if (container) {
+        container.innerHTML = '';
     }
 });
 </script>
 
 <style scoped>
-.popover {
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    /* Optional: make it look better */
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    pointer-events: auto;
-    /* Allow interaction with the popover */
-    z-index: 1000;
-    /* Ensure it appears above other elements */
+.mind-map-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
 }
 
-.popover {
-    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-    transform: scale(0.95);
-    /* Popover will grow in when shown */
-    opacity: 0;
+.mind-map {
+    width: 100%;
+    height: 100%;
 }
 
-.popover[v-show="true"] {
-    transform: scale(1);
-    opacity: 1;
+svg {
+    width: 100%;
+    height: 100%;
 }
 
 .node {
     cursor: pointer;
-}
-
-.node circle {
-    fill: #fff;
-    stroke: steelblue;
-    stroke-width: 3px;
-}
-
-.node text {
-    font: 12px sans-serif;
+    transition: transform 0.3s ease;
 }
 
 .link {
     fill: none;
-    stroke: #ccc;
+    stroke: #4A90E2;
     stroke-width: 2px;
+    stroke-linecap: round;
+    pointer-events: none;
+}
+
+.foreignObject {
+    transition: all 0.3s ease;
+    overflow: visible;
 }
 </style>
