@@ -83,10 +83,15 @@ const drawMindMap = () => {
         const targetX = d.target.x;
         const targetY = d.target.y;
 
+        // Adjust control points based on depth
+        const midY = sourceY + (targetY - sourceY) * 0.5;
+        const controlY1 = sourceY + (targetY - sourceY) * 0.25;
+        const controlY2 = sourceY + (targetY - sourceY) * 0.75;
+
         return `M ${sourceY},${sourceX}
-                C ${(sourceY + targetY) / 2},${sourceX}
-                  ${(sourceY + targetY) / 2},${targetX}
-                  ${targetY},${targetX}`;
+            C ${controlY1},${sourceX}
+              ${controlY2},${targetX}
+              ${targetY},${targetX}`;
     };
 
     const root = d3.hierarchy(props.skillsData);
@@ -197,7 +202,13 @@ const drawMindMap = () => {
         nodeExit.select("text").style("fill-opacity", 1e-6);
 
         const link = container.selectAll("path.link")
-            .data(links, d => d.target.id);
+            .data(links, d => d.target.id)
+            .join("path")
+            .attr("class", "link")
+            .style("stroke", "#4A90E2")
+            .style("stroke-width", d => Math.max(1, 3 - d.target.depth) + "px")
+            .style("fill", "none")
+            .attr("d", diagonal);
 
         link.enter().insert("path", "g")
             .attr("class", "link")
