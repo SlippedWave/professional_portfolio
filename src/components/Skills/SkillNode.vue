@@ -72,7 +72,7 @@ defineEmits(['nodeClick']);
 }
 
 .info-btn {
-    padding: 0.1rem 0.4rem;
+    padding-inline: 3rem;
     font-size: 1rem;
     color: #4A90E2;
     background: transparent;

@@ -83,15 +83,27 @@ const drawMindMap = () => {
         const targetX = d.target.x;
         const targetY = d.target.y;
 
-        // Adjust control points based on depth
-        const midY = sourceY + (targetY - sourceY) * 0.5;
-        const controlY1 = sourceY + (targetY - sourceY) * 0.25;
-        const controlY2 = sourceY + (targetY - sourceY) * 0.75;
 
-        return `M ${sourceY},${sourceX}
-            C ${controlY1},${sourceX}
-              ${controlY2},${targetX}
-              ${targetY},${targetX}`;
+        // Calculate actual connection points
+        const sourcePoint = {
+            x: sourceX,
+            y: sourceY + 200  // Connect from the right edge of source
+        };
+
+        const targetPoint = {
+            x: targetX,
+            y: targetY - 100  // Connect to the left edge of target with small offset
+        };
+
+        // Adjust control points for smoother curve
+        const deltaY = targetPoint.y - sourcePoint.y;
+        const controlY1 = sourcePoint.y + deltaY * 0.25;
+        const controlY2 = sourcePoint.y + deltaY * 0.75;
+
+        return `M ${sourcePoint.y},${sourcePoint.x}
+                C ${controlY1},${sourcePoint.x}
+                  ${controlY2},${targetPoint.x}
+                  ${targetPoint.y},${targetPoint.x}`;
     };
 
     const root = d3.hierarchy(props.skillsData);
@@ -214,11 +226,12 @@ const drawMindMap = () => {
                 });
 
             // Update links with transition
-            link.merge(linkEnter)
+            const linkUpdate = link.merge(linkEnter)
                 .transition("linkTransition")
                 .duration(duration * 0.8) // Slightly faster than nodes
                 .attr("d", diagonal)
-                .style("stroke-width", d => Math.max(1, 3 - d.target.depth) + "px");
+                .style("stroke-width", d => Math.max(1, 8 / d.target.depth) + "px")
+                .style("stroke-dasharray", "5,0"); // Solid line, adjust if you want dashed
 
             // Exit links with transition
             link.exit()
@@ -306,10 +319,18 @@ svg {
     transition: transform 0.3s ease;
 }
 
-
-
 .foreignObject {
     transition: all 0.3s ease;
     overflow: visible;
+}
+
+.link {
+    fill: none;
+    stroke: #4A90E2;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    pointer-events: none;
+    opacity: 1;
+    transition: all 0.3s ease;
 }
 </style>
