@@ -5,6 +5,10 @@
     "print(\"Datenwissenschaftler und Softwareingenieur\")",
     "print(\"Willkommen in meinem professionellen Portfolio!\")"
   ],
+  "experience": {
+    "job": "Berufserfahrung",
+    "volunteering": "Praktikums"
+  },
   "notFoundErrorConsoleLines": [
     "print(\"Fehler 404: Seite nicht gefunden\")",
     "print(\"Es tut mir leid, aber die Seite, die Sie suchen, existiert nicht.\")"

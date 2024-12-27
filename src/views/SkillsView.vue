@@ -4,7 +4,7 @@ import { ref, nextTick, onMounted, watch } from 'vue';
 import { popup } from '@/assets/js/animations';
 import { useMotion } from '@vueuse/motion';
 import SkillsMindMap from '@/components/Skills/SkillsMindMap.vue';
-import SkillsTable from '@/components/Skills/SkillsTable.vue';
+import getJsonFile from '@/assets/js/locale_functions';
 
 import { useI18n } from 'vue-i18n';
 
@@ -35,30 +35,8 @@ const handleTypingCompleted = async () => {
   });
 };
 
-
-const getSkillsJson = async (locale) => {
-  let json;
-
-  switch (locale) {
-    case 'en':
-      json = await import('@/assets/data/skills_en.json');
-      break;
-    case 'es':
-      json = await import('@/assets/data/skills_es.json');
-      break;
-    case 'de':
-      json = await import('@/assets/data/skills_de.json');
-      break;
-    default:
-      json = await import('@/assets/data/skills_en.json');
-      break;
-  }
-
-  return json.default;
-};
-
 const loadSkills = async () => {
-  skillsData.value = await getSkillsJson(locale.value);
+  skillsData.value = await getJsonFile('skills', locale.value);
 };
 
 watch(locale, async () => {

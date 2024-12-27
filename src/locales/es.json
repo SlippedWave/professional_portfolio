@@ -1,10 +1,14 @@
 {
-  "consoleGreetingLines": [
+  "greetingConsoleLines": [
     "print(\"Francisco González\")",
     "print(\"Científico de Datos e Ingeniero de Software\")",
     "print(\"¡Bienvenido a mi portafolio profesional!\")"
   ],
-  "consoleNotFoundErrorLines": [
+  "experience": {
+    "job": "Experiencia Laboral",
+    "volunteering": "Experiencias de voluntario"
+  },
+  "notFoundErrorConsoleLines": [
     "print(\"Error 404: Página no encontrada\")",
     "print(\"Lo siento, pero la página que buscas no existe.\")"
   ],

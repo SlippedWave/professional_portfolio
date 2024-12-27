@@ -19,3 +19,22 @@ export const popup = (duration) => ({
     }
 });
 
+export const scale_hover = (scale = 1.05) => ({
+    initial: {
+        scale: 1,
+        transition: { duration: 300 }
+    },
+    hover: {
+        scale: scale,
+        transition: {
+            type: 'spring',
+            stiffness: 500,
+            damping: 30
+        }
+    },
+    hoverLeave: {
+        scale: 1,
+        transition: { duration: 200 }
+    }
+});
+

@@ -3,6 +3,7 @@ import Console from '@/components/shared/Console.vue';
 import { ref, nextTick, onMounted } from 'vue';
 import { popup } from '@/assets/js/animations';
 import { useMotion } from '@vueuse/motion';
+import prok from '@/components/Projects/prok.vue';
 
 const isConsolePoppedOut = ref(false);
 const consoleContainer = ref(null);
@@ -53,7 +54,9 @@ onMounted(() => {
     </div>
   </main>
 
-
+  <main v-else class="h-100 d-flex justify-content-center align-items-center">
+    <prok />
+  </main>
 </template>
 
 <style scoped></style>

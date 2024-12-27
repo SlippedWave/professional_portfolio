@@ -1,5 +1,9 @@
 {
   "aboutMeTitle": "About Me",
+  "experience": {
+    "job": "Work experiences",
+    "volunteering": "Volunteering experiences"
+  },
   "greetingConsoleLines": [
     "print(\"Francisco González\")",
     "print(\"Data Scientist and Software Engineer\")",
