@@ -48,7 +48,7 @@ export default {
 
 
 <template>
-  <footer class="footer bg-dark text-white py-3" @mouseover="showContent" @mouseleave="hideContent"
+  <footer class="footer bg-dark text-white py-3 fixed-bottom" @mouseover="showContent" @mouseleave="hideContent"
     @click="toggleContent">
     <div class="footer-content container" :class="{
       'content-visible': isContentVisible || isFooterClicked,
@@ -57,12 +57,12 @@ export default {
       <div class="row align-items-center upper-content">
         <div class="col-12 col-md-6 text-md-start text-center">
           <div class="about-info mb-2">
-            <h5 class="mb-1 fw-bold">{{ t('name') }}</h5>
-            <p class="mb-0">{{ t('footer.degree') }}</p>
-            <p class="mb-0">{{ t('footer.university') }}</p>
+            <h5 class="mb-1 fw-bold">{{ t('owners_info.name') }}</h5>
+            <p class="mb-0">{{ t('owners_info.degree') }}</p>
+            <p class="mb-0">{{ t('owners_info.university') }}</p>
           </div>
           <div class="address mb-2">
-            <p class="mb-1">{{ t('footer.location') }}</p>
+            <p class="mb-1">{{ t('owners_info.location') }}</p>
           </div>
         </div>
         <div class="col-12 col-md-6 text-md-end text-center">
@@ -91,10 +91,6 @@ export default {
 
 <style scoped>
 .footer {
-  position: fixed;
-  /* Mantiene el footer en el fondo de la ventana */
-  bottom: 0;
-  left: 0;
   width: 100%;
   z-index: 10;
   cursor: pointer;

@@ -102,7 +102,7 @@ onUnmounted(() => {
       <div class="row mb-4">
         <div class="col text-center">
           <h2 class="text-white mb-4 text-bol font-weight bold">
-            {{ experienceType === 'job_experience' ? t('experience.job') : t('experience.volunteering') }}
+            {{ experienceType === 'job_experience' ? t('experience_view.job') : t('experience_view.volunteering') }}
           </h2>
           <div class="btn-group bg-dark p-3" role="group">
             <button class="btn btn_des" :class="{ active: experienceType === 'job_experience' }"

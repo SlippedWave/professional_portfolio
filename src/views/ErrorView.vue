@@ -23,7 +23,7 @@ const lines = computed(() => {
     props.code === "500" ? 'serverErrorConsoleLines' :
       'unknownErrorConsoleLines';
 
-  return [0, 1].map(i => t(`${errorType}.${i}`));
+  return [0, 1].map(i => t(`errors_view.${errorType}.${i}`));
 });
 
 onMounted(() => {
@@ -42,7 +42,7 @@ watch(locale, () => {
     <div :key="consoleContainer">
       <div class="console-container d-flex justify-content-center align-items-center">
         <Console :lines="lines" :popOut="false" letterColor="rgb(255,0,0)" :isError="true"
-          :returnMessage="[t('clickToRedirectHome')]" />
+          :returnMessage="[t('error_message_recomendations.clickToRedirectHome')]" />
       </div>
     </div>
   </main>

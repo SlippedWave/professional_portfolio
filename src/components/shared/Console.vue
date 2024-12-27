@@ -54,7 +54,8 @@ const handleTypingCompleted = () => {
         <div class="terminal-title">Terminal</div>
       </div>
       <div class="terminal-body p-3" :style="{ color: props.letterColor }">
-        <TypingAnimation :lines="props.lines" :keepCursor="false" @typing-completed="handleTypingCompleted" />
+        <TypingAnimation :lines="props.lines" :keepCursor="false" :writting_speed="10" :change_cursor_speed="20"
+          @typing-completed="handleTypingCompleted" />
         <RouterLink class="redirect-link" v-if="props.isError && linesAlreadyStopped" to="/">
           <TypingAnimation :lines="props.returnMessage" />
         </RouterLink>

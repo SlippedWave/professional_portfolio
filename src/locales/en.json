@@ -1,34 +1,57 @@
 {
-  "aboutMeTitle": "About Me",
-  "experience": {
+  "experience_view": {
     "job": "Work experiences",
     "volunteering": "Volunteering experiences"
   },
-  "greetingConsoleLines": [
-    "print(\"Francisco González\")",
-    "print(\"Data Scientist and Software Engineer\")",
-    "print(\"Welcome to my professional portfolio!\")"
-  ],
-  "notFoundErrorConsoleLines": [
-    "print(\"Error 404: Page Not Found\")",
-    "print(\"I'm sorry, but the page you are looking for does not exist.\")"
-  ],
-  "serverErrorConsoleLines": [
-    "print(\"Error 500: Internal Server Error\")",
-    "print(\"I'm sorry, but there was an error on the server.\")"
-  ],
-  "unknownErrorConsoleLines": [
-    "print(\"Unknown Error\")",
-    "print(\"I'm sorry, but an unknown error occurred.\")"
-  ],
-  "clickToRedirectHome": "Click here to return to the home page...",
-  "name": "Francisco Javier González-Barriga",
-  "title": "Data Scientist and Software Engineer",
-  "aboutMeText": "I am a passionate Data Scientist and Software Engineer with a strong background in computer science and data analysis. I enjoy solving complex problems and creating innovative solutions that make a difference.",
-  "hobbiesTitle": "Hobbies",
-  "hobbiesText": "In my free time, I love exploring new technologies, reading books on various topics, and playing chess. I also enjoy hiking and spending time in nature.",
-  "interestsTitle": "Interests",
-  "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization. I am always eager to learn new things and stay updated with the latest trends in technology.",
+  "errors_view": {
+    "notFoundErrorConsoleLines": [
+      "print(\"Error 404: Page Not Found\")",
+      "print(\"I'm sorry, but the page you are looking for does not exist.\")"
+    ],
+    "serverErrorConsoleLines": [
+      "print(\"Error 500: Internal Server Error\")",
+      "print(\"I'm sorry, but there was an error on the server.\")"
+    ],
+    "unknownErrorConsoleLines": [
+      "print(\"Unknown Error\")",
+      "print(\"I'm sorry, but an unknown error occurred.\")"
+    ]
+  },
+  "error_message_recomendations": {
+    "clickToRedirectHome": "Click here to return to the home page..."
+  },
+  "owners_info": {
+    "name": "Francisco Javier González-Barriga",
+    "title": "Data Scientist and Software Engineer",
+    "degree": "Bachelor of Science in Computer Engineering",
+    "university": "Universidad de Guadalajara",
+    "location": "Guadalajara, Jalisco, Mexico."
+  },
+  "projects_view": {
+    "projectsTitle": "Projects",
+    "subtitle": "Explore my latest projects and contributions",
+    "filterAll": "All Projects",
+    "filterPublic": "Public",
+    "filterPrivate": "Private",
+    "noProjects": "No projects found for the selected filter",
+    "card": {
+      "open_repo": "Open repo",
+      "open_demo": "View demo"
+    }
+  },
+  "home_view": {
+    "aboutMeTitle": "About Me",
+    "greetingConsoleLines": [
+      "print(\"Francisco González\")",
+      "print(\"Data Scientist and Software Engineer\")",
+      "print(\"Welcome to my professional portfolio!\")"
+    ],
+    "aboutMeText": "I am a passionate Data Scientist and Software Engineer with a strong background in computer science and data analysis. I enjoy solving complex problems and creating innovative solutions that make a difference.",
+    "hobbiesTitle": "Hobbies",
+    "hobbiesText": "In my free time, I love exploring new technologies, reading books on various topics, and playing chess. I also enjoy hiking and spending time in nature.",
+    "interestsTitle": "Interests",
+    "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization. I am always eager to learn new things and stay updated with the latest trends in technology."
+  },
   "navbar": {
     "home": "/francisco",
     "projects": "/projects",
@@ -37,9 +60,6 @@
     "contact": "/contact"
   },
   "footer": {
-    "degree": "Bachelor of Science in Computer Engineering",
-    "university": "Universidad de Guadalajara",
-    "location": "Guadalajara, Jalisco, Mexico.",
     "findMe": "Also find me on:",
     "rights": "© 2025 Francisco González. All rights reserved."
   }

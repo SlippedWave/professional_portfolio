@@ -1,34 +1,54 @@
 {
-  "greetingConsoleLines": [
-    "print(\"Francisco González\")",
-    "print(\"Científico de Datos e Ingeniero de Software\")",
-    "print(\"¡Bienvenido a mi portafolio profesional!\")"
-  ],
   "experience": {
     "job": "Experiencia Laboral",
     "volunteering": "Experiencias de voluntario"
   },
-  "notFoundErrorConsoleLines": [
-    "print(\"Error 404: Página no encontrada\")",
-    "print(\"Lo siento, pero la página que buscas no existe.\")"
-  ],
-  "serverErrorConsoleLines": [
-    "print(\"Error 500: Error Interno del Servidor\")",
-    "print(\"Lo siento, pero hubo un error en el servidor.\")"
-  ],
-  "unknownErrorConsoleLines": [
-    "print(\"Error Desconocido\")",
-    "print(\"Lo siento, pero ocurrió un error desconocido.\")"
-  ],
-  "clickToRedirectHome": "Haz clic aquí para volver a la página de inicio...",
-  "name": "Francisco Javier González-Barriga",
-  "title": "Científico de Datos e Ingeniero de Software",
-  "aboutMeTitle": "Sobre Mí",
-  "aboutMeText": "Soy un apasionado Científico de Datos e Ingeniero de Software con una sólida formación en ciencias de la computación y análisis de datos. Disfruto resolviendo problemas complejos y creando soluciones innovadoras que marcan la diferencia.",
-  "hobbiesTitle": "Pasatiempos",
-  "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías, leer libros sobre diversos temas y jugar al ajedrez. También disfruto de las caminatas y pasar tiempo en la naturaleza.",
-  "interestsTitle": "Intereses",
-  "interestsText": "Me interesa particularmente la inteligencia artificial, el aprendizaje automático y la visualización de datos. Siempre estoy ansioso por aprender cosas nuevas y mantenerme actualizado con las últimas tendencias en tecnología.",
+  "errors_view": {
+    "notFoundErrorConsoleLines": [
+      "print(\"Error 404: Página no encontrada\")",
+      "print(\"Lo siento, la página que buscas no existe.\")"
+    ],
+    "serverErrorConsoleLines": [
+      "print(\"Error 500: Error interno del servidor\")",
+      "print(\"Lo siento, ha ocurrido un error en el servidor.\")"
+    ],
+    "unknownErrorConsoleLines": [
+      "print(\"Error desconocido\")",
+      "print(\"Lo siento, ha ocurrido un error desconocido.\")"
+    ]
+  },
+  "error_message_recomendations": {
+    "clickToRedirectHome": "Haz clic aquí para volver a la página principal..."
+  },
+  "owners_info": {
+    "name": "Francisco Javier González-Barriga",
+    "title": "Científico de Datos e Ingeniero de Software",
+    "degree": "Ingeniero en Computación",
+    "university": "Universidad de Guadalajara",
+    "location": "Guadalajara, Jalisco, México."
+  },
+  "projects_view": {
+    "projectsTitle": "Proyectos",
+    "viewProject": "Ver Proyecto",
+    "noProjects": "No hay proyectos disponibles por el momento. Vuelve más tarde.",
+    "card": {
+      "open_repo": "Abrir Repositorio",
+      "open_demo": "Ver Demostración"
+    }
+  },
+  "home_view": {
+    "aboutMeTitle": "Sobre Mí",
+    "greetingConsoleLines": [
+      "print(\"Francisco González\")",
+      "print(\"Científico de Datos e Ingeniero de Software\")",
+      "print(\"¡Bienvenido a mi portafolio profesional!\")"
+    ],
+    "aboutMeText": "Soy un apasionado Científico de Datos e Ingeniero de Software con una sólida formación en ciencias de la computación y análisis de datos. Disfruto resolviendo problemas complejos y creando soluciones innovadoras que marcan la diferencia.",
+    "hobbiesTitle": "Pasatiempos",
+    "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías, leer libros sobre diversos temas y jugar al ajedrez. También disfruto de las caminatas y pasar tiempo en la naturaleza.",
+    "interestsTitle": "Intereses",
+    "interestsText": "Me interesa particularmente la inteligencia artificial, el aprendizaje automático y la visualización de datos. Siempre estoy ansioso por aprender cosas nuevas y mantenerme actualizado con las últimas tendencias en tecnología."
+  },
   "navbar": {
     "home": "/francisco",
     "projects": "/proyectos",
@@ -37,10 +57,7 @@
     "contact": "/contacto"
   },
   "footer": {
-    "degree": "Licenciatura en Ingeniería en Computación",
-    "university": "Universidad de Guadalajara",
-    "location": "Guadalajara, Jalisco, México.",
-    "findMe": "También encuéntrame en:",
+    "findMe": "También me puedes encontrar en:",
     "rights": "© 2025 Francisco González. Todos los derechos reservados."
   }
 }

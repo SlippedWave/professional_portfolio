@@ -48,6 +48,17 @@ const props = defineProps({
     border: 2px solid rgba(74, 144, 226, 0.5);
     background: rgba(74, 144, 226, 0.15);
     backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
 }
 
 .odd-card:before {

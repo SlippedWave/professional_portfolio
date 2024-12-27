@@ -17,7 +17,7 @@ const lines = [];
 let apply;
 
 for (let i = 0; i < 3; i++) {
-  lines.push(t(`greetingConsoleLines.${i}`));
+  lines.push(t(`home_view.greetingConsoleLines.${i}`));
 }
 
 const observer = new IntersectionObserver(
@@ -81,8 +81,9 @@ onUnmounted(() => {
         <div class="mini-page">
           <section id="presentation">
             <div v-motion-roll-visible-bottom>
-              <PresentationCard :name="t('name')" :title="t('title')" :aboutme="t('aboutMeTitle')"
-                :text="t('aboutMeText')" imageref="../../assets/images/my_photo.jpg" />
+              <PresentationCard :name="t('owners_info.name')" :title="t('owners_info.title')"
+                :aboutme="t('home_view.aboutMeTitle')" :text="t('home_view.aboutMeText')"
+                imageref="../../assets/images/my_photo.jpg" />
             </div>
           </section>
         </div>
@@ -92,8 +93,8 @@ onUnmounted(() => {
           <section id="about-me">
             <div v-motion-roll-visible-bottom>
               <IntroductionCard>
-                <template #title>{{ t('aboutMeTitle') }}</template>
-                <template #text>{{ t('aboutMeText') }}</template>
+                <template #title>{{ t('home_view.aboutMeTitle') }}</template>
+                <template #text>{{ t('home_view.aboutMeText') }}</template>
               </IntroductionCard>
             </div>
           </section>
@@ -104,8 +105,8 @@ onUnmounted(() => {
           <section id="hobbies">
             <div v-motion-slide-visible-left>
               <IntroductionCard>
-                <template #title>{{ t('hobbiesTitle') }}</template>
-                <template #text>{{ t('hobbiesText') }}</template>
+                <template #title>{{ t('home_view.hobbiesTitle') }}</template>
+                <template #text>{{ t('home_view.hobbiesText') }}</template>
               </IntroductionCard>
             </div>
           </section>
@@ -116,8 +117,8 @@ onUnmounted(() => {
           <section id="interests">
             <div v-motion-slide-visible-right>
               <IntroductionCard>
-                <template #title>{{ t('interestsTitle') }}</template>
-                <template #text>{{ t('interestsText') }}</template>
+                <template #title>{{ t('home_view.interestsTitle') }}</template>
+                <template #text>{{ t('home_view.interestsText') }}</template>
               </IntroductionCard>
             </div>
           </section>

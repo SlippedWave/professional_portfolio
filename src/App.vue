@@ -11,29 +11,45 @@ const isErrorPage = computed(() => route.name === 'error');
 </script>
 
 <template>
-  <div class="vh-100 d-flex flex-column">
+  <div class="app-wrapper vh-100 d-flex flex-column">
     <MatrixBackground :letterColor="isErrorPage ? 'rgba(255, 0, 0, 0.4)' : 'rgba(42, 24, 110, 0.4)'" />
-    <header>
+
+    <header class="sticky-top">
       <Navbar />
     </header>
-    <main class="flex-grow-1 d-flex justify-content-center align-items-center">
-      <div class="container h-100">
 
+    <main class="flex-grow-1">
+      <div class="container h-100">
         <RouterView />
       </div>
     </main>
-    <footer>
+
+    <footer class="fixed-bottom">
       <Footer />
     </footer>
   </div>
 </template>
 
 <style scoped>
+.app-wrapper {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
 header {
-  z-index: 2;
+  z-index: 1030;
+  /* Bootstrap's navbar z-index */
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
 }
 
 main {
   z-index: 1;
+  position: relative;
+}
+
+footer {
+  z-index: 2;
 }
 </style>

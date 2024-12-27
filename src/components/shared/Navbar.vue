@@ -1,25 +1,7 @@
-<script setup>
-import { ref } from 'vue';
-import { useI18n } from 'vue-i18n';
-import { RouterLink } from 'vue-router';
-import TypingAnimation from './TypingAnimation.vue';
-import BurgerMenu from './BurgerMenu.vue';
-import LanguageSwitcher from './LanguageSwitcher.vue';
-
-const { t } = useI18n();
-
-const lines = ['Francisco González'];
-const isMenuOpen = ref(false);
-
-const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-};
-</script>
-
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav ref="navRef" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" @click.stop>
     <div class="container py-2">
-      <RouterLink class="navbar-brand" to="/" exact-active-class="">
+      <RouterLink class="navbar-brand" to="/" @click="toggleMenu" exact-active-class="">
         <TypingAnimation :lines="lines" :writting_speed="100" :change_cursor_speed="500" />
       </RouterLink>
 
@@ -27,31 +9,37 @@ const toggleMenu = () => {
         <BurgerMenu :isOpen="isMenuOpen" @toggle="toggleMenu" />
       </div>
 
-      <div class="collapse navbar-collapse" :class="{ 'show': isMenuOpen }" id="navbarNav">
+      <!-- Close on link click -->
+      <div ref="navbarCollapse" class="collapse navbar-collapse" :class="{ show: isMenuOpen }" id="navbarNav">
         <hr v-if="isMenuOpen" class="navbar-divider d-lg-none" />
         <ul class="navbar-nav ms-auto bg-dark rounded p-1 align-items-center text-nowrap">
           <li class="nav-item px-2">
             <LanguageSwitcher />
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/" exact-active-class="router-link-exact-active">{{
-              t('navbar.home') }}</RouterLink>
+            <RouterLink class="nav-link" to="/" @click="toggleMenu">
+              {{ t('navbar.home') }}
+            </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/projects" exact-active-class="router-link-exact-active">{{
-              t('navbar.projects') }}</RouterLink>
+            <RouterLink class="nav-link" to="/projects" @click="toggleMenu">
+              {{ t('navbar.projects') }}
+            </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/skills" exact-active-class="router-link-exact-active">{{
-              t('navbar.skills') }}</RouterLink>
+            <RouterLink class="nav-link" to="/skills" @click="toggleMenu">
+              {{ t('navbar.skills') }}
+            </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/experience" exact-active-class="router-link-exact-active">{{
-              t('navbar.experience') }}</RouterLink>
+            <RouterLink class="nav-link" to="/experience" @click="toggleMenu">
+              {{ t('navbar.experience') }}
+            </RouterLink>
           </li>
           <li class="nav-item">
-            <RouterLink class="nav-link" to="/contact" exact-active-class="router-link-exact-active">{{
-              t('navbar.contact') }}</RouterLink>
+            <RouterLink class="nav-link" to="/contact" @click="toggleMenu">
+              {{ t('navbar.contact') }}
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -59,12 +47,53 @@ const toggleMenu = () => {
   </nav>
 </template>
 
+<script setup>
+import { ref, onUnmounted, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { RouterLink } from 'vue-router'
+import TypingAnimation from './TypingAnimation.vue'
+import BurgerMenu from './BurgerMenu.vue'
+import LanguageSwitcher from './LanguageSwitcher.vue'
+
+const { t } = useI18n()
+const lines = ['Francisco González']
+
+const isMenuOpen = ref(false)
+const navRef = ref(null)
+const navbarCollapse = ref(null)
+
+function toggleMenu() {
+  isMenuOpen.value = !isMenuOpen.value
+}
+
+
+
+// Close menu if click is outside the menu
+function handleClickOutside(event) {
+  if (
+    isMenuOpen.value &&
+    navbarCollapse.value &&
+    !navRef.value.contains(event.target)
+
+  ) {
+    toggleMenu()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
+</script>
+
 <style scoped>
 .navbar {
-  position: fixed;
-  top: 0;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
   width: 100%;
-  z-index: 1000;
 }
 
 .navbar-nav {
