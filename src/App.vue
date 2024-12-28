@@ -37,9 +37,13 @@ const isErrorPage = computed(() => route.name === 'error');
   overflow-x: hidden;
 }
 
+main {
+  padding-bottom: 3rem;
+  padding-top: 3rem
+}
+
 header {
   z-index: 1030;
-  /* Bootstrap's navbar z-index */
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(8px);
 }

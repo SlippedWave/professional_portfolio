@@ -48,7 +48,7 @@ export default {
 
 
 <template>
-  <footer class="footer bg-dark text-white py-3 fixed-bottom" @mouseover="showContent" @mouseleave="hideContent"
+  <footer class="footer bg-dark text-white py-3 mt-3" @mouseover="showContent" @mouseleave="hideContent"
     @click="toggleContent">
     <div class="footer-content container" :class="{
       'content-visible': isContentVisible || isFooterClicked,

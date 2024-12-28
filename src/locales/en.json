@@ -62,5 +62,35 @@
   "footer": {
     "findMe": "Also find me on:",
     "rights": "© 2025 Francisco González. All rights reserved."
+  },
+  "contact_form": {
+    "title": "Contact Me",
+    "subtitle": "Feel free to reach out to me for any inquiries or collaborations.",
+    "name": "Name",
+    "lastname": "Last Name",
+    "subject": "Subject",
+    "interest": {
+      "title": "Interest",
+      "job": "Job opportunity",
+      "project": "Project collaboration",
+      "other": "Other"
+    },
+    "company": "Company",
+    "project_description": "How can I help you?",
+    "optional": "Optional",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred while sending your message. Please try again later.",
+    "email_disclaimer": "Your email will not be shared with anyone else.",
+    "required": "This field is required",
+    "invalid_email": "Please enter a valid email address",
+    "name_hint": "Ex. John",
+    "lastname_hint": "Ex. Doe",
+    "subject_hint": "Ex. Help me with a project",
+    "company_hint": "Ex. Acme Inc.",
+    "message_hint": "Ex. Hi Francisco, I'm a person interested in your work...",
+    "project_description_hint": "Ex. I would like to discuss a project with you..."
   }
 }
