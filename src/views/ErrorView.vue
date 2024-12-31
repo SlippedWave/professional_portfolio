@@ -3,7 +3,7 @@ import { ref, computed, onMounted, defineProps, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import Console from '@/components/shared/Console.vue';
-import { popup } from '@/assets/js/animations';
+import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
 
 const { t, locale } = useI18n();

@@ -1,10 +1,10 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
 import { ref, nextTick, onMounted, watch } from 'vue';
-import { popup } from '@/assets/js/animations';
+import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
 import SkillsMindMap from '@/components/Skills/SkillsMindMap.vue';
-import getJsonFile from '@/assets/js/locale_functions';
+import getJsonFile from '@/assets/js/locale_functions.js';
 
 import { useI18n } from 'vue-i18n';
 

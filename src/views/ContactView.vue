@@ -21,7 +21,7 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
 import { ref, nextTick, onMounted } from 'vue';
-import { popup } from '@/assets/js/animations';
+import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
 import ContactForm from '@/components/Contact/ContactForm.vue';
 

@@ -5,7 +5,7 @@ import { useMotion } from '@vueuse/motion';
 import Console from '@/components/shared/Console.vue';
 import PresentationCard from '@/components/Home/PresentationCard.vue';
 import IntroductionCard from '@/components/Home/IntroductionCard.vue';
-import { popup } from '@/assets/js/animations';
+import { popup } from '@/assets/js/animations.js';
 
 const { t } = useI18n();
 

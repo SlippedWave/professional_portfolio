@@ -1,7 +1,7 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
 import { ref, nextTick, onMounted, computed } from 'vue';
-import { popup } from '@/assets/js/animations';
+import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
 import ProjectCard from '@/components/Projects/ProjectCard.vue';
 import { useI18n } from 'vue-i18n';
@@ -78,7 +78,6 @@ const fetchProjects = async () => {
       return;
     }
     projects.value = data.data.viewer.repositories.nodes;
-    console.log('Projects:', projects.value);
   } catch (error) {
     console.error('Error fetching projects:', error);
   }
@@ -112,22 +111,6 @@ const handleTypingCompleted = async () => {
     observer.observe(section);
   });
 
-};
-
-const currentFilter = ref('all');
-const filteredProjects = computed(() => {
-  switch (currentFilter.value) {
-    case 'public':
-      return projects.value.filter(p => !p.isPrivate);
-    case 'private':
-      return projects.value.filter(p => p.isPrivate);
-    default:
-      return projects.value;
-  }
-});
-
-const filterProjects = (filter) => {
-  currentFilter.value = filter;
 };
 
 const uniqueLanguages = computed(() => {

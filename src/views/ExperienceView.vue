@@ -1,9 +1,9 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
 import { ref, nextTick, onMounted, onUnmounted, watch } from 'vue';
-import { popup } from '@/assets/js/animations';
+import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
-import getJsonFile from '@/assets/js/locale_functions';
+import getJsonFile from '@/assets/js/locale_functions.js';
 import TimeLine from '@/components/Experience/TimeLine.vue';
 
 import { useI18n } from 'vue-i18n';
