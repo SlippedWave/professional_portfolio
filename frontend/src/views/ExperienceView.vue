@@ -5,6 +5,7 @@ import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
 import getJsonFile from '@/assets/js/locale_functions.js';
 import TimeLine from '@/components/Experience/TimeLine.vue';
+import FranciscoGonzalezCV from '@/assets/docs/resumeFranciscoGonzalez.pdf';
 
 import { useI18n } from 'vue-i18n';
 
@@ -60,8 +61,7 @@ const switchExperience = async (type) => {
 };
 
 const downloadCV = () => {
-  // Implement CV download logic
-  const cvUrl = `/cv_${locale.value}.pdf`;
+  const cvUrl = FranciscoGonzalezCV;
   window.open(cvUrl, '_blank');
 };
 

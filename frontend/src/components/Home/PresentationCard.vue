@@ -61,8 +61,8 @@ const imageSrc = computed(() => {
 }
 
 .profile-img {
-    width: 20vw;
-    height: 20vw;
+    width: 10rem;
+    height: 10rem;
     margin-block-end: 3vh;
     max-width: 200px;
     max-height: 200px;

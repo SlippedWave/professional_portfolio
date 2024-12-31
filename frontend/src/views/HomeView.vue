@@ -6,6 +6,7 @@ import Console from '@/components/shared/Console.vue';
 import PresentationCard from '@/components/Home/PresentationCard.vue';
 import IntroductionCard from '@/components/Home/IntroductionCard.vue';
 import { popup } from '@/assets/js/animations.js';
+import my_image from '@/assets/images/my_photo.jpg';
 
 const { t } = useI18n();
 
@@ -81,8 +82,7 @@ onUnmounted(() => {
           <section id="presentation">
             <div v-motion-roll-visible-bottom>
               <PresentationCard :name="t('owners_info.name')" :title="t('owners_info.title')"
-                :aboutme="t('home_view.aboutMeTitle')" :text="t('home_view.aboutMeText')"
-                :imageref="'/images/my_photo.jpg'" />
+                :aboutme="t('home_view.aboutMeTitle')" :text="t('home_view.aboutMeText')" :imageref="my_image" />
             </div>
           </section>
         </div>
@@ -137,6 +137,7 @@ onUnmounted(() => {
 
 section {
   margin-bottom: 40%;
+  max-width: 600px;
 }
 
 .flex-column {

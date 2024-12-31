@@ -8,7 +8,7 @@ from flask_mail import Message
 load_dotenv()
 
 app = Flask(__name__,
-            static_folder="../../frontend/dist/assets",
+            static_folder="../../frontend/dist/static",
             template_folder="../../frontend/dist")
 
 app.jinja_loader.searchpath.append(os.path.join(os.path.dirname(__file__), 'templates'))
@@ -51,7 +51,7 @@ def api():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def render_vue(path):
-    return render_template('index.html')
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)

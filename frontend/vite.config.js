@@ -18,4 +18,7 @@ export default defineConfig({
       'npm:': fileURLToPath(new URL('./node_modules', import.meta.url))
     },
   },
+  build: {
+    assetsDir: 'static',
+  },
 })
