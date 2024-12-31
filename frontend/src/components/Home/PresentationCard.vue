@@ -1,10 +1,10 @@
 <template>
     <div class="card bg-dark text-white d-flex justify-content-center align-items-center w-100">
-        <div class="card-body text-center py-5">
+        <div class="card-body text-center py-4">
             <img :src="imageSrc" alt="profile_photo" class="profile-img rounded-circle">
-            <h1 class="mb-2">{{ name }}</h1>
+            <h1 class="mb-1">{{ name }}</h1>
             <p class="lead mb-4">{{ title }}</p>
-            <h5 class="mb-4">{{ aboutme }}</h5>
+            <h5 class="mb-3">{{ aboutme }}</h5>
             <div class="about-me-text">
                 <p class="card-text">{{ text }}</p>
             </div>
@@ -53,16 +53,16 @@ const imageSrc = computed(() => {
 
 .about-me-text {
     max-width: 800px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .card-body {
-    padding: 3vh;
+    padding: 2vh;
 }
 
 .profile-img {
-    width: 15vw;
-    height: 15vw;
+    width: 20vw;
+    height: 20vw;
     margin-block-end: 3vh;
     max-width: 200px;
     max-height: 200px;
@@ -88,7 +88,7 @@ h5 {
 }
 
 .card-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: #bbbbbb;
 }

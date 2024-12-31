@@ -1,11 +1,11 @@
 <template>
     <div class="card bg-dark text-white d-flex justify-content-center align-items-center w-100">
-        <div class="card-body text-center py-5">
+        <div class="card-body text-center py-4">
             <h1 class="mb-4">
                 <slot name="title"></slot>
             </h1>
             <hr>
-            <div class="about-me-text">
+            <div>
                 <p class="card-text">
                     <slot name="text"></slot>
                 </p>
@@ -25,13 +25,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.about-me-text {
-    max-width: 800px;
-    font-size: 1.2rem;
-}
-
 .card-body {
-    padding: 3vh;
+    padding: 1vh;
 }
 
 h1 {
@@ -50,7 +45,7 @@ h5 {
 }
 
 .card-text {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.6;
     color: #bbbbbb;
 }
