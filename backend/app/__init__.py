@@ -8,8 +8,10 @@ from flask_mail import Message
 load_dotenv()
 
 app = Flask(__name__,
-            static_folder="../../dist/assets",
-            template_folder="../../dist")
+            static_folder="../../frontend/dist/assets",
+            template_folder="../../frontend/dist")
+
+app.jinja_loader.searchpath.append(os.path.join(os.path.dirname(__file__), 'templates'))
 
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False

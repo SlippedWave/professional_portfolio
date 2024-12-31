@@ -14,7 +14,7 @@ const isConsolePoppedOut = ref(false);
 const consoleContainer = ref(null);
 const experienceData = ref(null);
 const experienceTimeLine = ref(0);
-const experienceType = ref('job_experience'); // Add this to track current experience type
+const experienceType = ref('job_experience');
 
 const loadSkills = async () => {
   experienceData.value = await getJsonFile(experienceType.value, locale.value);
@@ -112,6 +112,10 @@ onUnmounted(() => {
             <button class="btn btn_des" :class="{ active: experienceType === 'volunteer_experience' }"
               @click="switchExperience('volunteer_experience')">
               Volunteering
+            </button>
+            <button class="btn btn_des" :class="{ active: experienceType === 'education_experience' }"
+              @click="switchExperience('education_experience')">
+              Education
             </button>
             <button class="btn btn_des" @click="downloadCV">
               <i class="bi bi-download me-2"></i>Download CV

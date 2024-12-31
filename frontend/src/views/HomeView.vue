@@ -83,7 +83,7 @@ onUnmounted(() => {
             <div v-motion-roll-visible-bottom>
               <PresentationCard :name="t('owners_info.name')" :title="t('owners_info.title')"
                 :aboutme="t('home_view.aboutMeTitle')" :text="t('home_view.aboutMeText')"
-                imageref="../../assets/images/my_photo.jpg" />
+                :imageref="'/images/my_photo.jpg'" />
             </div>
           </section>
         </div>
