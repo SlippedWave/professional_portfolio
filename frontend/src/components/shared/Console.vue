@@ -65,6 +65,11 @@ const handleTypingCompleted = () => {
 </template>
 
 <style scoped>
+.redirect-link {
+  color: rgb(0, 0, 255);
+  text-decoration: underline;
+}
+
 .console {
   width: 90vw;
   max-width: 50rem;

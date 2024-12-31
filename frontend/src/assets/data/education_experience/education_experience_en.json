@@ -1,0 +1,38 @@
+{
+    "experiences": [
+        {
+            "title": "Software Development Technician",
+            "period": "8/2018 - 6/2022",
+            "company": "Centro de Enseñanza Técnica Industrial Colomos",
+            "position": "Software Development Technician",
+            "activities": [
+                "Developed a landing page, forum and dex for a criptocurrency project.",
+                "Collabored on the IT department by repairing and mantaining IT equipment.",
+                "Joined the team of physics at the campus."
+            ],
+            "technologies": [
+                "Project Management",
+                "Data Structures",
+                "OOP",
+                "Teamwork"
+            ]
+        },
+        {
+            "title": "B.sc. in Computer Engineering",
+            "period": "8/2022 - 6/2026",
+            "company": "Universidad de Guadalajara",
+            "position": "B.sc. in Computer Engineering",
+            "activities": [
+                "Developed some web applications on my own.",
+                "Collabored on a Investigation in the field of machine learning.",
+                "Took part in the ICPC challenges of my campus."
+            ],
+            "technologies": [
+                "Web development",
+                "Machine Learning",
+                "Computer Architecture",
+                "Project leadership"
+            ]
+        }
+    ]
+}

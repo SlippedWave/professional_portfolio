@@ -1,0 +1,58 @@
+{
+    "experiences": [
+        {
+            "title": "HR-Analyst",
+            "period": "9/2022 - 1/2023",
+            "company": "HCL Technologies",
+            "position": "HR-Analyst",
+            "activities": [
+                "Unterstützung der HR-Operationen, um Mitarbeiterinformationen und -dokumente gemäß den Unternehmensrichtlinien zu verwalten.",
+                "Abrufen von Informationen aus den Unternehmensdateien und Erstellen von Makros, um diese automatisch zu speichern.",
+                "Erstellen von Berichten und Präsentationen für die HR-Abteilung."
+            ],
+            "technologies": [
+                "Excel",
+                "Microsoft SharePoint",
+                "Kommunikation",
+                "Teamarbeit"
+            ]
+        },
+        {
+            "title": "Webentwickler",
+            "period": "1/2023 - Gegenwart",
+            "company": "Freelance",
+            "position": "Webentwickler",
+            "activities": [
+                "Entwicklung des CRM-Teils des Systems und eines Teils der Bestandsverwaltung, Erstellung von Funktionen zur Erfassung, Speicherung und Abfrage von Daten aus der Datenbank.",
+                "Entwerfen neuer Tabellen, um die geschäftlichen Anforderungen zu erfüllen, Sicherstellen der Datenintegrität, Normalisierung und optimalen Leistung.",
+                "Mitglied des Entwicklungsteams für ein webbasiertes Open-Source-ERP eines lokalen Unternehmens.",
+                "Wartung und Verbesserung der Funktionalität bestehender Systeme."
+            ],
+            "technologies": [
+                "SQL",
+                "PHP Laravel",
+                "JavaScript",
+                "HTML/CSS"
+            ]
+        },
+        {
+            "title": "Softwareentwickler",
+            "period": "10/2024 - Gegenwart",
+            "company": "Freelance",
+            "position": "Softwareentwickler",
+            "activities": [
+                "Entwicklung von Full-Stack-Webanwendungen.",
+                "Design von Websites, Anwendungen, Datenbanken und Software von Grund auf nachen den besten Prakitken.",
+                "Erstellen neuer Funktionen und APIs für internen und externen Gebrauch.",
+                "Zusammenarbeit mit Teams zur Definition, Gestaltung und Einführung neuer Funktionen oder Produkte."
+            ],
+            "technologies": [
+                "Flask",
+                "Vue Js",
+                "HTML/CSS",
+                "Python",
+                "MySQL"
+            ]
+        }
+    ]
+}

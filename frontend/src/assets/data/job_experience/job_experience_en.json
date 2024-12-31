@@ -1,0 +1,58 @@
+{
+    "experiences": [
+        {
+            "title": "HR Analyst",
+            "period": "9/2022 - 1/2023",
+            "company": "HCL Technologies",
+            "position": "HR Analyst",
+            "activities": [
+                "Support HR operations to keep employee information and documents in line with company policies.",
+                "Retrieve information from the company's file and create macros to store it automatically.",
+                "Create reports and presentations for the HR department."
+            ],
+            "technologies": [
+                "Excel",
+                "Microsoft SharePoint",
+                "Communication skills",
+                "Teamwork"
+            ]
+        },
+        {
+            "title": "Web Developer",
+            "period": "1/2023 - Present",
+            "company": "Freelance",
+            "position": "Web Developer",
+            "activities": [
+                "Devolop the CRM side of the system and part of the inventory management, developing functionalites to capture, store and query information from the database.",
+                "Design new tables to support business requirements, ensuring data integrity, normalization, and optimal performance.",
+                "Involved in the development team of a web-based open source ERP of a local company.",
+                "Mantaining and improving the functionality of existing systems."
+            ],
+            "technologies": [
+                "SQL",
+                "PHP Laravel",
+                "JavaScript",
+                "HTML/CSS"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "period": "10/2024 - Present",
+            "company": "Freelance",
+            "position": "Software Developer",
+            "activities": [
+                "Develop Full-Stack Web Applications.",
+                "Design websites, applications, databases and software from scratch using the best practices.",
+                "Building new product features and APIs for internal and external use.",
+                "Collaborate with teams to define, design, and ship new features or products."
+            ],
+            "technologies": [
+                "Flask",
+                "Vue Js",
+                "HTML/CSS",
+                "Python",
+                "MySQL"
+            ]
+        }
+    ]
+}

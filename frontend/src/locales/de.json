@@ -1,7 +1,7 @@
 {
   "experience_view": {
     "job": "Berufserfahrung",
-    "volunteering": "Praktikums"
+    "education": "Bildung"
   },
   "errors_view": {
     "notFoundErrorConsoleLines": [
@@ -10,11 +10,11 @@
     ],
     "serverErrorConsoleLines": [
       "print(\"Fehler 500: Interner Serverfehler\")",
-      "print(\"Entschuldigung, es gab einen Serverfehler.\")"
+      "print(\"Entschuldigung, auf dem Server ist ein Fehler aufgetreten.\")"
     ],
     "unknownErrorConsoleLines": [
       "print(\"Unbekannter Fehler\")",
-      "print(\"Entschuldigung, ein unbekannter Fehler ist aufgetreten.\")"
+      "print(\"Entschuldigung, es ist ein unbekannter Fehler aufgetreten.\")"
     ]
   },
   "error_message_recomendations": {
@@ -22,32 +22,35 @@
   },
   "owners_info": {
     "name": "Francisco Javier González-Barriga",
-    "title": "Data Scientist und Software Engineer",
-    "degree": "Bachelor in Informatik",
+    "title": "Datenwissenschaftler und Softwareentwickler",
+    "degree": "Bachelor of Science in Computer Engineering",
     "university": "Universidad de Guadalajara",
     "location": "Guadalajara, Jalisco, Mexiko."
   },
   "projects_view": {
     "projectsTitle": "Projekte",
-    "viewProject": "Projekt ansehen",
-    "noProjects": "Derzeit keine Projekte verfügbar. Bitte schauen Sie später wieder vorbei.",
+    "subtitle": "Entdecken Sie meine neuesten Projekte und Beiträge",
+    "filterAll": "Alle Projekte",
+    "noProjects": "Keine Projekte für den ausgewählten Filter gefunden",
     "card": {
       "open_repo": "Repository öffnen",
       "open_demo": "Demo ansehen"
     }
   },
   "home_view": {
-    "aboutMeTitle": "Über Mich",
+    "aboutMeTitle": "Über mich",
     "greetingConsoleLines": [
       "print(\"Francisco González\")",
-      "print(\"Datenwissenschaftler und Softwareingenieur\")",
-      "print(\"Willkommen in meinem professionellen Portfolio!\")"
+      "print(\"Datenwissenschaftler und Softwareentwickler\")",
+      "print(\"Willkommen in meinem beruflichen Portfolio!\")"
     ],
-    "aboutMeText": "Ich bin ein leidenschaftlicher Datenwissenschaftler und Softwareingenieur mit einem starken Hintergrund in Informatik und Datenanalyse. Ich genieße es, komplexe Probleme zu lösen und innovative Lösungen zu schaffen, die einen Unterschied machen.",
+    "aboutMeText": "Ich bin ein leidenschaftlicher Datenwissenschaftler und Softwareentwickler mit über 4 Jahren Erfahrung in der Informatik. Ich spezialisiere mich auf die Lösung komplexer Herausforderungen, die Entwicklung innovativer Lösungen und die Bereitstellung hochwertiger Produkte.",
+    "getToKnowMeTitle": "Lern mich kennen",
+    "getToKnowMeText": "Ich bin eine neugierige Person, die es liebt, jeden Tag etwas Neues zu lernen. Mit meiner Erfahrung in Sprachen wie Python, Java und SQL sowie meiner Fähigkeit zur Teamarbeit und Problemlösung bin ich stets bestrebt, Grenzen zu überschreiten und einen Unterschied zu machen. Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen! 🌐✨",
     "hobbiesTitle": "Hobbys",
-    "hobbiesText": "In meiner Freizeit liebe ich es, neue Technologien zu erkunden, Bücher zu verschiedenen Themen zu lesen und Schach zu spielen. Ich genieße auch Wandern und Zeit in der Natur zu verbringen.",
+    "hobbiesText": "In meiner Freizeit liebe ich es, neue Technologien zu erkunden 👨🏻‍💻, verschiedenen Themen von Bücher zu lesen und neue Sprachen zu lernen. Außerdem genieße ich Wandern und Zeit in der Natur.",
     "interestsTitle": "Interessen",
-    "interestsText": "Ich interessiere mich besonders für künstliche Intelligenz, maschinelles Lernen und Datenvisualisierung. Ich bin immer bestrebt, neue Dinge zu lernen und mit den neuesten Trends in der Technologie Schritt zu halten."
+    "interestsText": "Ich interessiere mich besonders für künstliche Intelligenz, maschinelles Lernen und Datenvisualisierung 🤖. Ich bin immer bereit, um Etwas neues zu lernen und mich über die neuesten technologischen Trends auf dem Laufenden zu halten."
   },
   "navbar": {
     "home": "/francisco",
@@ -59,5 +62,34 @@
   "footer": {
     "findMe": "Finden Sie mich auch auf:",
     "rights": "© 2025 Francisco González. Alle Rechte vorbehalten."
+  },
+  "contact_form": {
+    "title": "Kontaktieren Sie mich",
+    "subtitle": "Zögern Sie nicht, mich für Anfragen oder Kooperationen zu kontaktieren.",
+    "name": "Name",
+    "lastname": "Nachname",
+    "subject": "Betreff",
+    "interest": {
+      "title": "Interesse",
+      "job": "Jobangebot",
+      "project": "Projektzusammenarbeit",
+      "other": "Andere"
+    },
+    "errors": {
+      "server": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+      "required": "Dieses Feld ist erforderlich",
+      "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "form_invalid": "Bitte füllen Sie alle erforderlichen Felder korrekt aus"
+    },
+    "success_message": "Ihre Nachricht wurde erfolgreich gesendet!",
+    "company": "Firma",
+    "project_description": "Wie kann ich Ihnen helfen?",
+    "optional": "Optional",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Senden",
+    "error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
+    "email_disclaimer": "Ihre E-Mail-Adresse wird nicht an Dritte weitergegeben.",
+    "required": "Dieses Feld ist erforderlich"
   }
 }

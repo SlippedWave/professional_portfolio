@@ -26,7 +26,7 @@
 }
 
 .about-me-text {
-    max-width: 700px;
+    max-width: 800px;
     font-size: 1.2rem;
 }
 

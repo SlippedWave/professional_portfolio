@@ -1,0 +1,38 @@
+{
+    "experiences": [
+        {
+            "title": "Softwareentwicklung Techniker",
+            "period": "8/2018 - 6/2022",
+            "company": "Centro de Enseñanza Técnica Industrial Colomos",
+            "position": "Softwareentwicklung Techniker",
+            "activities": [
+                "Entwicklung einer Landingpage, eines Forums und eines Dex für ein Kryptowährungsprojekt.",
+                "Mitarbeit in der IT-Abteilung durch Reparatur und Wartung von IT-Geräten.",
+                "Beitritt zum Physikteam des Campus."
+            ],
+            "technologies": [
+                "Projektmanagement",
+                "Datenstrukturen",
+                "OOP",
+                "Teamarbeit"
+            ]
+        },
+        {
+            "title": "Bachelor in Computer Engineering",
+            "period": "8/2022 - 6/2026",
+            "company": "Universidad de Guadalajara",
+            "position": "Bachelor in Computer Engineering",
+            "activities": [
+                "Entwicklung Webpages in Eigenregie.",
+                "Mitarbeit an einer Forschung im Bereich Machine Learning.",
+                "Teilnahme an den ICPC-Challenges meines Campus."
+            ],
+            "technologies": [
+                "Webentwicklung",
+                "Machine Learning",
+                "Computerarchitektur",
+                "Projektführung"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "experiences": [
+        {
+            "title": "Analista de Recursos Humanos",
+            "period": "9/2022 - 1/2023",
+            "company": "HCL Technologies",
+            "position": "Analista de Recursos Humanos",
+            "activities": [
+                "Apoyar las operaciones de Recursos Humanos para mantener la información y los documentos de los empleados en línea con las políticas de la empresa.",
+                "Recuperar información de los archivos de la empresa y crear macros para almacenarla automáticamente.",
+                "Crear informes y presentaciones para el departamento de Recursos Humanos."
+            ],
+            "technologies": [
+                "Excel",
+                "Microsoft SharePoint",
+                "Comunicación",
+                "Trabajo en equipo"
+            ]
+        },
+        {
+            "title": "Desarrollador Web",
+            "period": "1/2023 - Presente",
+            "company": "Freelance",
+            "position": "Desarrollador Web",
+            "activities": [
+                "Desarrollar el lado CRM del sistema y parte de la gestión de inventarios, creando funcionalidades para capturar, almacenar y consultar información de la base de datos.",
+                "Diseñar nuevas tablas para cumplir con los requisitos del negocio, asegurando la integridad de los datos, la normalización y un rendimiento óptimo.",
+                "Participar en el equipo de desarrollo de un ERP de código abierto basado en web para una empresa local.",
+                "Manteniendo y mejorando la funcionalidad de los sistemas existentes."
+            ],
+            "technologies": [
+                "SQL",
+                "PHP Laravel",
+                "JavaScript",
+                "HTML/CSS"
+            ]
+        },
+        {
+            "title": "Desarrollador de Software",
+            "period": "10/2024 - Presente",
+            "company": "Freelance",
+            "position": "Desarrollador de Software",
+            "activities": [
+                "Desarrollar aplicaciones web Full-Stack.",
+                "Diseñar sitios web, aplicaciones, bases de datos y software desde cero utilizando las mejores prácticas.",
+                "Construir nuevas funcionalidades y APIs para uso interno y externo.",
+                "Colaborar con equipos para definir, diseñar y lanzar nuevas características o productos."
+            ],
+            "technologies": [
+                "Flask",
+                "Vue Js",
+                "HTML/CSS",
+                "Python",
+                "MySQL"
+            ]
+        }
+    ]
+}

@@ -73,7 +73,6 @@ onUnmounted(() => {
     </div>
   </main>
 
-  <!-- Intro Section -->
   <main v-else class="d-flex justify-content-center align-items-center">
     <div class="container-fluid">
       <div class="row flex-column">
@@ -93,8 +92,8 @@ onUnmounted(() => {
           <section id="about-me">
             <div v-motion-roll-visible-bottom>
               <IntroductionCard>
-                <template #title>{{ t('home_view.aboutMeTitle') }}</template>
-                <template #text>{{ t('home_view.aboutMeText') }}</template>
+                <template #title>{{ t('home_view.getToKnowMeTitle') }}</template>
+                <template #text>{{ t('home_view.getToKnowMeText') }}</template>
               </IntroductionCard>
             </div>
           </section>
@@ -137,7 +136,7 @@ onUnmounted(() => {
 }
 
 section {
-  padding: 20%;
+  margin-bottom: 40%;
 }
 
 .flex-column {
@@ -156,7 +155,6 @@ section {
   width: 100%;
 
 }
-
 
 .col-12 {
   width: 100%;

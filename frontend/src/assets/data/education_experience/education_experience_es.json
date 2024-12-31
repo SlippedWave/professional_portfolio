@@ -1,0 +1,37 @@
+{
+    "experiences": [
+        {
+            "title": "Tecnólogo en Desarrollo de Software",
+            "period": "8/2018 - 6/2022",
+            "company": "Centro de Enseñanza Técnica Industrial Colomos",
+            "position": "Tecnólogo en Desarrollo de Software",
+            "activities": [
+                "Desarrollé una página de promoción, un foro y un dex para un proyecto de criptomonedas.",
+                "Colaboré en el departamento de TI reparando y manteniendo equipos informáticos.",
+                "Me uní al equipo de física del campus."
+            ],
+            "technologies": [
+                "Gestión de Proyectos",
+                "Estructuras de Datos",
+                "POO",
+                "Trabajo en equipo"
+            ]
+        },
+        {
+            "title": "Licenciatura en Ingeniería en Computación",
+            "period": "8/2022 - 6/2026",
+            "company": "Universidad de Guadalajara",
+            "position": "Estudiante de Ingeniería en Computación",
+            "activities": [
+                "Desarrollé algunas aplicaciones web por mi cuenta.",
+                "Colaboré en una investigación en el campo del machine learning.",
+                "Participé en los desafíos ICPC de mi campus."
+            ],
+            "technologies": [
+                "Desarrollo web",
+                "Machine Learning",
+                "Liderazgo de proyectos"
+            ]
+        }
+    ]
+}

@@ -1,7 +1,7 @@
 const getJsonFile = async (file_category, locale) => {
     try {
         const module = await import(
-            `../data/${file_category}_${locale}.json`
+            `../data/${file_category}/${file_category}_${locale}.json`
         );
         return module.default;
     } catch (error) {

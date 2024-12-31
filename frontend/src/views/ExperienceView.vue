@@ -98,20 +98,15 @@ onUnmounted(() => {
 
   <main v-else class="h-100 w-100 d-flex justify-content-center align-items-center">
     <div class="container">
-      <!-- Header Section -->
       <div class="row mb-4">
         <div class="col text-center">
           <h2 class="text-white mb-4 text-bol font-weight bold">
-            {{ experienceType === 'job_experience' ? t('experience_view.job') : t('experience_view.volunteering') }}
+            {{ experienceType === 'job_experience' ? t('experience_view.job') : t('experience_view.education') }}
           </h2>
           <div class="btn-group bg-dark p-3" role="group">
             <button class="btn btn_des" :class="{ active: experienceType === 'job_experience' }"
               @click="switchExperience('job_experience')">
               Work Experience
-            </button>
-            <button class="btn btn_des" :class="{ active: experienceType === 'volunteer_experience' }"
-              @click="switchExperience('volunteer_experience')">
-              Volunteering
             </button>
             <button class="btn btn_des" :class="{ active: experienceType === 'education_experience' }"
               @click="switchExperience('education_experience')">
@@ -138,25 +133,17 @@ onUnmounted(() => {
 
 <style scoped>
 .timeline-wrapper {
-  /* Let the wrapper occupy up to 70% of the viewport height */
-  max-height: 30vh;
+  max-height: 70vh;
   min-height: 300px;
-  /* optional floor to avoid collapsing on small content */
   background: rgba(0, 0, 0, 0.3);
   border-radius: 12px;
   overflow-y: auto;
   position: relative;
-
-  /* Smooth scrolling for modern browsers */
   scroll-behavior: smooth;
-
-  /* Width is controlled by the Bootstrap container/col above */
   scrollbar-width: thin;
-  /* Firefox */
   scrollbar-color: rgba(74, 144, 226, 0.5) transparent;
 }
 
-/* WebKit scrollbar styles */
 .timeline-wrapper::-webkit-scrollbar {
   width: 8px;
   height: 8px;

@@ -1,53 +1,56 @@
 {
-  "experience": {
-    "job": "Experiencia Laboral",
-    "volunteering": "Experiencias de voluntario"
+  "experience_view": {
+    "job": "Experiencias laborales",
+    "education": "Educación"
   },
   "errors_view": {
     "notFoundErrorConsoleLines": [
       "print(\"Error 404: Página no encontrada\")",
-      "print(\"Lo siento, la página que buscas no existe.\")"
+      "print(\"Lo siento, pero la página que buscas no existe.\")"
     ],
     "serverErrorConsoleLines": [
       "print(\"Error 500: Error interno del servidor\")",
-      "print(\"Lo siento, ha ocurrido un error en el servidor.\")"
+      "print(\"Lo siento, pero ocurrió un error en el servidor.\")"
     ],
     "unknownErrorConsoleLines": [
       "print(\"Error desconocido\")",
-      "print(\"Lo siento, ha ocurrido un error desconocido.\")"
+      "print(\"Lo siento, pero ocurrió un error desconocido.\")"
     ]
   },
   "error_message_recomendations": {
-    "clickToRedirectHome": "Haz clic aquí para volver a la página principal..."
+    "clickToRedirectHome": "Haz clic aquí para regresar a la página de inicio..."
   },
   "owners_info": {
     "name": "Francisco Javier González-Barriga",
-    "title": "Científico de Datos e Ingeniero de Software",
-    "degree": "Ingeniero en Computación",
+    "title": "Científico de Datos y Desarrollador de Software",
+    "degree": "Licenciatura en Ingeniería en Computación",
     "university": "Universidad de Guadalajara",
     "location": "Guadalajara, Jalisco, México."
   },
   "projects_view": {
     "projectsTitle": "Proyectos",
-    "viewProject": "Ver Proyecto",
-    "noProjects": "No hay proyectos disponibles por el momento. Vuelve más tarde.",
+    "subtitle": "Explora mis proyectos y contribuciones más recientes",
+    "filterAll": "Todos los proyectos",
+    "noProjects": "No se encontraron proyectos para el filtro seleccionado",
     "card": {
-      "open_repo": "Abrir Repositorio",
-      "open_demo": "Ver Demostración"
+      "open_repo": "Abrir repositorio",
+      "open_demo": "Ver demo"
     }
   },
   "home_view": {
-    "aboutMeTitle": "Sobre Mí",
+    "aboutMeTitle": "Sobre mí",
     "greetingConsoleLines": [
       "print(\"Francisco González\")",
-      "print(\"Científico de Datos e Ingeniero de Software\")",
+      "print(\"Científico de Datos y Desarrollador de Software\")",
       "print(\"¡Bienvenido a mi portafolio profesional!\")"
     ],
-    "aboutMeText": "Soy un apasionado Científico de Datos e Ingeniero de Software con una sólida formación en ciencias de la computación y análisis de datos. Disfruto resolviendo problemas complejos y creando soluciones innovadoras que marcan la diferencia.",
+    "aboutMeText": "Soy un apasionado Científico de Datos y Desarrollador de Software con más de 4 años de experiencia en Ciencias de la Computación. Me especializo en resolver desafíos complejos, crear soluciones innovadoras y entregar productos de alta calidad.",
+    "getToKnowMeTitle": "Conóceme",
+    "getToKnowMeText": "Soy una persona curiosa que disfruta aprender algo nuevo todos los días. Con mi experiencia en lenguajes como Python, Java y SQL, y una habilidad innata para el trabajo en equipo y la resolución de problemas, siempre estoy dispuesto a superar límites y generar impacto. ¡Trabajemos juntos en algo extraordinario! 🌐✨",
     "hobbiesTitle": "Pasatiempos",
-    "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías, leer libros sobre diversos temas y jugar al ajedrez. También disfruto de las caminatas y pasar tiempo en la naturaleza.",
+    "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías 👨🏻‍💻, leer libros sobre diversos temas y aprender nuevos idiomas. También disfruto hacer senderismo y pasar tiempo en la naturaleza.",
     "interestsTitle": "Intereses",
-    "interestsText": "Me interesa particularmente la inteligencia artificial, el aprendizaje automático y la visualización de datos. Siempre estoy ansioso por aprender cosas nuevas y mantenerme actualizado con las últimas tendencias en tecnología."
+    "interestsText": "Estoy particularmente interesado en la inteligencia artificial, el aprendizaje automático y la visualización de datos 🤖. Siempre estoy dispuesto a aprender cosas nuevas y mantenerme actualizado con las últimas tendencias tecnológicas."
   },
   "navbar": {
     "home": "/francisco",
@@ -57,7 +60,36 @@
     "contact": "/contacto"
   },
   "footer": {
-    "findMe": "También me puedes encontrar en:",
+    "findMe": "También encuéntrame en:",
     "rights": "© 2025 Francisco González. Todos los derechos reservados."
+  },
+  "contact_form": {
+    "title": "Contáctame",
+    "subtitle": "No dudes en ponerte en contacto para consultas o colaboraciones.",
+    "name": "Nombre",
+    "lastname": "Apellido",
+    "subject": "Asunto",
+    "interest": {
+      "title": "Interés",
+      "job": "Oportunidad laboral",
+      "project": "Colaboración en proyectos",
+      "other": "Otro"
+    },
+    "errors": {
+      "server": "Ocurrió un error al enviar tu mensaje. Por favor, inténtalo más tarde.",
+      "required": "Este campo es obligatorio",
+      "invalid_email": "Por favor, ingresa una dirección de correo válida",
+      "form_invalid": "Por favor, completa correctamente todos los campos obligatorios"
+    },
+    "success_message": "¡Tu mensaje se ha enviado con éxito!",
+    "company": "Empresa",
+    "project_description": "¿Cómo puedo ayudarte?",
+    "optional": "Opcional",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "send": "Enviar",
+    "error": "Ocurrió un error al enviar tu mensaje. Por favor, inténtalo más tarde.",
+    "email_disclaimer": "Tu correo no será compartido con nadie más.",
+    "required": "Este campo es obligatorio"
   }
 }

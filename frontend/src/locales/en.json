@@ -1,7 +1,7 @@
 {
   "experience_view": {
     "job": "Work experiences",
-    "volunteering": "Volunteering experiences"
+    "education": "Education"
   },
   "errors_view": {
     "notFoundErrorConsoleLines": [
@@ -31,8 +31,6 @@
     "projectsTitle": "Projects",
     "subtitle": "Explore my latest projects and contributions",
     "filterAll": "All Projects",
-    "filterPublic": "Public",
-    "filterPrivate": "Private",
     "noProjects": "No projects found for the selected filter",
     "card": {
       "open_repo": "Open repo",
@@ -46,11 +44,13 @@
       "print(\"Data Scientist and Software Engineer\")",
       "print(\"Welcome to my professional portfolio!\")"
     ],
-    "aboutMeText": "I am a passionate Data Scientist and Software Engineer with a strong background in computer science and data analysis. I enjoy solving complex problems and creating innovative solutions that make a difference.",
+    "aboutMeText": "I'm a passionate Data Scientist and Software Engineer with 4+ years of experience in Computer Science. I specialize in tackling complex challenges, crafting innovative solutions, and delivering high-quality products.",
+    "getToKnowMeTitle": "Get to know me",
+    "getToKnowMeText": "I'm a curious person who loves to learn something new everyday, with my expertise in languages like Python, Java, and SQL, and a knack for teamwork and problem-solving, I'm always eager to push boundaries and make an impact. Let's work on something extraordinary together! 🌐✨",
     "hobbiesTitle": "Hobbies",
-    "hobbiesText": "In my free time, I love exploring new technologies, reading books on various topics, and playing chess. I also enjoy hiking and spending time in nature.",
+    "hobbiesText": "In my free time, I love exploring new technologies 👨🏻‍💻, reading books on various topics, and learning new languages. I also enjoy hiking and spending time in nature.",
     "interestsTitle": "Interests",
-    "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization. I am always eager to learn new things and stay updated with the latest trends in technology."
+    "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization 🤖. I am always eager to learn new things and stay updated with the latest trends in technology."
   },
   "navbar": {
     "home": "/francisco",

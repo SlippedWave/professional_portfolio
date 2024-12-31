@@ -178,7 +178,7 @@ onMounted(async () => {
             <button class="btn rounded-pill border-0" :class="{ active: selectedLanguage === 'all' }"
               @click="selectLanguage('all')"
               :style="{ backgroundColor: selectedLanguage === 'all' ? '#6c757d' : 'transparent', color: selectedLanguage === 'all' ? '#fff' : '#6c757d' }">
-              All Languages
+              {{ t('projects_view.filterAll') }}
             </button>
           </div>
         </div>
