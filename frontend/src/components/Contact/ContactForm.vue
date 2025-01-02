@@ -156,7 +156,7 @@ const handleSubmit = async () => {
     }
 
     try {
-        await axios.post('http://127.0.0.1:5000/api/submit_contact_form', form.value, {
+        await axios.post(import.meta.env.VITE_SERVER_ADDRESS + '/api/submit_contact_form', form.value, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
