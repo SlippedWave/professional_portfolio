@@ -156,11 +156,7 @@ const handleSubmit = async () => {
     }
 
     try {
-        await axios.post(import.meta.env.VITE_SERVER_ADDRESS, form.value, {
-            headers: {
-                'Access-Control-Allow-Origin': '*'
-            }
-        });
+        await axios.post(import.meta.env.VITE_SERVER_ADDRESS, form.value);
         alert(t('contact_form.success_message'));
 
         form.value = {
