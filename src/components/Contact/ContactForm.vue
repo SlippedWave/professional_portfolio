@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primary contact-form py-4 rounded">
+    <div class="bg-primary contact-form p-4 rounded">
         <form @submit.prevent="handleSubmit">
 
             <div class="form-group">
@@ -182,7 +182,6 @@ const handleSubmit = async () => {
 
 <style scoped>
 .contact-form {
-    width: 45%;
     max-width: 650px;
     color: #fff;
     font-size: 1.25rem;
