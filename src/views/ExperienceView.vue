@@ -100,9 +100,9 @@ onUnmounted(() => {
     <div class="container">
       <div class="row mb-4">
         <div class="col text-center">
-          <h2 class="text-white mb-4 text-bol font-weight bold">
+          <h1 class="mb-3 display-4 title">
             {{ experienceType === 'job_experience' ? t('experience_view.job') : t('experience_view.education') }}
-          </h2>
+          </h1>
           <div class="btn-group bg-dark p-3" role="group">
             <button class="btn btn_des" :class="{ active: experienceType === 'job_experience' }"
               @click="switchExperience('job_experience')">
@@ -132,6 +132,11 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.title {
+  font-weight: bold;
+  color: rgb(210, 220, 233);
+}
+
 .timeline-wrapper {
   max-height: 70vh;
   min-height: 300px;

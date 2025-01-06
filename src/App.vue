@@ -39,7 +39,7 @@ const isErrorPage = computed(() => route.name === 'error');
 
 main {
   padding-bottom: 3rem;
-  padding-top: 3rem
+  padding-top: 1rem
 }
 
 header {

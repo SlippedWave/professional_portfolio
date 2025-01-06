@@ -156,8 +156,8 @@ onMounted(async () => {
     </div>
   </main>
 
-  <main v-else class="h-100 d-flex justify-content-center align-items-center">
-    <div class="container projects-view p-3 m-3">
+  <main v-else class="h-100 d-flex">
+    <div class="container mt-0 pt-0">
       <!-- Header Section -->
       <div class="row">
         <div class="col-12 text-center">
@@ -210,14 +210,8 @@ onMounted(async () => {
   color: rgb(210, 220, 233);
 }
 
-
-
 .subtitle {
   color: rgb(157, 174, 194);
   font-size: 1.5rem;
-}
-
-.projects-view {
-  padding: 2rem 0;
 }
 </style>
