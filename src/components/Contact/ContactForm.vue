@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primary contact-form p-4 rounded">
+    <div class="bg-primary contact-form py-4 rounded">
         <form @submit.prevent="handleSubmit">
 
             <div class="form-group">
@@ -156,7 +156,7 @@ const handleSubmit = async () => {
     }
 
     try {
-        await axios.post(import.meta.env.VITE_SERVER_ADDRESS + '/api/submit_contact_form', form.value, {
+        await axios.post(import.meta.env.VITE_SERVER_ADDRESS, form.value, {
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
