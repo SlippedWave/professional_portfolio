@@ -157,7 +157,7 @@ onMounted(async () => {
   </main>
 
   <main v-else class="h-100 d-flex">
-    <div class="container mt-0 pt-0">
+    <div class="container">
       <!-- Header Section -->
       <div class="row">
         <div class="col-12 text-center">

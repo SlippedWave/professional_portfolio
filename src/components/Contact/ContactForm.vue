@@ -156,7 +156,11 @@ const handleSubmit = async () => {
     }
 
     try {
-        await axios.post(import.meta.env.VITE_SERVER_ADDRESS, form.value);
+        await axios.post(import.meta.env.VITE_SERVER_ADDRESS, form.value, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
         alert(t('contact_form.success_message'));
 
         form.value = {
