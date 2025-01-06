@@ -79,7 +79,9 @@
       "server": "An error occurred while sending your message. Please try again later.",
       "required": "This field is required",
       "invalid_email": "Please enter a valid email address",
-      "form_invalid": "Please fill out all required fields correctly"
+      "form_invalid": "Please fill out all required fields correctly",
+      "turnstile_required": "Please complete the CAPTCHA challenge.",
+      "turnstile_error": "Please try again."
     },
     "success_message": "Your message has been sent successfully!",
     "company": "Company",

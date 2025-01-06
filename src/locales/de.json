@@ -79,7 +79,9 @@
       "server": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
       "required": "Dieses Feld ist erforderlich",
       "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-      "form_invalid": "Bitte füllen Sie alle erforderlichen Felder korrekt aus"
+      "form_invalid": "Bitte füllen Sie alle erforderlichen Felder korrekt aus",
+      "turnstile_required": "Bitte bestätigen Sie, dass Sie kein Roboter sind.",
+      "turnstile_error": "Bitte versuchen Sie es erneut."
     },
     "success_message": "Ihre Nachricht wurde erfolgreich gesendet!",
     "company": "Firma",

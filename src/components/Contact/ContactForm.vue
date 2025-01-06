@@ -73,10 +73,16 @@
                 <span v-if="errors.message" class="text-danger">{{ errors.message }}</span>
             </div>
 
+            <div class="mb-3">
+                <div class="cf-turnstile" data-sitekey="{{ import.meta.env.VITE_SITE_DATA_KEY }}"></div>
+                <span v-if="errors.turnstile" class="text-danger">{{ errors.turnstile }}</span>
+            </div>
+
             <!-- Submit Button -->
             <div class="d-flex justify-content-center align-items-center">
-                <button type="submit" class="btn btn-primary bg-dark rounded-pill py-3" :disabled="!isFormValid">
-                    {{ t('contact_form.send') }}
+                <button type="submit" class="btn btn-primary bg-dark rounded-pill py-3"
+                    :disabled="!isFormValid || isSubmitting">
+                    {{ isSubmitting ? t('contact_form.submitting') : t('contact_form.send') }}
                 </button>
             </div>
         </form>
@@ -84,7 +90,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import axios from 'axios';
 
@@ -102,6 +108,9 @@ const form = ref({
 });
 
 const errors = ref({});
+const isSubmitting = ref(false);
+
+const turnstileToken = ref('');
 
 const validateForm = () => {
     const newErrors = {};
@@ -151,9 +160,16 @@ const isFormValid = computed(() => {
 
 const handleSubmit = async () => {
     if (!validateForm()) {
-        alert(t('contact_form.errors.form_invalid'));
+        console.log(t('contact_form.errors.form_invalid'));
         return;
     }
+
+    if (!turnstileToken.value) {
+        errors.value.turnstile = t('contact_form.errors.turnstile_required');
+        return;
+    }
+
+    isSubmitting.value = true;
 
     try {
         await axios.post(import.meta.env.VITE_SERVER_ADDRESS, form.value, {
@@ -174,10 +190,38 @@ const handleSubmit = async () => {
             message: ''
         };
         errors.value = {};
+        turnstileToken.value = '';
     } catch (error) {
-        alert(t('contact_form.errors.server'));
+        console.log(t('contact_form.errors.server'));
+    } finally {
+        isSubmitting.value = false;
     }
 };
+
+// Load Turnstile Script and Initialize Widget
+const loadTurnstile = () => {
+    if (window.turnstile) {
+        window.turnstile.render('.cf-turnstile', {
+            sitekey: import.meta.env.VITE_SITE_DATA_KEY,
+            callback: (token) => {
+                turnstileToken.value = token;
+                errors.value.turnstile = '';
+            },
+            'error-callback': () => {
+                errors.value.turnstile = t('contact_form.errors.turnstile_error');
+            }
+        });
+    }
+};
+
+onMounted(() => {
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.async = true;
+    script.defer = true;
+    script.onload = loadTurnstile;
+    document.head.appendChild(script);
+});
 </script>
 
 <style scoped>
@@ -210,5 +254,10 @@ small {
 .text-danger {
     color: #dc3545;
     font-size: 0.875em;
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 </style>

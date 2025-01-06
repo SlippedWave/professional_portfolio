@@ -79,7 +79,9 @@
       "server": "Ocurrió un error al enviar tu mensaje. Por favor, inténtalo más tarde.",
       "required": "Este campo es obligatorio",
       "invalid_email": "Por favor, ingresa una dirección de correo válida",
-      "form_invalid": "Por favor, completa correctamente todos los campos obligatorios"
+      "form_invalid": "Por favor, completa correctamente todos los campos obligatorios",
+      "turnstile_required": "Por favor, completa el desafío CAPTCHA.",
+      "turnstile_error": "Por favor, inténtalo de nuevo."
     },
     "success_message": "¡Tu mensaje se ha enviado con éxito!",
     "company": "Empresa",
