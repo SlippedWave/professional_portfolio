@@ -19,7 +19,7 @@
                 <div
                     class="mt-2 pt-3 justify-content-center align-items-center border-top border-white border-opacity-25 row">
                     <span v-for="(tech, techIndex) in experience.technologies" :key="techIndex"
-                        class="badge col-6 col-md-4 bg-primary bg-opacity-25 me-2 mb-2">
+                        class="badge col-6 col-md-4 bg-primary bg-opacity-25 me-2 mb-2 text-wrap">
                         {{ tech }}
                     </span>
                 </div>
