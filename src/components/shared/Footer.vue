@@ -94,7 +94,7 @@ export default {
   width: 100%;
   z-index: 10;
   cursor: pointer;
-  border-top: 1px solid rgb(12, 14, 23);
+  box-shadow: 0px -25px 20px -25px rgba(0, 0, 0, 0.45);
 }
 
 .footer-content {
