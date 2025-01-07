@@ -23,10 +23,10 @@
             "company": "Freelance",
             "position": "Web Developer",
             "activities": [
-                "Devolop the CRM side of the system and part of the inventory management, developing functionalites to capture, store and query information from the database.",
-                "Design new tables to support business requirements, ensuring data integrity, normalization, and optimal performance.",
+                "Developed the CRM side of the system and part of the inventory management, developing functionalities to capture, store and query information from the database.",
+                "Designed new tables to support business requirements, ensuring data integrity, normalization, and optimal performance.",
                 "Involved in the development team of a web-based open source ERP of a local company.",
-                "Mantaining and improving the functionality of existing systems."
+                "Maintaining and improving the functionality of existing systems."
             ],
             "technologies": [
                 "SQL",

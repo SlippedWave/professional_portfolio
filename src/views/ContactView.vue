@@ -31,7 +31,7 @@ const consoleContainer = ref(null);
 const lines = [
   'contact_info = {',
   '    "Email": "frgonz03@gmail.com",',
-  '    "LinkedIn": "linkedin.com/in/franglz",',
+  '    "LinkedIn": "linkedin.com/in/frgonz",',
   '    "GitHub": "github.com/SlippedWave"',
   '}',
   'for method, info in contact_info.items():',

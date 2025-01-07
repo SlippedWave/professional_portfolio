@@ -69,7 +69,7 @@ export default {
           <div class="contact-me mb-2">
             <span class="fw-normal">{{ t('footer.findMe') }}</span>
           </div>
-          <a href="https://www.linkedin.com/in/franglz" target="_blank" class="btn btn-link text-white">
+          <a href="https://www.linkedin.com/in/frgonz" target="_blank" class="btn btn-link text-white">
             <img src="@/assets/icons/linkedin-icon.svg" alt="LinkedIn" class="icon" />
           </a>
           <a href="https://github.com/SlippedWave" target="_blank" class="btn btn-link text-white">
