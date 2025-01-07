@@ -91,6 +91,7 @@ onUnmounted(() => {
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
   width: 100%;
+  border-bottom: 3px solid rgb(15, 28, 65);
 }
 
 .navbar-nav {
