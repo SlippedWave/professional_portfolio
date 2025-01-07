@@ -5,7 +5,7 @@ import { popup } from '@/assets/js/animations.js';
 import { useMotion } from '@vueuse/motion';
 import getJsonFile from '@/assets/js/locale_functions.js';
 import TimeLine from '@/components/Experience/TimeLine.vue';
-import FranciscoGonzalezCV from '@/assets/docs/resumeFranciscoGonzalez.pdf';
+import FranciscoGonzalezCV from '@/assets/docs/resumeFranciscoJavierGonzalezBarriga.pdf';
 
 import { useI18n } from 'vue-i18n';
 
