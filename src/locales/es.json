@@ -92,6 +92,7 @@
     "send": "Enviar",
     "error": "Ocurrió un error al enviar tu mensaje. Por favor, inténtalo más tarde.",
     "email_disclaimer": "Tu correo no será compartido con nadie más.",
-    "required": "Este campo es obligatorio"
+    "required": "Este campo es obligatorio",
+    "submitting": "Enviando..."
   }
 }

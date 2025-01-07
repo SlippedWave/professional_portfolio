@@ -66,9 +66,6 @@ function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-
-
-// Close menu if click is outside the menu
 function handleClickOutside(event) {
   if (
     isMenuOpen.value &&
@@ -103,7 +100,7 @@ onUnmounted(() => {
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
 }
 
 .nav-link {

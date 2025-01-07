@@ -198,7 +198,6 @@ const handleSubmit = async () => {
     }
 };
 
-// Load Turnstile Script and Initialize Widget
 const loadTurnstile = () => {
     if (window.turnstile) {
         window.turnstile.render('.cf-turnstile', {

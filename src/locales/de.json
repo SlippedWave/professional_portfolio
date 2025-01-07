@@ -92,6 +92,7 @@
     "send": "Senden",
     "error": "Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.",
     "email_disclaimer": "Ihre E-Mail-Adresse wird nicht an Dritte weitergegeben.",
-    "required": "Dieses Feld ist erforderlich"
+    "required": "Dieses Feld ist erforderlich",
+    "submitting": "Senden..."
   }
 }
