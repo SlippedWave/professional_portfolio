@@ -6,27 +6,27 @@
             "company": "HCL Technologies",
             "position": "HR-Analyst",
             "activities": [
-                "Unterstützung der HR-Operationen, um Mitarbeiterinformationen und -dokumente gemäß den Unternehmensrichtlinien zu verwalten.",
-                "Abrufen von Informationen aus den Unternehmensdateien und Erstellen von Makros, um diese automatisch zu speichern.",
-                "Erstellen von Berichten und Präsentationen für die HR-Abteilung."
+                "Unterstützung der HR-Abteilung, um Mitarbeiterinformationen und -dokumente gemäß den Unternehmensrichtlinien zu verwalten.",
+                "Abrufen von Informationen aus den Unternehmensakten und Erstellen von Makros zur automatischen Speicherung.",
+                "Erstellung von Berichten und Präsentationen für die Personalabteilung."
             ],
             "technologies": [
                 "Excel",
                 "Microsoft SharePoint",
-                "Kommunikation",
+                "Kommunikationsfähigkeiten",
                 "Teamarbeit"
             ]
         },
         {
             "title": "Webentwickler",
-            "period": "1/2023 - Gegenwart",
+            "period": "1/2023 - 10/2024",
             "company": "Freelance",
             "position": "Webentwickler",
             "activities": [
-                "Entwicklung des CRM-Teils des Systems und eines Teils der Bestandsverwaltung, Erstellung von Funktionen zur Erfassung, Speicherung und Abfrage von Daten aus der Datenbank.",
-                "Entwerfen neuer Tabellen, um die geschäftlichen Anforderungen zu erfüllen, Sicherstellen der Datenintegrität, Normalisierung und optimalen Leistung.",
-                "Mitglied des Entwicklungsteams für ein webbasiertes Open-Source-ERP eines lokalen Unternehmens.",
-                "Wartung und Verbesserung der Funktionalität bestehender Systeme."
+                "Entwicklung des CRM-Bereichs des Systems und teilweise der Lagerverwaltung, mit Funktionen zum Erfassen, Speichern und Abfragen von Daten aus der Datenbank.",
+                "Entwurf neuer Tabellen zur Unterstützung von Geschäftsanforderungen unter Gewährleistung von Datenintegrität, Normalisierung und optimaler Leistung.",
+                "Mitarbeit im Entwicklungsteam eines webbasierten Open-Source-ERP-Systems eines lokalen Unternehmens.",
+                "Wartung und Verbesserung bestehender Systemfunktionen."
             ],
             "technologies": [
                 "SQL",
@@ -37,14 +37,14 @@
         },
         {
             "title": "Softwareentwickler",
-            "period": "10/2024 - Gegenwart",
+            "period": "10/2024 - 03/2025",
             "company": "Freelance",
             "position": "Softwareentwickler",
             "activities": [
                 "Entwicklung von Full-Stack-Webanwendungen.",
-                "Design von Websites, Anwendungen, Datenbanken und Software von Grund auf nachen den besten Prakitken.",
-                "Erstellen neuer Funktionen und APIs für internen und externen Gebrauch.",
-                "Zusammenarbeit mit Teams zur Definition, Gestaltung und Einführung neuer Funktionen oder Produkte."
+                "Design von Websites, Anwendungen, Datenbanken und Software von Grund auf unter Anwendung bewährter Methoden.",
+                "Erstellung neuer Produktfunktionen und APIs für den internen und externen Gebrauch.",
+                "Zusammenarbeit mit Teams zur Definition, Gestaltung und Auslieferung neuer Funktionen oder Produkte."
             ],
             "technologies": [
                 "Flask",
@@ -52,6 +52,26 @@
                 "HTML/CSS",
                 "Python",
                 "MySQL"
+            ]
+        },
+        {
+            "title": "Softwareentwickler",
+            "period": "03/2025 - 06/2025",
+            "company": "HPT Center and Planning",
+            "position": "Softwareentwickler",
+            "activities": [
+                "Entwicklung und Wartung von Laravel-basierten Webanwendungen, einschließlich benutzerdefinierter Module, Middleware und RESTful-APIs.",
+                "Mitarbeit an einem Open-Source-ERP-System mit Beiträgen sowohl im Frontend- als auch im Backend-Bereich.",
+                "Erstellung skalierbarer, responsiver Benutzeroberflächen mit Blade-Templates, CSS und Bootstrap.",
+                "Erstellung und Dokumentation von APIs zur Integration mit Drittanbieterdiensten."
+            ],
+            "technologies": [
+                "Laravel",
+                "MySQL",
+                "Docker",
+                "Git",
+                "JavaScript",
+                "HTML/CSS"
             ]
         }
     ]

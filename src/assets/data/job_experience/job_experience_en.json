@@ -19,7 +19,7 @@
         },
         {
             "title": "Web Developer",
-            "period": "1/2023 - Present",
+            "period": "1/2023 - 10/2024",
             "company": "Freelance",
             "position": "Web Developer",
             "activities": [
@@ -37,7 +37,7 @@
         },
         {
             "title": "Software Developer",
-            "period": "10/2024 - Present",
+            "period": "10/2024 - 03/2025",
             "company": "Freelance",
             "position": "Software Developer",
             "activities": [
@@ -52,6 +52,26 @@
                 "HTML/CSS",
                 "Python",
                 "MySQL"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "period": "03/2025 - 06/2025",
+            "company": "HPT Center and Planning",
+            "position": "Software Developer",
+            "activities": [
+                "Developed and maintained Laravel-based web applications, including custom modules, middleware, and RESTful APIs.",
+                "Collaborated on an open-source ERP system, contributing to both front-end and back-end development.",
+                "Created scalable, responsive user interfaces using Blade templates, CSS and Bootstrap.",
+                "Built and documented APIs for integration with third-party services."
+            ],
+            "technologies": [
+                "Laravel",
+                "MySQL",
+                "Docker",
+                "Git",
+                "JavaScript",
+                "HTML/CSS"
             ]
         }
     ]
