@@ -33,6 +33,22 @@
                 "Computerarchitektur",
                 "Projektführung"
             ]
+        },
+        {
+            "title": "Austauschsemester mit Schwerpunkt ML/AI",
+            "period": "10/2025 - 3/2026",
+            "company": "Universität zu Köln",
+            "position": "Austauschstudent im Fachbereich Informatik",
+            "activities": [
+                "Implementierung, Training und Optimierung von Machine-Learning-Modellen mit realen Datensätzen.",
+                "Entwicklung von Projekten mit Fokus auf Graphdatenanalyse und -modellierung, einschließlich generativer Modelle, Ranking und Graph Neural Networks (GNNs).",
+                "Verbesserung meiner Deutsch- und Englischkenntnisse.",
+                "Teilnahme an kollaborativen Lerngruppen mit Fokus auf Machine Learning."
+            ],
+            "technologies": [
+                "AI",
+                "ML"
+            ]
         }
     ]
 }

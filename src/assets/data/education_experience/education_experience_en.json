@@ -33,6 +33,22 @@
                 "Computer Architecture",
                 "Project leadership"
             ]
+        },
+        {
+            "title": "Exchange Semester with focus on ML/AI",
+            "period": "10/2025 - 3/2026",
+            "company": "University of Cologne",
+            "position": "Exchange Student in computer science department",
+            "activities": [
+                "Implemented, trained, and optimized machine learning models using real-world datasets.",
+                "Developed projects focused on graph data analysis and modeling, including generative models, ranking, and graph neural networks (GNNs).",
+                "Improved my German and English language skills.",
+                "Participated in collaborative study groups focused on machine learning."
+            ],
+            "technologies": [
+                "AI",
+                "ML"
+            ]
         }
     ]
 }

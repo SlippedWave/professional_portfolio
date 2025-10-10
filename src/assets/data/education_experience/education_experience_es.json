@@ -32,6 +32,22 @@
                 "Machine Learning",
                 "Liderazgo de proyectos"
             ]
+        },
+        {
+            "title": "Semestre de Intercambio con enfoque en ML/AI",
+            "period": "10/2025 - 3/2026",
+            "company": "Universidad de Colonia",
+            "position": "Estudiante de Intercambio en departamento de informática",
+            "activities": [
+                "Implementé, entrené y optimicé modelos de aprendizaje automático utilizando conjuntos de datos del mundo real.",
+                "Desarrollé proyectos enfocados en el análisis y modelado de datos en grafos, incluyendo modelos generativos, ranking y redes neuronales en grafos (GNNs).",
+                "Mejoré mis habilidades en idioma alemán e inglés.",
+                "Participé en grupos de estudio colaborativos enfocados en el aprendizaje automático."
+            ],
+            "technologies": [
+                "AI",
+                "ML"
+            ]
         }
     ]
 }
