@@ -1,7 +1,11 @@
 {
   "experience_view": {
     "job": "Experiencias laborales",
-    "education": "Educación"
+    "education": "Educación",
+    "tabs": {
+      "job": "Experiencia laboral",
+      "education": "Educación"
+    }
   },
   "errors_view": {
     "notFoundErrorConsoleLines": [
@@ -21,7 +25,7 @@
     "clickToRedirectHome": "Haz clic aquí para regresar a la página de inicio..."
   },
   "owners_info": {
-    "name": "Francisco Javier González-Barriga",
+    "name": "Francisco Javier González Barriga",
     "title": "Científico de Datos y Desarrollador de Software",
     "degree": "Licenciatura en Ingeniería en Computación",
     "university": "Universidad de Guadalajara",
@@ -34,8 +38,11 @@
     "noProjects": "No se encontraron proyectos para el filtro seleccionado",
     "card": {
       "open_repo": "Abrir repositorio",
-      "open_demo": "Ver demo"
-    }
+      "open_demo": "Ver demo",
+      "private": "Privado"
+    },
+    "loading": "Cargando proyectos...",
+    "error": "No se pudieron cargar los proyectos de GitHub. Inténtalo más tarde."
   },
   "home_view": {
     "aboutMeTitle": "Sobre mí",
@@ -46,11 +53,15 @@
     ],
     "aboutMeText": "Soy un apasionado Científico de Datos y Desarrollador de Software con más de 4 años de experiencia en Ciencias de la Computación. Me especializo en resolver desafíos complejos, crear soluciones innovadoras y entregar productos de alta calidad.",
     "getToKnowMeTitle": "Conóceme",
-    "getToKnowMeText": "Soy una persona curiosa que disfruta aprender algo nuevo todos los días. Con mi experiencia en lenguajes como Python, Java y SQL, y una habilidad innata para el trabajo en equipo y la resolución de problemas, siempre estoy dispuesto a superar límites y generar impacto. ¡Trabajemos juntos en algo extraordinario! 🌐✨",
+    "getToKnowMeText": "Soy una persona curiosa que disfruta aprender algo nuevo todos los días. Con mi experiencia en lenguajes como Python, Java y SQL, y una habilidad innata para el trabajo en equipo y la resolución de problemas, siempre estoy dispuesto a superar límites y generar impacto. ¡Trabajemos juntos en algo extraordinario!",
     "hobbiesTitle": "Pasatiempos",
     "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías 👨🏻‍💻, leer libros sobre diversos temas y aprender nuevos idiomas. También disfruto hacer senderismo y pasar tiempo en la naturaleza.",
     "interestsTitle": "Intereses",
-    "interestsText": "Estoy particularmente interesado en la inteligencia artificial, el aprendizaje automático y la visualización de datos 🤖. Siempre estoy dispuesto a aprender cosas nuevas y mantenerme actualizado con las últimas tendencias tecnológicas."
+    "interestsText": "Estoy particularmente interesado en la inteligencia artificial, el aprendizaje automático y la visualización de datos. Siempre estoy dispuesto a aprender cosas nuevas y mantenerme actualizado con las últimas tendencias tecnológicas.",
+    "cta": {
+      "projects": "Ver proyectos",
+      "contact": "Contáctame"
+    }
   },
   "navbar": {
     "home": "/francisco",
@@ -61,7 +72,7 @@
   },
   "footer": {
     "findMe": "También encuéntrame en:",
-    "rights": "© 2025 Francisco González. Todos los derechos reservados."
+    "rights": "© {year} Francisco González. Todos los derechos reservados."
   },
   "contact_form": {
     "title": "Contáctame",
@@ -94,5 +105,15 @@
     "email_disclaimer": "Tu correo no será compartido con nadie más.",
     "required": "Este campo es obligatorio",
     "submitting": "Enviando..."
+  },
+  "common": {
+    "download_cv": "Descargar CV"
+  },
+  "skills_view": {
+    "title": "Habilidades",
+    "hint": "Expande una rama con ›. Desplázate para hacer zoom y arrastra para moverte."
+  },
+  "contact_view": {
+    "direct": "O escríbeme directamente"
   }
 }

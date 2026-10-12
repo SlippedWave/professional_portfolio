@@ -1,128 +1,45 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
+import linkedinIcon from '@/assets/icons/linkedin-icon.svg';
+import githubIcon from '@/assets/icons/github-icon.svg';
+import fiverrIcon from '@/assets/icons/fiverr-icon.svg';
 
 const { t } = useI18n();
 
+const year = new Date().getFullYear();
 
+const socials = [
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/frgonz', icon: linkedinIcon },
+  { label: 'GitHub', href: 'https://github.com/SlippedWave', icon: githubIcon, invert: true },
+  { label: 'Fiverr', href: 'https://www.fiverr.com/frgonz', icon: fiverrIcon },
+];
 </script>
-
-<script>
-export default {
-  data() {
-    return {
-      isContentVisible: false,
-      isFooterClicked: false,
-    };
-  },
-  methods: {
-    showContent() {
-      if (!this.isFooterClicked) {
-        this.isContentVisible = true;
-      }
-    },
-    hideContent() {
-      if (!this.isFooterClicked) {
-        this.isContentVisible = false;
-      }
-    },
-    toggleContent(event) {
-      event.stopPropagation();
-      this.isFooterClicked = !this.isFooterClicked;
-      this.isContentVisible = this.isFooterClicked;
-    },
-    closeContent(event) {
-      if (!this.$el.contains(event.target)) {
-        this.isContentVisible = false;
-        this.isFooterClicked = false;
-      }
-    },
-  },
-  mounted() {
-    document.addEventListener('click', this.closeContent);
-  },
-  beforeUnmount() {
-    document.removeEventListener('click', this.closeContent);
-  },
-};
-</script>
-
 
 <template>
-  <footer class="footer bg-dark text-white py-3 mt-3" @mouseover="showContent" @mouseleave="hideContent"
-    @click="toggleContent">
-    <div class="footer-content container" :class="{
-      'content-visible': isContentVisible || isFooterClicked,
-      'hidden': !isContentVisible && !isFooterClicked
-    }">
-      <div class="row align-items-center upper-content">
-        <div class="col-12 col-md-6 text-md-start text-center">
-          <div class="about-info mb-2">
-            <h5 class="mb-1 fw-bold">{{ t('owners_info.name') }}</h5>
-            <p class="mb-0">{{ t('owners_info.degree') }}</p>
-            <p class="mb-0">{{ t('owners_info.university') }}</p>
-          </div>
-          <div class="address mb-2">
-            <p class="mb-1">{{ t('owners_info.location') }}</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 text-md-end text-center">
-          <div class="contact-me mb-2">
-            <span class="fw-normal">{{ t('footer.findMe') }}</span>
-          </div>
-          <a href="https://www.linkedin.com/in/frgonz" target="_blank" class="btn btn-link text-white">
-            <img src="@/assets/icons/linkedin-icon.svg" alt="LinkedIn" class="icon" />
-          </a>
-          <a href="https://github.com/SlippedWave" target="_blank" class="btn btn-link text-white">
-            <img src="@/assets/icons/github-icon.svg" alt="GitHub" class="icon" />
-          </a>
-          <a href="https://www.fiverr.com/frgonz" target="_blank" class="btn btn-link text-white">
-            <img src="@/assets/icons/fiverr-icon.svg" alt="Fiverr" class="icon" />
+  <footer class="hairline-t z-10 overflow-hidden bg-chrome/80 backdrop-blur-xl backdrop-saturate-150">
+    <!-- Faint glow rising from the hairline -->
+    <div class="pointer-events-none absolute inset-x-0 top-0 h-24 bg-[radial-gradient(ellipse_at_top,rgb(254_128_25/0.08),transparent_70%)]" aria-hidden="true"></div>
+    <div
+      class="relative mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-6 text-center text-sm sm:px-6 md:flex-row md:justify-between md:text-left">
+      <div>
+        <p class="font-medium text-ink">{{ t('owners_info.name') }}</p>
+        <p class="text-ink-muted">{{ t('owners_info.degree') }} · {{ t('owners_info.university') }}</p>
+        <p class="text-ink-muted">{{ t('owners_info.location') }}</p>
+      </div>
+
+      <div class="flex flex-col items-center gap-2 md:items-end">
+        <span class="text-ink-muted">{{ t('footer.findMe') }}</span>
+        <div class="flex gap-2">
+          <a v-for="social in socials" :key="social.label" :href="social.href" target="_blank" rel="noopener"
+            :aria-label="social.label"
+            class="grid size-10 place-items-center rounded-lg border border-edge bg-white/[0.03] transition hover:border-accent hover:bg-accent/10 hover:shadow-[0_0_16px] hover:shadow-accent/30">
+            <img :src="social.icon" alt="" class="size-5" :class="{ invert: social.invert }" />
           </a>
         </div>
-        <hr>
       </div>
     </div>
-    <div class="text-center text-md-left lower-content">
-      <small class="fw-light">{{ t('footer.rights') }}</small>
-    </div>
+    <p class="border-t border-edge py-3 text-center font-mono text-xs text-ink-muted/70">
+      {{ t('footer.rights', { year }) }}
+    </p>
   </footer>
 </template>
-
-
-<style scoped>
-.footer {
-  width: 100%;
-  z-index: 10;
-  cursor: pointer;
-  box-shadow: 0px -25px 20px -25px rgba(0, 0, 0, 0.45);
-}
-
-.footer-content {
-  transition: opacity 0.5s ease, max-height 0.5s ease;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-}
-
-.footer-content.content-visible {
-  max-height: 1000px;
-  opacity: 1;
-}
-
-.footer-content.hidden {
-  max-height: 0;
-  opacity: 0;
-}
-
-.upper-content {
-  display: none;
-}
-
-.footer-content.content-visible .upper-content {
-  display: flex;
-}
-
-.lower-content {
-  opacity: 0.5;
-}
-</style>

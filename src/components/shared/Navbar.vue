@@ -1,79 +1,34 @@
-<template>
-  <nav ref="navRef" class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top" @click.stop>
-    <div class="container py-2">
-      <RouterLink class="navbar-brand" to="/" @click="toggleMenu" exact-active-class="">
-        <TypingAnimation :lines="lines" :writting_speed="100" :change_cursor_speed="500" />
-      </RouterLink>
-
-      <div class="d-lg-none">
-        <BurgerMenu :isOpen="isMenuOpen" @toggle="toggleMenu" />
-      </div>
-
-      <!-- Close on link click -->
-      <div ref="navbarCollapse" class="collapse navbar-collapse" :class="{ show: isMenuOpen }" id="navbarNav">
-        <hr v-if="isMenuOpen" class="navbar-divider d-lg-none" />
-        <ul class="navbar-nav ms-auto bg-dark rounded p-1 align-items-center text-nowrap">
-          <li class="nav-item px-2">
-            <LanguageSwitcher />
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/" @click="toggleMenu">
-              {{ t('navbar.home') }}
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/projects" @click="toggleMenu">
-              {{ t('navbar.projects') }}
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/skills" @click="toggleMenu">
-              {{ t('navbar.skills') }}
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/experience" @click="toggleMenu">
-              {{ t('navbar.experience') }}
-            </RouterLink>
-          </li>
-          <li class="nav-item">
-            <RouterLink class="nav-link" to="/contact" @click="toggleMenu">
-              {{ t('navbar.contact') }}
-            </RouterLink>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</template>
-
 <script setup>
-import { ref, onUnmounted, onMounted } from 'vue'
+import { ref, watch, onUnmounted, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 import TypingAnimation from './TypingAnimation.vue'
 import BurgerMenu from './BurgerMenu.vue'
 import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const { t } = useI18n()
+const route = useRoute()
+
 const lines = ['Francisco González']
+const links = [
+  { to: '/', key: 'navbar.home' },
+  { to: '/projects', key: 'navbar.projects' },
+  { to: '/skills', key: 'navbar.skills' },
+  { to: '/experience', key: 'navbar.experience' },
+  { to: '/contact', key: 'navbar.contact' },
+]
 
 const isMenuOpen = ref(false)
 const navRef = ref(null)
-const navbarCollapse = ref(null)
 
-function toggleMenu() {
-  isMenuOpen.value = !isMenuOpen.value
-}
+// Close mobile menu on any navigation
+watch(() => route.fullPath, () => {
+  isMenuOpen.value = false
+})
 
 function handleClickOutside(event) {
-  if (
-    isMenuOpen.value &&
-    navbarCollapse.value &&
-    !navRef.value.contains(event.target)
-
-  ) {
-    toggleMenu()
+  if (isMenuOpen.value && !navRef.value.contains(event.target)) {
+    isMenuOpen.value = false
   }
 }
 
@@ -86,39 +41,34 @@ onUnmounted(() => {
 })
 </script>
 
-<style scoped>
-.navbar {
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  width: 100%;
-  box-shadow: 0px 29px 20px -25px rgba(0, 0, 0, 0.45);
-}
+<template>
+  <nav ref="navRef" class="hairline-b bg-chrome/75 backdrop-blur-xl backdrop-saturate-150">
+    <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <RouterLink to="/" class="flex items-center gap-2 font-mono text-lg text-ink">
+        <span class="font-bold text-accent">$</span>
+        <TypingAnimation :lines="lines" :speed="90" :lineDelay="400" />
+      </RouterLink>
 
-.navbar-nav {
-  max-width: 800px;
-  overflow-x: auto;
+      <div class="lg:hidden">
+        <BurgerMenu :isOpen="isMenuOpen" @toggle="isMenuOpen = !isMenuOpen" />
+      </div>
 
-}
-
-.navbar-brand {
-  font-size: 1.35rem;
-}
-
-.nav-link {
-  font-size: 1.25rem;
-}
-
-.nav-link:hover {
-  color: #ffffff !important;
-}
-
-.router-link-exact-active {
-  font-weight: bold;
-  color: #00ff00 !important;
-}
-
-.navbar-divider {
-  border-color: rgb(255, 255, 255);
-  margin: 0.75rem 0;
-}
-</style>
+      <div id="navbarNav"
+        class="absolute inset-x-0 top-full border-b border-edge bg-chrome px-4 pb-4 shadow-2xl shadow-black/60 lg:static lg:flex lg:items-center lg:gap-4 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
+        :class="isMenuOpen ? 'block' : 'hidden'">
+        <ul class="flex flex-col gap-1 py-2 font-mono lg:flex-row lg:py-0">
+          <li v-for="link in links" :key="link.to">
+            <RouterLink :to="link.to"
+              class="block rounded-md px-3 py-2 text-ink-muted transition-colors hover:bg-white/5 hover:text-ink"
+              exact-active-class="!text-accent bg-accent/10">
+              {{ t(link.key) }}
+            </RouterLink>
+          </li>
+        </ul>
+        <div class="mt-2 lg:mt-0">
+          <LanguageSwitcher />
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>

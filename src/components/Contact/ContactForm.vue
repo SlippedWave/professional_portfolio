@@ -1,102 +1,101 @@
 <template>
-    <div class="bg-primary contact-form p-4 rounded">
-        <form @submit.prevent="handleSubmit">
-
-            <div class="form-group">
-                <div class="mb-3">
-                    <label for="name" class="form-label">{{ t('contact_form.name') }}*</label>
-                    <input type="text" id="name" v-model="form.name" class="form-control" required />
-                    <span v-if="errors.name" class="text-danger">{{ errors.name }}</span>
-                </div>
+    <form class="panel flex flex-col gap-5 p-5 sm:p-7" novalidate @submit.prevent="handleSubmit">
+        <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+                <label for="name" class="label">{{ t('contact_form.name') }}*</label>
+                <input type="text" id="name" v-model="form.name" class="field" autocomplete="given-name" required />
+                <p v-if="visibleErrors.name" class="error">{{ visibleErrors.name }}</p>
             </div>
 
-            <div class="mb-3">
-                <label for="lastname" class="form-label">{{ t('contact_form.lastname') }}*</label>
-                <input type="text" id="lastname" v-model="form.lastname" class="form-control" required />
-                <span v-if="errors.lastname" class="text-danger">{{ errors.lastname }}</span>
+            <div>
+                <label for="lastname" class="label">{{ t('contact_form.lastname') }}*</label>
+                <input type="text" id="lastname" v-model="form.lastname" class="field" autocomplete="family-name"
+                    required />
+                <p v-if="visibleErrors.lastname" class="error">{{ visibleErrors.lastname }}</p>
             </div>
+        </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">{{ t('contact_form.email') }}*</label>
-                <input type="email" id="email" v-model="form.email" class="form-control" required />
-                <small class="form-text text-muted d-flex">{{ t('contact_form.email_disclaimer') }}</small>
-                <span v-if="errors.email" class="text-danger">{{ errors.email }}</span>
-            </div>
+        <div>
+            <label for="email" class="label">{{ t('contact_form.email') }}*</label>
+            <input type="email" id="email" v-model="form.email" class="field" autocomplete="email" required />
+            <p class="mt-1 text-xs text-ink-muted">{{ t('contact_form.email_disclaimer') }}</p>
+            <p v-if="visibleErrors.email" class="error">{{ visibleErrors.email }}</p>
+        </div>
 
-            <div class="mb-3">
-                <label for="subject" class="form-label">{{ t('contact_form.subject') }}*</label>
-                <input type="text" id="subject" v-model="form.subject" class="form-control" required />
-                <span v-if="errors.subject" class="text-danger">{{ errors.subject }}</span>
-            </div>
+        <div>
+            <label for="subject" class="label">{{ t('contact_form.subject') }}*</label>
+            <input type="text" id="subject" v-model="form.subject" class="field" required />
+            <p v-if="visibleErrors.subject" class="error">{{ visibleErrors.subject }}</p>
+        </div>
 
-            <!-- User Type Selection -->
-            <div class="mb-3">
-                <label class="form-label">{{ t('contact_form.interest.title') }}*</label>
-                <div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="recruiter" value="job" v-model="form.interest"
-                            required />
-                        <label class="form-check-label" for="recruiter">{{ t('contact_form.interest.job') }}</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="project" value="project"
-                            v-model="form.interest" required />
-                        <label class="form-check-label" for="project">{{ t('contact_form.interest.project') }}</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" id="other" value="other" v-model="form.interest"
-                            required />
-                        <label class="form-check-label" for="other">{{ t('contact_form.interest.other') }}</label>
-                    </div>
-                </div>
-                <span v-if="errors.interest" class="text-danger">{{ errors.interest }}</span>
+        <!-- User Type Selection -->
+        <fieldset>
+            <legend class="label">{{ t('contact_form.interest.title') }}*</legend>
+            <div class="flex flex-wrap gap-2">
+                <label v-for="option in interests" :key="option" class="cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors
+                    has-focus-visible:outline-2 has-focus-visible:outline-accent"
+                    :class="form.interest === option ? 'border-accent bg-accent/15 text-ink' : 'border-edge text-ink-muted hover:text-ink'">
+                    <input type="radio" class="sr-only" :value="option" v-model="form.interest" name="interest" />
+                    {{ t(`contact_form.interest.${option}`) }}
+                </label>
             </div>
+            <p v-if="visibleErrors.interest" class="error">{{ visibleErrors.interest }}</p>
+        </fieldset>
 
-            <!-- Conditional Fields -->
-            <div class="mb-3" v-if="form.interest === 'job'">
-                <label for="company" class="form-label">{{ t('contact_form.company') }}*</label>
-                <input type="text" id="company" v-model="form.company" class="form-control" required />
-                <span v-if="errors.company" class="text-danger">{{ errors.company }}</span>
-            </div>
+        <!-- Conditional Fields -->
+        <div v-if="form.interest === 'job'">
+            <label for="company" class="label">{{ t('contact_form.company') }}*</label>
+            <input type="text" id="company" v-model="form.company" class="field" autocomplete="organization"
+                required />
+            <p v-if="visibleErrors.company" class="error">{{ visibleErrors.company }}</p>
+        </div>
 
-            <div class="mb-3" v-if="form.interest === 'project' || form.interest === 'other'">
-                <label for="projectDescription" class="form-label">{{ t('contact_form.project_description') }}*</label>
-                <textarea id="projectDescription" v-model="form.projectDescription" class="form-control" rows="4"
-                    required></textarea>
-                <span v-if="errors.projectDescription" class="text-danger">{{ errors.projectDescription }}</span>
-            </div>
+        <div v-if="form.interest === 'project' || form.interest === 'other'">
+            <label for="projectDescription" class="label">{{ t('contact_form.project_description') }}*</label>
+            <textarea id="projectDescription" v-model="form.projectDescription" class="field" rows="3"
+                required></textarea>
+            <p v-if="visibleErrors.projectDescription" class="error">{{ visibleErrors.projectDescription }}</p>
+        </div>
 
-            <!-- User Message -->
-            <div class="mb-3">
-                <label for="message" class="form-label">{{ t('contact_form.message') }}*</label>
-                <textarea id="message" v-model="form.message" class="form-control" rows="5" required></textarea>
-                <span v-if="errors.message" class="text-danger">{{ errors.message }}</span>
-            </div>
+        <!-- User Message -->
+        <div>
+            <label for="message" class="label">{{ t('contact_form.message') }}*</label>
+            <textarea id="message" v-model="form.message" class="field" rows="5" required></textarea>
+            <p v-if="visibleErrors.message" class="error">{{ visibleErrors.message }}</p>
+        </div>
 
-            <div class="mb-3">
-                <div class="cf-turnstile" data-sitekey="{{ import.meta.env.VITE_SITE_DATA_KEY }}"></div>
-                <span v-if="errors.turnstile" class="text-danger">{{ errors.turnstile }}</span>
-            </div>
+        <div>
+            <div ref="turnstileEl"></div>
+            <p v-if="turnstileError" class="error">{{ turnstileError }}</p>
+        </div>
 
-            <!-- Submit Button -->
-            <div class="d-flex justify-content-center align-items-center">
-                <button type="submit" class="btn btn-primary bg-dark rounded-pill py-3"
-                    :disabled="!isFormValid || isSubmitting">
-                    {{ isSubmitting ? t('contact_form.submitting') : t('contact_form.send') }}
-                </button>
-            </div>
-        </form>
-    </div>
+        <p v-if="status === 'success'" class="flex items-center gap-2 rounded-lg bg-prompt/10 p-3 text-sm text-prompt"
+            role="status">
+            <Icon name="check" :size="16" />{{ t('contact_form.success_message') }}
+        </p>
+        <p v-if="status === 'error'" class="flex items-center gap-2 rounded-lg bg-danger/10 p-3 text-sm text-danger"
+            role="alert">
+            <Icon name="alert" :size="16" />{{ t('contact_form.errors.server') }}
+        </p>
+
+        <button type="submit" class="btn btn-primary self-start px-6 py-2.5" :disabled="isSubmitting">
+            {{ isSubmitting ? t('contact_form.submitting') : t('contact_form.send') }}
+            <Icon v-if="!isSubmitting" name="arrow-right" :size="16" />
+        </button>
+    </form>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import axios from 'axios';
+import Icon from '@/components/shared/Icon.vue';
 
 const { t } = useI18n();
 
-const form = ref({
+const interests = ['job', 'project', 'other'];
+
+const emptyForm = () => ({
     name: '',
     lastname: '',
     email: '',
@@ -107,65 +106,58 @@ const form = ref({
     message: ''
 });
 
-const errors = ref({});
+const form = ref(emptyForm());
+
 const isSubmitting = ref(false);
+const submitted = ref(false);
+const status = ref('');
 
+const turnstileEl = ref(null);
 const turnstileToken = ref('');
+const turnstileError = ref('');
 
-const validateForm = () => {
+const errors = computed(() => {
     const newErrors = {};
+    const f = form.value;
 
-    if (!form.value.name) {
-        newErrors.name = t('contact_form.errors.required');
-    }
+    if (!f.name) newErrors.name = t('contact_form.errors.required');
+    if (!f.lastname) newErrors.lastname = t('contact_form.errors.required');
 
-    if (!form.value.lastname) {
-        newErrors.lastname = t('contact_form.errors.required');
-    }
-
-    if (!form.value.email) {
+    if (!f.email) {
         newErrors.email = t('contact_form.errors.required');
-    } else if (!/\S+@\S+\.\S+/.test(form.value.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(f.email)) {
         newErrors.email = t('contact_form.errors.invalid_email');
     }
 
-    if (!form.value.subject) {
-        newErrors.subject = t('contact_form.errors.required');
-    }
+    if (!f.subject) newErrors.subject = t('contact_form.errors.required');
+    if (!f.interest) newErrors.interest = t('contact_form.errors.required');
 
-    if (!form.value.interest) {
-        newErrors.interest = t('contact_form.errors.required');
-    }
-
-    if (form.value.interest === 'job' && !form.value.company) {
+    if (f.interest === 'job' && !f.company) {
         newErrors.company = t('contact_form.errors.required');
     }
 
-    if ((form.value.interest === 'project' || form.value.interest === 'other') && !form.value.projectDescription) {
+    if ((f.interest === 'project' || f.interest === 'other') && !f.projectDescription) {
         newErrors.projectDescription = t('contact_form.errors.required');
     }
 
-    if (!form.value.message) {
-        newErrors.message = t('contact_form.errors.required');
-    }
+    if (!f.message) newErrors.message = t('contact_form.errors.required');
 
-    errors.value = newErrors;
-
-    return Object.keys(newErrors).length === 0;
-};
-
-const isFormValid = computed(() => {
-    return validateForm();
+    return newErrors;
 });
 
+// Only show validation messages after the first submit attempt
+const visibleErrors = computed(() => (submitted.value ? errors.value : {}));
+
 const handleSubmit = async () => {
-    if (!validateForm()) {
-        console.log(t('contact_form.errors.form_invalid'));
+    submitted.value = true;
+    status.value = '';
+
+    if (Object.keys(errors.value).length) {
         return;
     }
 
     if (!turnstileToken.value) {
-        errors.value.turnstile = t('contact_form.errors.turnstile_required');
+        turnstileError.value = t('contact_form.errors.turnstile_required');
         return;
     }
 
@@ -177,86 +169,57 @@ const handleSubmit = async () => {
                 'Content-Type': 'application/json'
             }
         });
-        alert(t('contact_form.success_message'));
-
-        form.value = {
-            name: '',
-            lastname: '',
-            email: '',
-            subject: '',
-            interest: '',
-            company: '',
-            projectDescription: '',
-            message: ''
-        };
-        errors.value = {};
+        status.value = 'success';
+        form.value = emptyForm();
+        submitted.value = false;
         turnstileToken.value = '';
+        window.turnstile?.reset(turnstileEl.value);
     } catch (error) {
-        console.log(t('contact_form.errors.server'));
+        console.error(error);
+        status.value = 'error';
     } finally {
         isSubmitting.value = false;
     }
 };
 
-const loadTurnstile = () => {
-    if (window.turnstile) {
-        window.turnstile.render('.cf-turnstile', {
-            sitekey: import.meta.env.VITE_SITE_DATA_KEY,
-            callback: (token) => {
-                turnstileToken.value = token;
-                errors.value.turnstile = '';
-            },
-            'error-callback': () => {
-                errors.value.turnstile = t('contact_form.errors.turnstile_error');
-            }
-        });
-    }
+const renderTurnstile = () => {
+    if (!window.turnstile || !turnstileEl.value) return;
+    window.turnstile.render(turnstileEl.value, {
+        sitekey: import.meta.env.VITE_SITE_DATA_KEY,
+        theme: 'dark',
+        callback: (token) => {
+            turnstileToken.value = token;
+            turnstileError.value = '';
+        },
+        'error-callback': () => {
+            turnstileError.value = t('contact_form.errors.turnstile_error');
+        }
+    });
 };
 
 onMounted(() => {
+    // Script persists across visits; only inject it once
+    if (window.turnstile) {
+        renderTurnstile();
+        return;
+    }
     const script = document.createElement('script');
     script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
     script.async = true;
     script.defer = true;
-    script.onload = loadTurnstile;
+    script.onload = renderTurnstile;
     document.head.appendChild(script);
 });
 </script>
 
 <style scoped>
-.contact-form {
-    max-width: 650px;
-    color: #fff;
-    font-size: 1.25rem;
+@reference "@/assets/styles/main.css";
+
+.label {
+    @apply mb-1.5 block text-sm font-medium text-ink;
 }
 
-small {
-    color: rgb(170, 196, 230) !important;
-}
-
-.form-label {
-    color: #fff;
-}
-
-.btn-primary {
-    font-weight: bold;
-    background: none;
-    color: rgb(145, 145, 145);
-    border: none;
-    min-width: 100px;
-}
-
-.btn-primary:hover {
-    color: white;
-}
-
-.text-danger {
-    color: #dc3545;
-    font-size: 0.875em;
-}
-
-.contact-form button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+.error {
+    @apply mt-1 text-sm text-danger;
 }
 </style>

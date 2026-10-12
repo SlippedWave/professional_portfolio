@@ -1,38 +1,7 @@
-<template>
-    <div class="project-card">
-        <div class="project-image">
-            <img :src="imageUrl" :alt="name" class="img-fluid" @error="$event.target.src = '/default-project.png'" />
-        </div>
-        <div class="project-content">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-                <h3 class="project-title mb-0">{{ name }}</h3>
-                <span v-if="isPrivate" class="badge bg-warning text-dark">Private</span>
-            </div>
-            <p class="project-description">{{ description }}</p>
-
-            <div class="project-languages">
-                <span v-for="lang in languages" :key="lang.name" class="language-tag"
-                    :style="{ backgroundColor: `${lang.color}20`, color: lang.color }">
-                    {{ lang.name }}
-                </span>
-            </div>
-
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="btn-group bg-dark p-1">
-                    <a v-if="url" :href="url" target="_blank" class="btn btn_des">
-                        {{ t('projects_view.card.open_repo') }}
-                    </a>
-                    <a v-if="homepageUrl" :href="homepageUrl" target="_blank" class="btn btn_des">
-                        {{ t('projects_view.card.open_demo') }}
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-
 <script setup>
+import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+import Icon from '@/components/shared/Icon.vue';
 
 const { t } = useI18n();
 
@@ -44,59 +13,56 @@ defineProps({
     isPrivate: Boolean,
     languages: Array,
     imageUrl: String,
-    visibility: String
+    visibility: String,
+    stars: Number
 });
+
+const imageFailed = ref(false);
 </script>
 
-<style scoped>
-.project-card {
-    background: rgba(74, 144, 226, 0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid rgba(74, 144, 226, 0.1);
-    transition: transform 0.3s ease;
-    color: rgb(135, 161, 194) !important;
-}
+<template>
+    <article
+        class="panel group flex h-full flex-col overflow-hidden transition hover:-translate-y-1 hover:border-accent/40">
+        <div class="relative aspect-[2/1] overflow-hidden border-b border-edge bg-panel-2">
+            <img v-if="imageUrl && !imageFailed" :src="imageUrl" :alt="name" loading="lazy"
+                class="size-full object-cover transition duration-500 group-hover:scale-105"
+                @error="imageFailed = true" />
+            <div v-else
+                class="grid size-full place-items-center bg-[linear-gradient(135deg,var(--color-panel-2),var(--color-canvas))] font-mono text-4xl font-bold text-accent/70">
+                {{ name?.charAt(0).toUpperCase() }}
+            </div>
+        </div>
 
-.project-card:hover {
-    transform: translateY(-5px);
-}
+        <div class="flex flex-1 flex-col gap-3 p-5">
+            <div class="flex items-start justify-between gap-2">
+                <h3 class="font-mono text-lg font-bold break-all text-ink">{{ name }}</h3>
+                <div class="flex shrink-0 items-center gap-2">
+                    <span v-if="stars" class="inline-flex items-center gap-1 text-xs text-ink-muted">
+                        <Icon name="star" :size="14" />{{ stars }}
+                    </span>
+                    <span v-if="isPrivate" class="chip border-warn/40 text-warn">{{ t('projects_view.card.private') }}</span>
+                </div>
+            </div>
 
-.project-image img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+            <p v-if="description" class="line-clamp-3 text-sm leading-relaxed text-ink/75">{{ description }}</p>
 
-.project-content {
-    padding: 1.5rem;
-}
+            <div class="flex flex-wrap gap-1.5">
+                <span v-for="lang in languages" :key="lang.name" class="chip gap-1.5">
+                    <span class="size-2 rounded-full" :style="{ backgroundColor: lang.color || '#888' }"></span>
+                    {{ lang.name }}
+                </span>
+            </div>
 
-.language-tag {
-    padding: 0.25rem 0.75rem;
-    border-radius: 15px;
-    font-size: 0.875rem;
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-    display: inline-block;
-}
-
-.btn-group .btn {
-    border-radius: 5px;
-}
-
-.btn_des {
-    font-weight: bold;
-    background: none;
-    color: rgb(145, 145, 145);
-    border: none;
-}
-
-.btn_des:hover {
-    color: white;
-}
-
-.project-languages {
-    margin: 1rem 0;
-}
-</style>
+            <div class="mt-auto flex gap-2 pt-2">
+                <a v-if="url" :href="url" target="_blank" rel="noopener" class="btn btn-outline flex-1 py-1.5">
+                    {{ t('projects_view.card.open_repo') }}
+                </a>
+                <a v-if="homepageUrl" :href="homepageUrl" target="_blank" rel="noopener"
+                    class="btn btn-primary flex-1 py-1.5">
+                    {{ t('projects_view.card.open_demo') }}
+                    <Icon name="external" :size="14" />
+                </a>
+            </div>
+        </div>
+    </article>
+</template>

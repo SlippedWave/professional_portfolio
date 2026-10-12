@@ -1,0 +1,41 @@
+# Search engines are welcome to index the portfolio pages.
+User-agent: *
+Allow: /
+# Keep the CV (contains personal contact data) and error pages out of search results
+Disallow: /*.pdf$
+Disallow: /error/
+
+# AI training / data-harvesting crawlers: no access
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Bytespider
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: Diffbot
+User-agent: Omgilibot
+User-agent: omgili
+User-agent: ImagesiftBot
+User-agent: cohere-ai
+User-agent: Timpibot
+User-agent: YouBot
+Disallow: /
+
+# SEO/backlink scrapers: no access
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: BLEXBot
+User-agent: DataForSeoBot
+Disallow: /
+
+Sitemap: https://frgonz.dev/sitemap.xml

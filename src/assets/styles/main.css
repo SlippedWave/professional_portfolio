@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* Gruvbox Dark palette (morhetz/gruvbox) */
+@theme {
+  --font-sans: "Ubuntu Sans", "Ubuntu", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Ubuntu Mono", "Ubuntu Sans Mono", ui-monospace, monospace;
+
+  --color-canvas: #1d2021;
+  --color-panel: #282828;
+  --color-panel-2: #3c3836;
+  --color-raised: #504945;
+  --color-chrome: #151718;
+  --color-titlebar: #32302f;
+  --color-edge: rgb(235 219 178 / 0.1);
+  --color-ink: #ebdbb2;
+  --color-ink-muted: #a89984;
+  --color-accent: #fe8019;
+  --color-alt: #fabd2f;
+  --color-prompt: #b8bb26;
+  --color-path: #83a598;
+  --color-danger: #fb4934;
+  --color-warn: #fabd2f;
+
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent text-canvas;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(254 128 25 / 0.5) transparent;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-edge bg-panel/85 shadow-[0_20px_40px_-20px_rgb(0_0_0/0.7)] backdrop-blur-sm;
+  }
+
+  .btn {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-accent font-bold text-canvas hover:bg-accent/85;
+  }
+
+  .btn-ghost {
+    @apply text-ink-muted hover:bg-white/5 hover:text-ink;
+  }
+
+  .btn-outline {
+    @apply border border-edge text-ink hover:border-accent hover:text-accent;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-edge bg-white/5 px-2.5 py-0.5 font-mono text-xs text-ink-muted;
+  }
+
+  .field {
+    @apply w-full rounded-lg border border-edge bg-black/25 px-3 py-2 text-ink placeholder:text-ink-muted/50 focus:border-accent focus:ring-2 focus:ring-accent/30 focus:outline-none;
+  }
+
+  /* Gradient hairline (orange to yellow) for header bottom / footer top */
+  .hairline-b,
+  .hairline-t {
+    @apply relative;
+  }
+
+  .hairline-b::after,
+  .hairline-t::before {
+    content: "";
+    @apply pointer-events-none absolute inset-x-0 h-px bg-[linear-gradient(90deg,transparent,rgb(254_128_25/0.8)_30%,rgb(250_189_47/0.6)_70%,transparent)];
+  }
+
+  .hairline-b::after {
+    @apply bottom-0;
+  }
+
+  .hairline-t::before {
+    @apply top-0;
+  }
+
+  /* Powerline segment with arrow tail; chain by overlapping the next one */
+  .seg {
+    @apply inline-flex h-full items-center pr-5 pl-3 whitespace-nowrap;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  }
+
+  /* Notched left edge reveals the previous segment's tail with a 2px gap */
+  .seg + .seg {
+    @apply -ml-2 pl-5;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%);
+  }
+
+  .section-title {
+    @apply font-mono text-3xl font-bold text-ink sm:text-4xl;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

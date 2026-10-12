@@ -1,58 +1,58 @@
 {
     "name": "Fähigkeiten",
-    "description": "Dies sind die beruflichen Fähigkeiten, die ich in meinen Projekten einsetze.",
+    "description": "Die Werkzeuge und Fähigkeiten, die ich wirklich eingesetzt habe: in Freelance-Projekten, bei HPT Center and Planning, in der Forschung an der UdeG und während meines Austauschs in Köln.",
     "children": [
         {
             "name": "Programmiersprachen",
-            "description": "Sprachen, die in verschiedenen Bereichen der Softwareentwicklung verwendet werden und jeweils in unterschiedlichen Kontexten spezialisiert sind.",
+            "description": "Die Sprachen, die ich täglich schreibe – von produktiven Webanwendungen bis zu Competitive Programming und Machine-Learning-Experimenten.",
             "children": [
                 {
                     "name": "Hochsprachen",
-                    "description": "Sprachen, die ich für die meisten meiner Projekte verwende und die die Entwicklung und das Lernen vereinfachen.",
+                    "description": "Meine bevorzugten Sprachen, wenn ich schnell vorankommen will, ohne auf Struktur zu verzichten.",
                     "children": [
                         {
                             "name": "Python",
-                            "description": "Hauptsächlich für Datenanalyse, künstliche Intelligenz und Webentwicklung genutzt, dank der großen Vielfalt an Bibliotheken."
+                            "description": "Meine Hauptsprache. Als Freelancer habe ich Flask-Backends und APIs gebaut, und an der Universität zu Köln habe ich ML-Modelle mit realen Datensätzen implementiert, trainiert und optimiert, darunter Graph Neural Networks."
                         },
                         {
                             "name": "Java",
-                            "description": "Verwendet zur Entwicklung robuster Geschäftsanwendungen wie Kassensysteme."
+                            "description": "Mit Java habe ich Geschäftsanwendungen wie Kassensysteme entwickelt, bei denen sauberes objektorientiertes Design die Logik wartbar hält."
                         },
                         {
                             "name": "C#",
-                            "description": "Verwendet zur Entwicklung von .NET-Anwendungen."
+                            "description": "Ich habe mit C# .NET-Anwendungen entwickelt."
                         }
                     ]
                 },
                 {
                     "name": "Webentwicklungssprachen",
-                    "description": "Zusammen mit Python sind dies die Hauptsprachen, mit denen ich Webanwendungen entwickle.",
+                    "description": "Zusammen mit Python sind das die Sprachen, mit denen ich Webprodukte ausliefere – in Kundenprojekten wie bei HPT.",
                     "children": [
                         {
                             "name": "JavaScript",
-                            "description": "Verwendet zur Entwicklung von responsiveren clientseitigen Anwendungen."
+                            "description": "Damit mache ich Oberflächen interaktiv: Blade-Views bei HPT, Vue-Frontends für meine Flask-Projekte und dieses Portfolio selbst."
                         },
                         {
                             "name": "PHP",
-                            "description": "Verwendet für dynamische Webanwendungen."
+                            "description": "Die Sprache hinter dem Großteil meiner professionellen Webarbeit: die CRM- und Lagermodule aus meiner Freelance-Zeit und das ERP, an dem ich bei HPT gearbeitet habe."
                         },
                         {
                             "name": "HTML",
-                            "description": "Das grundlegende Framework für die Struktur jeder Webseite, unerlässlich für die Frontend-Entwicklung."
+                            "description": "Die Grundlage jeder Oberfläche, die ich gebaut habe – von meiner ersten Landingpage am CETI bis zu Blade-Templates in Produktion."
                         }
                     ]
                 },
                 {
                     "name": "System- und Performancesprachen",
-                    "description": "Sprachen, die für präzise Hardwarekontrolle oder hohe Leistung entwickelt wurden.",
+                    "description": "Wo Effizienz zählt: knappe Algorithmen und direkter Zugriff auf die Daten.",
                     "children": [
                         {
                             "name": "C/C++",
-                            "description": "Hauptsächlich verwendet zur Lösung von ICPC-Problemen und für Konsolenanwendungen, mit einer soliden Basis in Datenstrukturen in dieser Sprache."
+                            "description": "Meine Sprache für die ICPC-Wettbewerbe an meinem Campus: schnelle Lösungen unter Zeitdruck auf Basis solider Kenntnisse in Datenstrukturen und Algorithmen."
                         },
                         {
                             "name": "SQL",
-                            "description": "Verwendet zur Erstellung von Abfragen und zur Aktualisierung von Informationen in den Datenbanken meiner Projekte."
+                            "description": "Ich schreibe die Abfragen, die in meinen Projekten Daten erfassen, speichern und auswerten – etwa für die CRM- und Lagerfunktionen aus meiner Freelance-Arbeit."
                         }
                     ]
                 }
@@ -60,101 +60,101 @@
         },
         {
             "name": "Technologien",
-            "description": "Tools und Plattformen, die häufig in der Entwicklung verwendet werden, um Produktivität und Softwarequalität zu erhöhen.",
+            "description": "Die Tools und Frameworks meines Arbeitsalltags – ausgewählt danach, was ich damit ausliefern kann.",
             "children": [
                 {
                     "name": "Git",
-                    "description": "Ein Versionskontrollsystem zur Verwaltung von Codebasen."
+                    "description": "Teil jedes Projekts, an dem ich arbeite. Bei HPT habe ich damit täglich an einer gemeinsamen ERP-Codebasis mitgearbeitet."
                 },
                 {
                     "name": "LaTeX",
-                    "description": "Verwendet zur Erstellung hochwertiger technischer Dokumente."
+                    "description": "Mit LaTeX verfasse ich saubere, gut strukturierte technische Dokumente."
                 },
                 {
                     "name": "ClickUp",
-                    "description": "Ein Tool für Zusammenarbeit und Projektmanagement."
+                    "description": "Mit ClickUp habe ich Aufgaben organisiert und den Projektfortschritt im Team verfolgt."
                 },
                 {
                     "name": "Docker",
-                    "description": "Eine Containerplattform zur Erstellung und Bereitstellung von Anwendungen."
+                    "description": "Bei HPT habe ich Docker bei der Entwicklung unserer Laravel-Anwendungen eingesetzt."
                 },
                 {
                     "name": "Vue.js",
-                    "description": "Ein progressives JavaScript-Framework zur Erstellung von Benutzeroberflächen."
+                    "description": "Mein Lieblings-Frontend-Framework. In meinen Freelance-Full-Stack-Apps habe ich es mit Flask kombiniert, und dieses Portfolio ist mit Vue 3 gebaut."
                 },
                 {
                     "name": "React.js",
-                    "description": "Eine JavaScript-Bibliothek für komponentenbasierte Benutzeroberflächen."
+                    "description": "Mit React habe ich komponentenbasierte Oberflächen gebaut."
                 },
                 {
                     "name": "Laravel",
-                    "description": "Ein PHP-Framework für Backend-Entwicklung."
+                    "description": "Das Framework, das ich in Produktion am meisten genutzt habe: eigene Module, Middleware und REST-APIs bei HPT sowie CRM- und Lagerfunktionen als Freelancer."
                 },
                 {
                     "name": "MSSQL",
-                    "description": "Ein relationales Datenbankmanagementsystem."
+                    "description": "Ich habe Microsoft SQL Server als relationale Datenbank für meine Anwendungen eingesetzt."
                 }
             ]
         },
         {
             "name": "Webentwicklung",
-            "description": "Fähigkeiten zur Erstellung von Webanwendungen, sowohl im Frontend als auch im Backend.",
+            "description": "Full-Stack-Arbeit von Anfang bis Ende – von den Datenbanktabellen bis zum Bildschirm, auf den der Nutzer klickt.",
             "children": [
                 {
                     "name": "Frontend",
-                    "description": "Technologien zur Erstellung der Benutzeroberfläche von Webanwendungen.",
+                    "description": "Oberflächen, die responsiv, klar und angenehm zu bedienen sind.",
                     "children": [
                         {
                             "name": "React",
-                            "description": "Eine JavaScript-Bibliothek zur Erstellung interaktiver Benutzeroberflächen."
+                            "description": "Mit React habe ich interaktive, komponentenbasierte Benutzeroberflächen gebaut."
                         },
                         {
                             "name": "Vue",
-                            "description": "Ein progressives Framework für die Frontend-Entwicklung."
+                            "description": "Die Frontends meiner Flask-Anwendungen habe ich mit Vue gebaut, und dieses Portfolio mit Vue 3, Tailwind und D3 neu entwickelt."
                         },
                         {
                             "name": "HTML",
-                            "description": "Die Auszeichnungssprache, die das Fundament jeder Webseite bildet."
+                            "description": "Mit semantischem Markup beginnt jede Seite, die ich baue – von Blade-Templates bei HPT bis zu dieser Website."
                         },
                         {
                             "name": "CSS",
-                            "description": "Verwendet zur Gestaltung und Anordnung von Webseiten."
+                            "description": "Bei HPT habe ich skalierbare, responsive Oberflächen mit CSS und Bootstrap erstellt; dieses Portfolio nutzt Tailwind."
                         }
                     ]
                 },
                 {
                     "name": "Backend",
-                    "description": "Tools und Frameworks für Backend-Entwicklung.",
+                    "description": "Geschäftslogik, APIs und Daten: der Teil, den Nutzer nicht sehen, auf den sie sich aber verlassen.",
                     "children": [
                         {
                             "name": "PHP",
-                            "description": "Ein serverseitiges Skriptsprachen-Framework."
+                            "description": "Serverseitiges PHP trieb die CRM-, Lager- und ERP-Systeme an, an denen ich mitgewirkt habe."
                         },
                         {
                             "name": "Laravel",
-                            "description": "Ein PHP-Framework zur schnellen Webanwendungsentwicklung."
+                            "description": "Bei HPT habe ich Laravel-Apps mit eigenen Modulen und Middleware entwickelt und gepflegt sowie APIs für Drittanbieter-Integrationen gebaut und dokumentiert."
                         },
                         {
                             "name": "Flask",
-                            "description": "Ein leichtgewichtiges Python-Framework zur Webentwicklung."
+                            "description": "Meine Wahl für schlanke Python-Backends. Als Freelancer habe ich mit Flask und MySQL Full-Stack-Apps und APIs für interne und externe Nutzung gebaut."
                         }
                     ]
                 },
                 {
                     "name": "Datenbanken",
-                    "description": "Fähigkeiten zur Datenbankgestaltung und -optimierung.",
+                    "description": "Datenmodelle entwerfen, die konsistent und schnell bleiben, während das Geschäft wächst.",
                     "children": [
                         {
                             "name": "MSSQL",
-                            "description": "Ein relationales Datenbankmanagementsystem."
+                            "description": "Ich habe Microsoft SQL Server genutzt, um Anwendungsdaten zu speichern und abzufragen."
                         },
                         {
                             "name": "SQL-Normalisierung",
-                            "description": "Eine Methode zur Organisation von Datenbanken für optimale Effizienz."
+                            "description": "Als ich als Freelancer das System eines Kunden erweitert habe, habe ich die neuen Tabellen normalisiert, um die Datenintegrität zu sichern und Abfragen effizient zu halten."
                         },
                         {
                             "name": "Tabellengestaltung",
-                            "description": "Erstellung effektiver und skalierbarer Datenbanktabellenstrukturen."
+                            "description": "Ich habe neue Tabellen für reale Geschäftsanforderungen in CRM- und Lagersystemen entworfen und dabei Integrität und Performance abgewogen."
                         }
                     ]
                 }
@@ -162,79 +162,79 @@
         },
         {
             "name": "Soft Skills",
-            "description": "Helfen mir, effizient und freundlich im Team zu arbeiten.",
+            "description": "Was ich in Unternehmen, Freelance-Teams, Wettbewerben und im Ausland gelernt habe.",
             "children": [
                 {
                     "name": "Teamarbeit",
-                    "description": "Fähigkeit, mit anderen zusammenzuarbeiten, um gemeinsame Ziele zu erreichen."
+                    "description": "Von der gemeinsamen ERP-Codebasis bei HPT bis zu Machine-Learning-Lerngruppen in Köln: Im Team arbeite ich am besten."
                 },
                 {
                     "name": "Führung",
-                    "description": "Die Fähigkeit, Teams zu führen und zu motivieren."
+                    "description": "Während meines Studiums an der UdeG habe ich Projekte geleitet, die Arbeit organisiert und das Team auf Kurs gehalten."
                 },
                 {
                     "name": "Problemlösung",
-                    "description": "Analytische Ansätze zur Bewältigung von Herausforderungen."
+                    "description": "Der ICPC hat mich gelehrt, schwierige Probleme unter Druck zu zerlegen; denselben Ansatz nutze ich bei Bugs und Anforderungen im Job."
                 },
                 {
                     "name": "Anpassungsfähigkeit",
-                    "description": "Schnelle Anpassung an neue Umgebungen oder Technologien."
+                    "description": "Ich bin von HR-Analysen in die Webentwicklung gewechselt und habe ein Semester in Köln auf Deutsch und Englisch studiert."
                 },
                 {
                     "name": "Einfallsreichtum",
-                    "description": "Kreatives Denken zur Entwicklung innovativer Lösungen."
+                    "description": "Bei HCL habe ich manuelle Datenpflege durch Makros ersetzt, die Mitarbeiterinformationen automatisch speicherten."
                 },
                 {
                     "name": "Neugier",
-                    "description": "Ständige Suche nach Wissen und Verbesserung."
+                    "description": "Sie hat mich in die Machine-Learning-Forschung an der UdeG und zu Graph Neural Networks in Köln geführt und lässt mich ständig neue Tools lernen."
                 },
                 {
                     "name": "Analytisches Denken",
-                    "description": "Strukturierte und methodische Problemanalyse."
+                    "description": "Von HR-Reports bei HCL bis zur Analyse von Graphdaten und Ranking-Modellen in Köln: Ich mache gern aus Daten klare Entscheidungen."
                 },
                 {
                     "name": "Kreativität",
-                    "description": "Die Fähigkeit, originelle und innovative Ideen zu entwickeln."
+                    "description": "Meine ersten Projekte am CETI waren eine Landingpage, ein Forum und eine DEX für ein Kryptowährungsprojekt – von Grund auf gebaut."
                 }
             ]
         },
         {
             "name": "Sprachen",
-            "description": "Sprachkenntnisse, die ich zur Kommunikation einsetze.",
+            "description": "Die Sprachen, in denen ich lebe und arbeite.",
             "children": [
                 {
                     "name": "Englisch",
-                    "description": "Sprachniveau: C1. Ideal für internationale Projekte und fortgeschrittene technische Kommunikation."
+                    "description": "C1. Ich arbeite täglich mit englischer Dokumentation und englischem Code und habe während meines Austauschs in Köln auf Englisch studiert."
                 },
                 {
                     "name": "Deutsch",
-                    "description": "Sprachniveau: B2. Nützlich für die Interaktion in deutschsprachigen Umgebungen und technische Dokumente."
+                    "description": "B2. Ich habe es beim Leben und Studieren in Köln 2025–2026 vertieft."
                 },
                 {
                     "name": "Spanisch",
-                    "description": "Muttersprache. Wesentlich für die Zusammenarbeit mit spanischsprachigen Teams und lokalen Kunden."
+                    "description": "Muttersprache. Die Sprache meiner lokalen Kunden und Teams in Guadalajara."
                 }
             ]
         },
         {
             "name": "Werkzeuge und Methoden",
-            "description": "Software und Methoden, die in der professionellen Entwicklung zur Sicherung von Qualität und Effizienz verwendet werden.",
+            "description": "Wie ich Arbeit organisiere, damit sie pünktlich ausgeliefert wird und wartbar bleibt.",
             "children": [
                 {
                     "name": "Agile Entwicklung",
-                    "description": "Ein iterativer Ansatz zur Softwareentwicklung."
+                    "description": "Ich arbeite in kurzen Iterationen und definiere, baue und liefere Features gemeinsam mit dem Team – so wie als Freelance-Full-Stack-Entwickler."
                 },
                 {
                     "name": "Versionskontrolle mit Git",
-                    "description": "Ein System zur Nachverfolgung von Änderungen im Quellcode."
+                    "description": "Saubere Commits und Branches sind mein Weg, gemeinsame Codebasen wie das ERP bei HPT im Griff zu behalten."
                 },
                 {
                     "name": "Zusammenarbeitstools wie ClickUp",
-                    "description": "Plattformen zur Teamorganisation und Projektverfolgung."
+                    "description": "Mit Tools wie ClickUp habe ich Arbeit in Aufgaben aufgeteilt und alle über den Fortschritt auf dem Laufenden gehalten."
                 },
                 {
                     "name": "Datenbankmodellierung und -optimierung",
-                    "description": "Effiziente Gestaltung und Verwaltung von Datenbanken."
+                    "description": "Ich modelliere Daten für CRM-, Lager- und ERP-Systeme mit Blick auf Integrität und Abfrageleistung."
                 }
             ]
         }

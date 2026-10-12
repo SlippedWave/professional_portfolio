@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, createVNode, render, defineProps, nextTick } from 'vue';
+import { ref, reactive, h, onMounted, onUnmounted, createVNode, render, nextTick } from 'vue';
 import * as d3 from 'd3';
 import SkillNode from './SkillNode.vue';
 
@@ -17,31 +17,30 @@ const props = defineProps({
 });
 
 const mindMap = ref(null);
-const currentScale = ref(1);
 
-const calculateNodeHeight = (d) => {
-    // Base height for node content
-    const baseHeight = 100;
+// Node card geometry relative to its tree position (card is 280px wide)
+const NODE_LEFT = -100;
+const NODE_RIGHT = 180;
+const NODE_HALF_HEIGHT = 26;
+const NODE_SPACING = 110;
+const LEVEL_SPACING = 380;
 
-    // Additional height for expanded nodes with children
-    const childrenHeight = d.children ? (d.children.length * 80) : 0;
-
-    // Total height with padding
-    return baseHeight + childrenHeight + 40; // 40px extra padding
+// Unmount Vue nodes rendered into foreignObjects before clearing the SVG
+const clearMindMap = () => {
+    if (!mindMap.value) return;
+    mindMap.value.querySelectorAll('foreignObject').forEach(el => render(null, el));
+    mindMap.value.innerHTML = '';
 };
 
 const drawMindMap = () => {
     if (!mindMap.value) return;
 
-    mindMap.value.innerHTML = '';
+    clearMindMap();
 
-    const containerWidth = mindMap.value.clientWidth;
-    const containerHeight = mindMap.value.clientHeight;
-    const width = Math.max(containerWidth, 2000);
-    const height = Math.max(containerHeight, 1000);
-
-    const centerX = width / 2;
-    const centerY = height / 2;
+    const width = mindMap.value.clientWidth;
+    const height = mindMap.value.clientHeight;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const duration = reduceMotion ? 0 : 500;
 
     const svg = d3.select(mindMap.value)
         .append("svg")
@@ -51,69 +50,100 @@ const drawMindMap = () => {
         .style("display", "block");
 
     const zoom = d3.zoom()
-        .scaleExtent([1, 4])
+        .scaleExtent([0.3, 2])
         .on("zoom", (event) => {
-            currentScale.value = event.transform.k;
             container.attr("transform", event.transform);
         });
 
     svg.call(zoom);
 
-    const container = svg.append("g")
-        .attr("transform", `translate(${centerX},${centerY})`);
+    const container = svg.append("g");
+    // Separate layers keep links under nodes regardless of insertion order
+    const gLink = container.append("g")
+        .attr("fill", "none")
+        .attr("stroke", "rgba(254, 128, 25, 0.5)")
+        .attr("stroke-linecap", "round");
+    const gNode = container.append("g");
 
     const tree = d3.tree()
-        .nodeSize([300, 600]) // Increased vertical spacing
-        .separation((a, b) => {
-            const heightA = calculateNodeHeight(a);
-            const heightB = calculateNodeHeight(b);
+        .nodeSize([NODE_SPACING, LEVEL_SPACING])
+        // Open description text on the upper neighbour pushes the lower one down
+        .separation((a, b) => (a.parent === b.parent ? 1 : 1.4) + detailsHeight(upperOf(a, b)) / NODE_SPACING);
 
-            // Minimum separation based on node heights
-            const minSeparation = (heightA + heightB) / 200;
-
-            // Base separation multiplier
-            const baseSeparation = a.parent === b.parent ? 1.2 : 2;
-
-            return Math.max(baseSeparation, minSeparation);
-        });
-
-    const diagonal = (d) => {
-        const sourceX = d.source.x;
-        const sourceY = d.source.y;
-        const targetX = d.target.x;
-        const targetY = d.target.y;
-
-
-        // Calculate actual connection points
-        const sourcePoint = {
-            x: sourceX,
-            y: sourceY + 200  // Connect from the right edge of source
-        };
-
-        const targetPoint = {
-            x: targetX,
-            y: targetY - 100  // Connect to the left edge of target with small offset
-        };
-
-        // Adjust control points for smoother curve
-        const deltaY = targetPoint.y - sourcePoint.y;
-        const controlY1 = sourcePoint.y + deltaY * 0.25;
-        const controlY2 = sourcePoint.y + deltaY * 0.75;
-
-        return `M ${sourcePoint.y},${sourcePoint.x}
-                C ${controlY1},${sourcePoint.x}
-                  ${controlY2},${targetPoint.x}
-                  ${targetPoint.y},${targetPoint.x}`;
+    // d3 doesn't guarantee argument order; compare positions among the nearest sibling ancestors
+    const upperOf = (a, b) => {
+        let x = a;
+        let y = b;
+        while (x.parent !== y.parent) {
+            x = x.parent;
+            y = y.parent;
+        }
+        const siblings = x.parent?.children ?? [];
+        return siblings.indexOf(x) < siblings.indexOf(y) ? a : b;
     };
+
+    // Horizontal cubic link from the right edge of the source card to the left edge of the target card
+    const diagonal = ({ source, target }) => {
+        const sx = source.y + NODE_RIGHT;
+        const tx = target.y + NODE_LEFT;
+        const mid = (sx + tx) / 2;
+        return `M${sx},${source.x}C${mid},${source.x} ${mid},${target.x} ${tx},${target.x}`;
+    };
+
+    // Where a removed node folds into: its closest ancestor still visible after the update
+    const visibleAncestor = (d, visible) => {
+        let a = d.parent;
+        while (a && !visible.has(a)) a = a.parent;
+        return a ?? d;
+    };
+
+    // Ids of nodes whose description text is open; shared so siblings can be closed together
+    const openDetails = reactive(new Set());
+
+    // Stateful wrapper so each node re-renders when openDetails changes
+    const SkillNodeHost = {
+        props: { node: Object },
+        setup(hostProps) {
+            return () => {
+                const d = hostProps.node;
+                return h(SkillNode, {
+                    hasChildren: !!(d.children || d._children),
+                    skillName: d.data.name,
+                    skillDetails: d.data.description,
+                    detailsOpen: openDetails.has(d.id),
+                    onToggleDetails: () => toggleDetails(d),
+                    onNodeClick: () => toggleChildren(d)
+                });
+            };
+        }
+    };
+
+    // Rough rendered height of a node's open description (~36 chars per 20px line inside the 280px card)
+    const detailsHeight = d => (openDetails.has(d.id)
+        ? Math.ceil((d.data.description?.length ?? 0) / 36) * 20 + 16
+        : 0);
+
+    const siblingsOf = d => (d.parent ? d.parent.children.filter(s => s !== d) : []);
+
+    // Opening one node's text closes any open sibling text
+    function toggleDetails(d) {
+        if (openDetails.has(d.id)) {
+            openDetails.delete(d.id);
+        } else {
+            siblingsOf(d).forEach(s => openDetails.delete(s.id));
+            openDetails.add(d.id);
+        }
+        // Reflow so siblings slide out from under the text
+        update(d);
+    }
 
     const root = d3.hierarchy(props.skillsData);
     root.x0 = 0;
     root.y0 = 0;
 
-    // Initialize root node - modified to only collapse beyond first level
     root.descendants().forEach((d, i) => {
         d.id = i;
-        // Only collapse nodes beyond the first level of children
+        // Start with only the first level visible
         if (d.depth > 0) {
             d._children = d.children;
             d.children = null;
@@ -121,138 +151,104 @@ const drawMindMap = () => {
     });
 
     function update(source) {
-        const nodes = tree(root);
-        const descendants = nodes.descendants();
-        const links = nodes.links();
+        tree(root);
+        const nodes = root.descendants();
+        const links = root.links();
+        const visible = new Set(nodes);
 
-        let minX = Infinity;
-        let maxX = -Infinity;
-        let minY = Infinity;
-        let maxY = -Infinity;
+        // One shared transition keeps nodes and links moving in sync
+        const transition = svg.transition().duration(duration).ease(d3.easeCubicInOut);
 
-        descendants.forEach(d => {
-            minX = Math.min(minX, d.x);
-            maxX = Math.max(maxX, d.x);
-            minY = Math.min(minY, d.y);
-            maxY = Math.max(maxY, d.y);
-        });
+        const node = gNode.selectAll("g.node").data(nodes, d => d.id);
 
-        const offsetX = -((maxX + minX) / 2);
-        const offsetY = -((maxY + minY) / 2);
-
-        descendants.forEach(d => {
-            d.x += offsetX;
-            d.y += offsetY;
-        });
-
-        // Adjust positions to prevent overlaps
-        descendants.forEach(d => {
-            if (d.parent) {
-                const siblings = d.parent.children;
-                const index = siblings.indexOf(d);
-
-                if (index > 0) {
-                    const prevSibling = siblings[index - 1];
-                    const minDistance = (calculateNodeHeight(prevSibling) + calculateNodeHeight(d)) / 2;
-
-                    // Check if nodes are too close
-                    if (d.x - prevSibling.x < minDistance) {
-                        // Move current node and all following siblings down
-                        const offset = minDistance - (d.x - prevSibling.x);
-                        for (let i = index; i < siblings.length; i++) {
-                            siblings[i].x += offset;
-                        }
-                    }
-                }
-            }
-        });
-
-        const duration = 750;
-
-        // Create nodes first
-        const node = container.selectAll("g.node")
-            .data(descendants, d => d.id);
-
-        // Node enter with initial position
+        // New nodes grow out of the clicked node's previous position
         const nodeEnter = node.enter().append("g")
             .attr("class", "node")
-            .attr("transform", d => `translate(${source.y0},${source.x0})`);
+            .attr("transform", `translate(${source.y0},${source.x0})`)
+            .style("opacity", 0)
+            // Bring clicked node above siblings so expanded details aren't covered
+            .on("click", function () { d3.select(this).raise(); });
 
         nodeEnter.append("foreignObject")
             .attr("width", 300)
             .attr("height", 300)
-            .attr("x", -100)
-            .attr("y", -60)
+            .attr("x", NODE_LEFT)
+            .attr("y", -NODE_HALF_HEIGHT)
+            // Box is larger than the card; let clicks through the empty area
+            .style("pointer-events", "none")
+            .style("overflow", "visible")
             .each(function (d) {
-                const container = this;
-                const vNode = createVNode(SkillNode, {
-                    hasChildren: !!(d.children || d._children),
-                    skillName: d.data.name,
-                    skillDetails: d.data.description,
-                    onNodeClick: () => toggleChildren(null, d)
-                });
-                render(vNode, container);
+                render(createVNode(SkillNodeHost, { node: d }), this);
             });
 
-        // Update nodes with transition
-        const nodeUpdate = nodeEnter.merge(node)
-            .transition("nodeTransition")
-            .duration(duration)
-            .attr("transform", d => `translate(${d.y},${d.x})`);
+        node.merge(nodeEnter).transition(transition)
+            .attr("transform", d => `translate(${d.y},${d.x})`)
+            .style("opacity", 1);
 
-        // Exit nodes with transition
-        const nodeExit = node.exit()
-            .transition("nodeExit")
-            .duration(duration)
-            .attr("transform", d => `translate(${source.y},${source.x})`)
+        // Removed nodes fold back into their nearest visible ancestor
+        node.exit()
+            .style("pointer-events", "none")
+            .transition(transition)
+            .attr("transform", d => {
+                const a = visibleAncestor(d, visible);
+                return `translate(${a.y},${a.x})`;
+            })
+            .style("opacity", 0)
+            .on("end", function () {
+                d3.select(this).selectAll("foreignObject").each(function () { render(null, this); });
+            })
             .remove();
 
-        // Wait for node transitions to complete before animating links
-        nodeUpdate.end().then(() => {
-            // Update links after nodes are in position
-            const link = container.selectAll("path.link")
-                .data(links, d => d.target.id);
+        const link = gLink.selectAll("path").data(links, d => d.target.id);
 
-            // Enter links
-            const linkEnter = link.enter()
-                .insert("path", "g")
-                .attr("class", "link")
-                .style("stroke", "#4A90E2")
-                .style("stroke-width", "2px")
-                .style("fill", "none")
-                .attr("d", d => {
-                    const o = { x: source.x0, y: source.y0 };
-                    return diagonal({ source: o, target: o });
-                });
+        const linkEnter = link.enter().append("path")
+            .attr("stroke-width", d => Math.max(1, 8 / d.target.depth))
+            .attr("stroke-opacity", 0)
+            .attr("d", () => {
+                const o = { x: source.x0, y: source.y0 };
+                return diagonal({ source: o, target: o });
+            });
 
-            // Update links with transition
-            const linkUpdate = link.merge(linkEnter)
-                .transition("linkTransition")
-                .duration(duration * 0.8) // Slightly faster than nodes
-                .attr("d", diagonal)
-                .style("stroke-width", d => Math.max(1, 8 / d.target.depth) + "px")
-                .style("stroke-dasharray", "5,0"); // Solid line, adjust if you want dashed
+        link.merge(linkEnter).transition(transition)
+            .attr("d", diagonal)
+            .attr("stroke-opacity", 1);
 
-            // Exit links with transition
-            link.exit()
-                .transition("linkExit")
-                .duration(duration * 0.8)
-                .attr("d", d => {
-                    const o = { x: source.x, y: source.y };
-                    return diagonal({ source: o, target: o });
-                })
-                .style("opacity", 0)
-                .remove();
+        link.exit().transition(transition)
+            .attr("d", d => {
+                const a = visibleAncestor(d.target, visible);
+                return diagonal({ source: a, target: a });
+            })
+            .attr("stroke-opacity", 0)
+            .remove();
+
+        // Hidden nodes shouldn't keep their text open for when they reappear
+        const visibleIds = new Set(nodes.map(n => n.id));
+        [...openDetails].forEach(id => {
+            if (!visibleIds.has(id)) openDetails.delete(id);
         });
 
-        // Store positions for next transition
-        descendants.forEach(d => {
+        // Store positions for the next transition
+        root.eachBefore(d => {
             d.x0 = d.x;
             d.y0 = d.y;
         });
     }
 
-    function toggleChildren(event, d) {
+    // Pan + zoom so the expanded node sits left of center and all its children fit vertically
+    function focusNode(d) {
+        const xs = [d, ...d.children].map(n => n.x);
+        const top = Math.min(...xs);
+        const bottom = Math.max(...xs);
+        const span = bottom - top + NODE_SPACING * 1.5;
+        const k = Math.max(0.45, Math.min(1, height / span));
+        const target = d3.zoomIdentity
+            .translate(width * 0.25 - k * d.y, height / 2 - k * (top + bottom) / 2)
+            .scale(k);
+        svg.transition("camera").duration(duration).ease(d3.easeCubicInOut).call(zoom.transform, target);
+    }
+
+    function toggleChildren(d) {
+        const expanding = !d.children;
         if (d.children) {
             d._children = d.children;
             d.children = null;
@@ -261,7 +257,11 @@ const drawMindMap = () => {
             d._children = null;
         }
 
-        if (d.parent) {
+        // Expanding or collapsing a branch closes any open sibling text
+        siblingsOf(d).forEach(s => openDetails.delete(s.id));
+
+        // Accordion: only one open branch per level
+        if (expanding && d.parent) {
             d.parent.children.forEach(sibling => {
                 if (sibling !== d && sibling.children) {
                     sibling._children = sibling.children;
@@ -271,28 +271,41 @@ const drawMindMap = () => {
         }
 
         update(d);
+        if (expanding) focusNode(d);
     }
 
     update(root);
 
+    // Fit the initial tree inside the panel; zoom transform owns the translation so panning doesn't jump
+    const xs = root.descendants().map(d => d.x);
+    const ys = root.descendants().map(d => d.y);
+    const treeHeight = Math.max(...xs) - Math.min(...xs) + NODE_SPACING * 2;
+    const treeWidth = Math.max(...ys) - Math.min(...ys) + NODE_RIGHT - NODE_LEFT + 80;
+    const scale = Math.min(1, height / treeHeight, width / treeWidth);
+    const midX = (Math.max(...xs) + Math.min(...xs)) / 2;
+    const midY = (Math.max(...ys) + Math.min(...ys) + NODE_LEFT + NODE_RIGHT) / 2;
+    svg.call(zoom.transform, d3.zoomIdentity
+        .translate(width / 2 - scale * midY, height / 2 - scale * midX)
+        .scale(scale));
+};
+
+let resizeTimer = null;
+const handleResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(drawMindMap, 200);
 };
 
 onMounted(() => {
     nextTick(() => {
         drawMindMap();
-        window.addEventListener('resize', () => {
-            nextTick(drawMindMap);
-        });
+        window.addEventListener('resize', handleResize);
     });
 });
 
 onUnmounted(() => {
-    window.removeEventListener('resize', drawMindMap);
-
-    const container = mindMap.value;
-    if (container) {
-        container.innerHTML = '';
-    }
+    clearTimeout(resizeTimer);
+    window.removeEventListener('resize', handleResize);
+    clearMindMap();
 });
 </script>
 
@@ -307,30 +320,5 @@ onUnmounted(() => {
 .mind-map {
     width: 100%;
     height: 100%;
-}
-
-svg {
-    width: 100%;
-    height: 100%;
-}
-
-.node {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.foreignObject {
-    transition: all 0.3s ease;
-    overflow: visible;
-}
-
-.link {
-    fill: none;
-    stroke: #4A90E2;
-    stroke-width: 2px;
-    stroke-linecap: round;
-    pointer-events: none;
-    opacity: 1;
-    transition: all 0.3s ease;
 }
 </style>

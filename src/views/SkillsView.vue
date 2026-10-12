@@ -1,17 +1,16 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
-import { ref, nextTick, onMounted, watch } from 'vue';
-import { popup } from '@/assets/js/animations.js';
-import { useMotion } from '@vueuse/motion';
+import { ref, onMounted, watch } from 'vue';
 import SkillsMindMap from '@/components/Skills/SkillsMindMap.vue';
 import getJsonFile from '@/assets/js/locale_functions.js';
+import { useConsoleIntro } from '@/composables/useConsoleIntro.js';
 
 import { useI18n } from 'vue-i18n';
 
-const { locale } = useI18n();
+const { t, locale } = useI18n();
 
-const isConsolePoppedOut = ref(false);
-const consoleContainer = ref(null);
+const { consoleContainer, isConsolePoppedOut, handleTypingCompleted } = useConsoleIntro();
+
 const mindMap = ref(0);
 const skillsData = ref(null);
 
@@ -20,20 +19,6 @@ const lines = [
   'for skill in skills:',
   '    print(f"Skill: {skill}")',
 ];
-
-let apply;
-
-const handleTypingCompleted = async () => {
-  if (consoleContainer.value) {
-    await apply('leave');
-  }
-  isConsolePoppedOut.value = true;
-  await nextTick();
-  const sections = document.querySelectorAll('section');
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-};
 
 const loadSkills = async () => {
   skillsData.value = await getJsonFile('skills', locale.value);
@@ -44,43 +29,27 @@ watch(locale, async () => {
   mindMap.value += 1;
 });
 
-onMounted(async () => {
-  if (consoleContainer.value) {
-    ({ apply } = useMotion(consoleContainer.value, popup(1000)));
-  }
-  await loadSkills();
-});
-
+onMounted(loadSkills);
 </script>
 
 <template>
-  <main v-if="!isConsolePoppedOut" class="h-100 d-flex justify-content-center align-items-center">
+  <div v-if="!isConsolePoppedOut" class="flex flex-1 items-center justify-center">
     <div ref="consoleContainer">
-      <div class="d-flex justify-content-center align-items-center">
-        <Console :lines="lines" @typing-completed="handleTypingCompleted" />
-      </div>
+      <Console :lines="lines" cwd="~/skills" fast @typing-completed="handleTypingCompleted" />
     </div>
-  </main>
+  </div>
 
-  <main v-else class="skills-view h-100 w-100">
-    <div class="mindmap-container" :key="mindMap">
+  <div v-else class="flex flex-1 flex-col gap-6">
+    <header>
+      <p class="font-mono text-sm text-ink-muted">
+        <span class="text-prompt">francisco@portfolio</span>:<span class="text-path">~/skills</span>$ tree
+      </p>
+      <h1 class="section-title mt-2">{{ t('skills_view.title') }}</h1>
+      <p class="mt-2 text-ink-muted">{{ t('skills_view.hint') }}</p>
+    </header>
+
+    <div class="panel h-[70vh] min-h-[420px] overflow-hidden" :key="mindMap">
       <SkillsMindMap v-if="skillsData" :skills-data="skillsData" />
     </div>
-  </main>
+  </div>
 </template>
-
-<style scoped>
-.skills-view {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.mindmap-container {
-  width: 90%;
-  height: 90vh;
-  border-radius: 8px;
-  overflow: auto;
-}
-</style>

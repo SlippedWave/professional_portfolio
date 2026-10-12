@@ -1,24 +1,17 @@
 <template>
-    <!-- Scrollable content -->
-    <div class="timeline-content">
-        <div class="container py-4" v-for="(experience, index) in sortedExperiences" :key="index">
-            <div class="row mb-5">
-                <div class="col-12 col-md-6">
-                    <div v-if="index % 2 !== 0">
-                        <div class="d-flex justify-content-end align-items-end card-container">
-                            <TimeLineCard :experience="experience" :isOdd="false" />
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6">
-                    <div v-if="index % 2 === 0">
-                        <div class="d-flex justify-content-start align-items-start card-container">
-                            <TimeLineCard :experience="experience" :isOdd="true" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="relative ml-3 sm:ml-4">
+        <!-- Dashed rail that fades out at both ends -->
+        <span aria-hidden="true"
+            class="absolute inset-y-0 left-0 w-px bg-[repeating-linear-gradient(to_bottom,color-mix(in_srgb,var(--color-ink-muted)_40%,transparent)_0_6px,transparent_6px_12px)] [mask-image:linear-gradient(to_bottom,transparent,black_2.5rem,black_calc(100%_-_2.5rem),transparent)]"></span>
+        <ol class="relative">
+        <li v-for="(experience, index) in sortedExperiences" :key="experience.company + experience.period"
+            class="relative pb-10 pl-8 last:pb-0 sm:pl-10" v-motion :initial="{ opacity: 0, x: -20 }"
+            :visible-once="{ opacity: 1, x: 0, transition: { delay: index * 80, duration: 400 } }">
+            <span class="absolute top-5 -left-[7.5px] size-4 rounded-full border-2 border-accent bg-canvas"
+                :class="{ 'bg-accent shadow-[0_0_12px] shadow-accent/70': index === 0 }" aria-hidden="true"></span>
+            <TimeLineCard :experience="experience" />
+        </li>
+        </ol>
     </div>
 </template>
 
@@ -33,50 +26,13 @@ const props = defineProps({
     }
 });
 
+// "M/YYYY - M/YYYY" -> sortable number from the start date
+const startKey = (period) => {
+    const [month, year] = period.split('-')[0].trim().split('/').map(Number);
+    return year * 12 + month;
+};
+
 const sortedExperiences = computed(() => {
-    return [...props.experienceData.experiences].sort((a, b) => {
-        const dateA = new Date(a.period.split('-')[0]);
-        const dateB = new Date(b.period.split('-')[0]);
-        return dateB - dateA;
-    });
+    return [...props.experienceData.experiences].sort((a, b) => startKey(b.period) - startKey(a.period));
 });
 </script>
-
-<style scoped>
-.timeline-content::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    margin-left: -2px;
-    border-right: 2px dashed #4b546f;
-    height: 100%;
-    display: block;
-    z-index: -1;
-}
-
-.timeline-line {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg,
-            transparent 0%,
-            var(--bs-primary) 5%,
-            var(--bs-primary) 95%,
-            transparent 100%);
-}
-
-.timeline-content {
-    position: relative;
-    z-index: 2;
-}
-
-.card-container {
-    margin-inline: 2rem;
-}
-
-@media (max-width: 768px) {
-    .timeline-line-container {
-        left: 20px;
-    }
-}
-</style>

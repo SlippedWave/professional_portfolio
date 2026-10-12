@@ -1,55 +1,49 @@
-<template>
-    <div class="language-switcher">
-        <img src="@/assets/icons/american-flag.svg" alt="English" @click="setLanguage('en')" class="flag-icon"
-            :class="{ selected: selectedLanguage === 'en' }" />
-        <img src="@/assets/icons/mexican-flag.svg" alt="Español" @click="setLanguage('es')" class="flag-icon"
-            :class="{ selected: selectedLanguage === 'es' }" />
-        <img src="@/assets/icons/german-flag.svg" alt="Deutsch" @click="setLanguage('de')" class="flag-icon"
-            :class="{ selected: selectedLanguage === 'de' }" />
-    </div>
-</template>
-
 <script setup>
-import { ref } from 'vue';
+import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import americanFlag from '@/assets/icons/american-flag.svg';
+import mexicanFlag from '@/assets/icons/mexican-flag.svg';
+import germanFlag from '@/assets/icons/german-flag.svg';
 
-const { locale } = useI18n();
-const selectedLanguage = ref(locale.value);
+const { locale, availableLocales } = useI18n();
+
+const languages = [
+  { code: 'en', label: 'English', flag: americanFlag },
+  { code: 'es', label: 'Español', flag: mexicanFlag },
+  { code: 'de', label: 'Deutsch', flag: germanFlag },
+];
 
 const setLanguage = (lang) => {
-    selectedLanguage.value = lang;
-    locale.value = lang;
+  locale.value = lang;
+  document.documentElement.lang = lang;
+  try {
+    localStorage.setItem('locale', lang);
+  } catch {
+    // Storage unavailable (private mode); choice just won't persist
+  }
 };
+
+onMounted(() => {
+  let saved = null;
+  try {
+    saved = localStorage.getItem('locale');
+  } catch {
+    // ignore
+  }
+  if (saved && availableLocales.includes(saved)) {
+    setLanguage(saved);
+  }
+});
 </script>
 
-<style scoped>
-.language-switcher {
-    bottom: 15px;
-    right: 15px;
-    display: flex;
-    gap: 1rem;
-    padding: 0.5rem;
-    background: rgb(34, 34, 34);
-    border-radius: 10px;
-    z-index: 1000;
-    user-select: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.flag-icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.flag-icon:hover {
-    transform: scale(1.2);
-}
-
-.flag-icon.selected {
-    border: 2px solid #007bff;
-}
-</style>
+<template>
+  <div class="inline-flex items-center gap-1 rounded-full border border-edge bg-black/20 p-1" role="group"
+    aria-label="Language">
+    <button v-for="lang in languages" :key="lang.code" type="button"
+      class="cursor-pointer rounded-full p-0.5 transition hover:scale-110"
+      :class="locale === lang.code ? 'ring-2 ring-accent' : 'opacity-60 hover:opacity-100'"
+      :aria-pressed="locale === lang.code" :title="lang.label" @click="setLanguage(lang.code)">
+      <img :src="lang.flag" :alt="lang.label" class="size-6 rounded-full object-cover" />
+    </button>
+  </div>
+</template>

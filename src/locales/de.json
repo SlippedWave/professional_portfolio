@@ -1,7 +1,11 @@
 {
   "experience_view": {
     "job": "Berufserfahrung",
-    "education": "Bildung"
+    "education": "Bildung",
+    "tabs": {
+      "job": "Berufserfahrung",
+      "education": "Bildung"
+    }
   },
   "errors_view": {
     "notFoundErrorConsoleLines": [
@@ -21,7 +25,7 @@
     "clickToRedirectHome": "Klicken Sie hier, um zur Startseite zurückzukehren..."
   },
   "owners_info": {
-    "name": "Francisco Javier González-Barriga",
+    "name": "Francisco Javier González Barriga",
     "title": "Datenwissenschaftler und Softwareentwickler",
     "degree": "Bachelor of Science in Computer Engineering",
     "university": "Universidad de Guadalajara",
@@ -34,8 +38,11 @@
     "noProjects": "Keine Projekte für den ausgewählten Filter gefunden",
     "card": {
       "open_repo": "Repository öffnen",
-      "open_demo": "Demo ansehen"
-    }
+      "open_demo": "Demo ansehen",
+      "private": "Privat"
+    },
+    "loading": "Projekte werden geladen...",
+    "error": "Projekte konnten nicht von GitHub geladen werden. Bitte versuchen Sie es später erneut."
   },
   "home_view": {
     "aboutMeTitle": "Über mich",
@@ -46,11 +53,15 @@
     ],
     "aboutMeText": "Ich bin ein leidenschaftlicher Datenwissenschaftler und Softwareentwickler mit über 4 Jahren Erfahrung in der Informatik. Ich spezialisiere mich auf die Lösung komplexer Herausforderungen, die Entwicklung innovativer Lösungen und die Bereitstellung hochwertiger Produkte.",
     "getToKnowMeTitle": "Lern mich kennen",
-    "getToKnowMeText": "Ich bin eine neugierige Person, die es liebt, jeden Tag etwas Neues zu lernen. Mit meiner Erfahrung in Sprachen wie Python, Java und SQL sowie meiner Fähigkeit zur Teamarbeit und Problemlösung bin ich stets bestrebt, Grenzen zu überschreiten und einen Unterschied zu machen. Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen! 🌐✨",
+    "getToKnowMeText": "Ich bin eine neugierige Person, die es liebt, jeden Tag etwas Neues zu lernen. Mit meiner Erfahrung in Sprachen wie Python, Java und SQL sowie meiner Fähigkeit zur Teamarbeit und Problemlösung bin ich stets bestrebt, Grenzen zu überschreiten und einen Unterschied zu machen. Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen!",
     "hobbiesTitle": "Hobbys",
-    "hobbiesText": "In meiner Freizeit liebe ich es, neue Technologien zu erkunden 👨🏻‍💻, verschiedenen Themen von Bücher zu lesen und neue Sprachen zu lernen. Außerdem genieße ich Wandern und Zeit in der Natur.",
+    "hobbiesText": "In meiner Freizeit liebe ich es, neue Technologien zu erkunden, verschiedenen Themen von Bücher zu lesen und neue Sprachen zu lernen. Außerdem genieße ich Wandern und Zeit in der Natur.",
     "interestsTitle": "Interessen",
-    "interestsText": "Ich interessiere mich besonders für künstliche Intelligenz, maschinelles Lernen und Datenvisualisierung 🤖. Ich bin immer bereit, um Etwas neues zu lernen und mich über die neuesten technologischen Trends auf dem Laufenden zu halten."
+    "interestsText": "Ich interessiere mich besonders für künstliche Intelligenz, maschinelles Lernen und Datenvisualisierungs. Ich bin immer bereit, um Etwas neues zu lernen und mich über die neuesten technologischen Trends auf dem Laufenden zu halten.",
+    "cta": {
+      "projects": "Projekte ansehen",
+      "contact": "Kontakt aufnehmen"
+    }
   },
   "navbar": {
     "home": "/francisco",
@@ -61,7 +72,7 @@
   },
   "footer": {
     "findMe": "Finden Sie mich auch auf:",
-    "rights": "© 2025 Francisco González. Alle Rechte vorbehalten."
+    "rights": "© {year} Francisco González. Alle Rechte vorbehalten."
   },
   "contact_form": {
     "title": "Kontaktieren Sie mich",
@@ -94,5 +105,15 @@
     "email_disclaimer": "Ihre E-Mail-Adresse wird nicht an Dritte weitergegeben.",
     "required": "Dieses Feld ist erforderlich",
     "submitting": "Senden..."
+  },
+  "common": {
+    "download_cv": "Lebenslauf herunterladen"
+  },
+  "skills_view": {
+    "title": "Fähigkeiten",
+    "hint": "Zweige mit › aufklappen. Scrollen zum Zoomen, ziehen zum Verschieben."
+  },
+  "contact_view": {
+    "direct": "Oder kontaktieren Sie mich direkt"
   }
 }

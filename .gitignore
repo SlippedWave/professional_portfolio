@@ -35,3 +35,6 @@ coverage
 __pycache__
 keys
 .pytest_cache
+
+.claude
+CLAUDE.md

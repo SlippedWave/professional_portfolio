@@ -2,58 +2,41 @@
 import { computed } from 'vue';
 import Navbar from './components/shared/Navbar.vue';
 import Footer from './components/shared/Footer.vue';
+import NavbarHud from './components/shared/NavbarHud.vue';
+import FooterHud from './components/shared/FooterHud.vue';
 import MatrixBackground from './components/shared/MatrixBackground.vue';
 import { RouterView, useRoute } from 'vue-router';
 
 const route = useRoute();
 
 const isErrorPage = computed(() => route.name === 'error');
+
+// TEMP preview switch between header/footer designs: ?chrome=hud | ?chrome=refined (remembered per tab)
+const chromeStyle = (() => {
+  const fromQuery = new URLSearchParams(window.location.search).get('chrome');
+  try {
+    if (fromQuery) sessionStorage.setItem('chrome', fromQuery);
+    return sessionStorage.getItem('chrome') ?? 'refined';
+  } catch {
+    return fromQuery ?? 'refined';
+  }
+})();
 </script>
 
 <template>
-  <div class="app-wrapper vh-100 d-flex flex-column">
-    <MatrixBackground :letterColor="isErrorPage ? 'rgba(255, 0, 0, 0.4)' : 'rgba(42, 24, 110, 0.4)'" />
+  <div class="relative flex min-h-dvh flex-col overflow-x-hidden">
+    <MatrixBackground :letterColor="isErrorPage ? 'rgba(251, 73, 52, 0.3)' : 'rgba(254, 128, 25, 0.16)'" />
 
-    <header class="sticky-top">
-      <Navbar />
+    <header class="sticky top-0 z-40">
+      <NavbarHud v-if="chromeStyle === 'hud'" />
+      <Navbar v-else />
     </header>
 
-    <main class="flex-grow-1">
-      <div class="container h-100">
-        <RouterView />
-      </div>
+    <main class="relative z-10 mx-auto flex w-full max-w-6xl flex-1 flex-col px-4 py-12 sm:px-6 sm:py-16">
+      <RouterView />
     </main>
 
-    <footer class="fixed-bottom">
-      <Footer />
-    </footer>
+    <FooterHud v-if="chromeStyle === 'hud'" />
+    <Footer v-else />
   </div>
 </template>
-
-<style scoped>
-.app-wrapper {
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
-
-main {
-  padding-bottom: 3rem;
-  padding-top: 1rem
-}
-
-header {
-  z-index: 1030;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
-}
-
-main {
-  z-index: 1;
-  position: relative;
-}
-
-footer {
-  z-index: 2;
-}
-</style>

@@ -1,22 +1,32 @@
 <script setup>
-import { defineProps, ref } from 'vue';
-import TypingAnimation from './TypingAnimation.vue';
+import { computed, ref } from 'vue';
 import { RouterLink } from 'vue-router';
-
-const linesAlreadyStopped = ref(false);
+import TypingAnimation from './TypingAnimation.vue';
+import Icon from './Icon.vue';
 
 const props = defineProps({
   lines: {
     type: Array,
     required: true,
   },
+  // Working directory shown in the prompt and window title
+  cwd: {
+    type: String,
+    default: '~',
+  },
+  // Faster typing for secondary pages
+  fast: {
+    type: Boolean,
+    default: false,
+  },
+  // Deliberately slow, dramatic typing (error page)
+  slow: {
+    type: Boolean,
+    default: false,
+  },
   popOut: {
     type: Boolean,
     default: true,
-  },
-  letterColor: {
-    type: String,
-    default: '#FFFFFF',
   },
   isError: {
     type: Boolean,
@@ -24,10 +34,21 @@ const props = defineProps({
   },
   returnMessage: {
     type: Array,
-  }
+  },
 });
 
 const emit = defineEmits(['typing-completed']);
+
+const linesAlreadyStopped = ref(false);
+
+const typing = computed(() => {
+  if (props.slow) return { speed: 45, charsPerTick: 1, lineDelay: 400 };
+  if (props.fast) return { speed: 10, charsPerTick: 4, lineDelay: 25 };
+  return { speed: 14, charsPerTick: 1, lineDelay: 70 };
+});
+
+// Python REPL prompts: continuation lines get "... "
+const prefixes = computed(() => props.lines.map(line => (/^[\s})\]]/.test(line) ? '... ' : '>>> ')));
 
 const handleTypingCompleted = () => {
   if (props.isError) {
@@ -37,95 +58,33 @@ const handleTypingCompleted = () => {
   if (props.popOut) {
     emit('typing-completed');
   }
-
 };
-
 </script>
 
 <template>
-  <main class="console">
-    <div class="terminal bg-dark text-light rounded">
-      <div class="terminal-header d-flex p-2">
-        <div class="terminal-buttons">
-          <span class="button close"></span>
-          <span class="button minimize"></span>
-          <span class="button maximize"></span>
-        </div>
-        <div class="terminal-title">Terminal</div>
-      </div>
-      <div class="terminal-body p-3" :style="{ color: props.letterColor }">
-        <TypingAnimation :lines="props.lines" :keepCursor="false" :writting_speed="10" :change_cursor_speed="20"
-          @typing-completed="handleTypingCompleted" />
-        <RouterLink class="redirect-link" v-if="props.isError && linesAlreadyStopped" to="/">
-          <TypingAnimation :lines="props.returnMessage" />
-        </RouterLink>
+  <div class="w-[min(92vw,48rem)] overflow-hidden rounded-xl border border-edge shadow-2xl shadow-black/60">
+    <!-- Yaru style header bar -->
+    <div class="relative flex h-10 items-center justify-center bg-titlebar px-3">
+      <span class="truncate text-sm font-medium text-ink/85">francisco@portfolio: {{ props.cwd }}</span>
+      <div class="absolute right-3 flex gap-2" aria-hidden="true">
+        <span class="grid size-5 place-items-center rounded-full bg-white/10 text-ink/70"><Icon name="minimize" :size="12" /></span>
+        <span class="grid size-5 place-items-center rounded-full bg-white/10 text-ink/70"><Icon name="maximize" :size="10" /></span>
+        <span class="grid size-5 place-items-center rounded-full bg-accent text-canvas"><Icon name="close" :size="12" /></span>
       </div>
     </div>
-  </main>
+
+    <div class="h-80 overflow-y-auto bg-panel/95 p-4 font-mono text-[15px] leading-relaxed"
+      :class="props.isError ? 'text-danger' : 'text-ink'">
+      <p>
+        <span class="font-bold text-prompt">francisco@portfolio</span><span class="text-ink">:</span><span
+          class="font-bold text-path">{{ props.cwd }}</span><span class="text-ink">$ python3</span>
+      </p>
+      <TypingAnimation :lines="props.lines" :prefixes="prefixes" :keepCursor="false" v-bind="typing"
+        @typing-completed="handleTypingCompleted" />
+      <RouterLink v-if="props.isError && linesAlreadyStopped" to="/"
+        class="mt-2 block text-path underline underline-offset-4 hover:text-accent">
+        <TypingAnimation :lines="props.returnMessage" v-bind="typing" />
+      </RouterLink>
+    </div>
+  </div>
 </template>
-
-<style scoped>
-.redirect-link {
-  color: rgb(0, 0, 255);
-  text-decoration: underline;
-}
-
-.console {
-  width: 90vw;
-  max-width: 50rem;
-  font-size: 1rem;
-  font-family: 'Courier New', monospace;
-}
-
-.terminal {
-  height: 20rem;
-  box-shadow: 0 0 15px rgba(60, 61, 60, 0.59);
-  display: flex;
-  flex-direction: column;
-}
-
-.terminal-header {
-  background-color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.terminal-buttons {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.button {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.close {
-  background-color: #ff5f56;
-}
-
-.minimize {
-  background-color: #ffbd2e;
-}
-
-.maximize {
-  background-color: #27c93f;
-}
-
-.terminal-title {
-  color: #fff;
-  font-size: 1.25rem;
-  margin-left: 1.25rem;
-  flex-grow: 1;
-}
-
-.terminal-body {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 1rem;
-  font-family: 'Courier New', monospace;
-}
-</style>

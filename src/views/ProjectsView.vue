@@ -1,24 +1,26 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
-import { ref, nextTick, onMounted, computed } from 'vue';
-import { popup } from '@/assets/js/animations.js';
-import { useMotion } from '@vueuse/motion';
+import Icon from '@/components/shared/Icon.vue';
+import { ref, onMounted, computed } from 'vue';
 import ProjectCard from '@/components/Projects/ProjectCard.vue';
+import { useConsoleIntro } from '@/composables/useConsoleIntro.js';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
 
-const isConsolePoppedOut = ref(false);
-const consoleContainer = ref(null);
+const { consoleContainer, isConsolePoppedOut, handleTypingCompleted } = useConsoleIntro();
+
 const projects = ref([]);
+const isLoading = ref(true);
+const hasError = ref(false);
 
 const fetchProjects = async () => {
   const query = `
     query {
         viewer {
             repositories(
-                first: 100, 
-                orderBy: {field: UPDATED_AT, direction: DESC}, 
+                first: 100,
+                orderBy: {field: UPDATED_AT, direction: DESC},
                 ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
             ) {
                 nodes {
@@ -73,16 +75,19 @@ const fetchProjects = async () => {
     });
 
     const data = await response.json();
-    if (data.errors) {
+    if (data.errors || !data.data) {
       console.error('GraphQL Errors:', data.errors);
+      hasError.value = true;
       return;
     }
     projects.value = data.data.viewer.repositories.nodes;
   } catch (error) {
     console.error('Error fetching projects:', error);
+    hasError.value = true;
+  } finally {
+    isLoading.value = false;
   }
 };
-
 
 const lines = [
   'import pandas as pd',
@@ -92,26 +97,6 @@ const lines = [
   '})',
   'print(projects)',
 ];
-
-let apply;
-
-const handleTypingCompleted = async () => {
-
-  if (consoleContainer.value) {
-    await apply('leave');
-  }
-
-  isConsolePoppedOut.value = true;
-
-  await nextTick();
-
-  const sections = document.querySelectorAll('section');
-
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
-
-};
 
 const uniqueLanguages = computed(() => {
   const languagesMap = new Map();
@@ -136,82 +121,64 @@ const filteredProjectsByLanguage = computed(() => {
   );
 });
 
-const selectLanguage = (language) => {
-  selectedLanguage.value = language;
-};
+const filterClass = (active) => (active
+  ? 'border-accent bg-accent/15 text-ink'
+  : 'border-edge text-ink-muted hover:border-ink-muted/50 hover:text-ink');
 
-onMounted(async () => {
-  if (consoleContainer.value) {
-    ({ apply } = useMotion(consoleContainer.value, popup(1000)));
-  }
-  await fetchProjects();
-});
-
+onMounted(fetchProjects);
 </script>
 
 <template>
-  <main v-if="!isConsolePoppedOut" class="h-100 d-flex justify-content-center align-items-center">
-    <div class="d-flex justify-content-center align-items-center">
-      <Console :lines="lines" @typing-completed="handleTypingCompleted" />
+  <div v-if="!isConsolePoppedOut" class="flex flex-1 items-center justify-center">
+    <div ref="consoleContainer">
+      <Console :lines="lines" cwd="~/projects" fast @typing-completed="handleTypingCompleted" />
     </div>
-  </main>
+  </div>
 
-  <main v-else class="h-100 d-flex">
-    <div class="container">
-      <!-- Header Section -->
-      <div class="row">
-        <div class="col-12 text-center">
-          <h1 class="display-4 title mb-3">{{ t('projects_view.projectsTitle') }}</h1>
-          <h2 class="lead subtitle bold">{{ t('projects_view.subtitle') }}</h2>
-        </div>
-      </div>
+  <div v-else class="flex flex-col gap-8">
+    <header>
+      <p class="font-mono text-sm text-ink-muted">
+        <span class="text-prompt">francisco@portfolio</span>:<span class="text-path">~/projects</span>$ ls
+      </p>
+      <h1 class="section-title mt-2">{{ t('projects_view.projectsTitle') }}</h1>
+      <p class="mt-2 text-lg text-ink-muted">{{ t('projects_view.subtitle') }}</p>
+    </header>
 
-      <!-- Language Filters Section -->
-      <div class="row my-4">
-        <div class="col-12">
-          <div class="d-flex justify-content-center flex-wrap gap-2">
-            <button v-for="language in uniqueLanguages" :key="language.name" class="btn mx-2 p-2 rounded-pill border-0"
-              :class="{ active: selectedLanguage === language.name }" @click="selectLanguage(language.name)"
-              :style="{ backgroundColor: selectedLanguage === language.name ? language.color : 'transparent', color: selectedLanguage === language.name ? '#fff' : language.color }">
-              {{ language.name }}
-            </button>
-            <button class="btn rounded-pill border-0" :class="{ active: selectedLanguage === 'all' }"
-              @click="selectLanguage('all')"
-              :style="{ backgroundColor: selectedLanguage === 'all' ? '#6c757d' : 'transparent', color: selectedLanguage === 'all' ? '#fff' : '#6c757d' }">
-              {{ t('projects_view.filterAll') }}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Projects Grid -->
-      <div class="row g-4">
-        <template v-if="filteredProjectsByLanguage.length">
-          <div v-for="repo in filteredProjectsByLanguage" :key="repo.id" class="col-12 col-md-6 col-lg-4">
-            <ProjectCard :name="repo.name" :description="repo.description" :url="repo.url"
-              :homepage-url="repo.homepageUrl" :is-private="repo.isPrivate" :languages="repo.languages.nodes"
-              :image-url="repo.openGraphImageUrl" :visibility="repo.visibility" />
-          </div>
-        </template>
-        <div v-else class="col-12 text-center py-5">
-          <div class="text-muted">
-            <i class="bi bi-search display-1"></i>
-            <p class="mt-3">{{ t('projects_view.noProjects') }}</p>
-          </div>
-        </div>
-      </div>
+    <!-- Language filters -->
+    <div v-if="uniqueLanguages.length" class="flex flex-wrap gap-2">
+      <button type="button"
+        class="cursor-pointer rounded-full border px-3 py-1 font-mono text-sm transition-colors"
+        :class="filterClass(selectedLanguage === 'all')" @click="selectedLanguage = 'all'">
+        {{ t('projects_view.filterAll') }}
+      </button>
+      <button v-for="language in uniqueLanguages" :key="language.name" type="button"
+        class="inline-flex cursor-pointer items-center gap-2 rounded-full border px-3 py-1 font-mono text-sm transition-colors"
+        :class="filterClass(selectedLanguage === language.name)" @click="selectedLanguage = language.name">
+        <span class="size-2.5 rounded-full" :style="{ backgroundColor: language.color || '#888' }"></span>
+        {{ language.name }}
+      </button>
     </div>
-  </main>
+
+    <!-- Loading skeleton -->
+    <div v-if="isLoading" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" :aria-label="t('projects_view.loading')">
+      <div v-for="n in 6" :key="n" class="panel h-80 animate-pulse"></div>
+    </div>
+
+    <div v-else-if="hasError" class="panel flex items-center gap-3 p-6 text-danger">
+      <Icon name="alert" />
+      {{ t('projects_view.error') }}
+    </div>
+
+    <div v-else-if="filteredProjectsByLanguage.length" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ProjectCard v-for="repo in filteredProjectsByLanguage" :key="repo.id" :name="repo.name"
+        :description="repo.description" :url="repo.url" :homepage-url="repo.homepageUrl" :is-private="repo.isPrivate"
+        :languages="repo.languages.nodes" :image-url="repo.openGraphImageUrl" :visibility="repo.visibility"
+        :stars="repo.stargazerCount" />
+    </div>
+
+    <div v-else class="flex flex-col items-center gap-3 py-16 text-ink-muted">
+      <Icon name="search" :size="48" />
+      <p>{{ t('projects_view.noProjects') }}</p>
+    </div>
+  </div>
 </template>
-
-<style scoped>
-.title {
-  font-weight: bold;
-  color: rgb(210, 220, 233);
-}
-
-.subtitle {
-  color: rgb(157, 174, 194);
-  font-size: 1.5rem;
-}
-</style>

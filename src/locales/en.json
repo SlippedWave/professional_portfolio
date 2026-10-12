@@ -1,7 +1,11 @@
 {
   "experience_view": {
     "job": "Work experiences",
-    "education": "Education"
+    "education": "Education",
+    "tabs": {
+      "job": "Work experience",
+      "education": "Education"
+    }
   },
   "errors_view": {
     "notFoundErrorConsoleLines": [
@@ -21,7 +25,7 @@
     "clickToRedirectHome": "Click here to return to the home page..."
   },
   "owners_info": {
-    "name": "Francisco Javier González-Barriga",
+    "name": "Francisco Javier González Barriga",
     "title": "Data Scientist and Software Engineer",
     "degree": "Bachelor of Science in Computer Engineering",
     "university": "Universidad de Guadalajara",
@@ -34,8 +38,11 @@
     "noProjects": "No projects found for the selected filter",
     "card": {
       "open_repo": "Open repo",
-      "open_demo": "View demo"
-    }
+      "open_demo": "View demo",
+      "private": "Private"
+    },
+    "loading": "Loading projects...",
+    "error": "Couldn't load projects from GitHub. Please try again later."
   },
   "home_view": {
     "aboutMeTitle": "About Me",
@@ -46,11 +53,15 @@
     ],
     "aboutMeText": "I'm a passionate Data Scientist and Software Engineer with 4+ years of experience in Computer Science. I specialize in tackling complex challenges, crafting innovative solutions, and delivering high-quality products.",
     "getToKnowMeTitle": "Get to know me",
-    "getToKnowMeText": "I'm a curious person who loves to learn something new everyday, with my expertise in languages like Python, Java, and SQL, and a knack for teamwork and problem-solving, I'm always eager to push boundaries and make an impact. Let's work on something extraordinary together! 🌐✨",
+    "getToKnowMeText": "I'm a curious person who loves to learn something new everyday, with my expertise in languages like Python, Java, and SQL, and a knack for teamwork and problem-solving, I'm always eager to push boundaries and make an impact. Let's work on something extraordinary together!",
     "hobbiesTitle": "Hobbies",
-    "hobbiesText": "In my free time, I love exploring new technologies 👨🏻‍💻, reading books on various topics, and learning new languages. I also enjoy hiking and spending time in nature.",
+    "hobbiesText": "In my free time, I love exploring new technologies, reading books on various topics, and learning new languages. I also enjoy hiking and spending time in nature.",
     "interestsTitle": "Interests",
-    "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization 🤖. I am always eager to learn new things and stay updated with the latest trends in technology."
+    "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization. I am always eager to learn new things and stay updated with the latest trends in technology.",
+    "cta": {
+      "projects": "View projects",
+      "contact": "Contact me"
+    }
   },
   "navbar": {
     "home": "/francisco",
@@ -61,7 +72,7 @@
   },
   "footer": {
     "findMe": "Also find me on:",
-    "rights": "© 2025 Francisco González. All rights reserved."
+    "rights": "© {year} Francisco González. All rights reserved."
   },
   "contact_form": {
     "title": "Contact Me",
@@ -94,5 +105,15 @@
     "email_disclaimer": "Your email will not be shared with anyone else.",
     "required": "This field is required",
     "submitting": "Sending..."
+  },
+  "common": {
+    "download_cv": "Download CV"
+  },
+  "skills_view": {
+    "title": "Skills",
+    "hint": "Expand a branch with ›. Scroll to zoom, drag to pan."
+  },
+  "contact_view": {
+    "direct": "Or reach me directly"
   }
 }

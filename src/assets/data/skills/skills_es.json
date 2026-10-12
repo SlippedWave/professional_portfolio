@@ -1,58 +1,58 @@
 {
     "name": "Habilidades",
-    "description": "Estas son las habilidades profesionales que utilizo en mis proyectos.",
+    "description": "Las herramientas y habilidades que realmente he puesto a trabajar: en proyectos freelance, en HPT Center and Planning, en investigación en la UdeG y durante mi intercambio en Colonia.",
     "children": [
         {
             "name": "Lenguajes de Programación",
-            "description": "Lenguajes utilizados en varias áreas del desarrollo de software, cada uno especializado en diferentes contextos.",
+            "description": "Los lenguajes que escribo a diario, desde aplicaciones web en producción hasta programación competitiva y experimentos de machine learning.",
             "children": [
                 {
                     "name": "Lenguajes de Alto Nivel",
-                    "description": "Lenguajes que utilizo para la mayoría de mis proyectos que simplifican el desarrollo y el aprendizaje.",
+                    "description": "Mis lenguajes de cabecera cuando necesito avanzar rápido sin sacrificar estructura.",
                     "children": [
                         {
                             "name": "Python",
-                            "description": "Principalmente utilizado para análisis de datos, inteligencia artificial y desarrollo web, gracias a la gran variedad de bibliotecas."
+                            "description": "Mi lenguaje principal. Construí back ends y APIs con Flask como freelance, y en la Universidad de Colonia implementé, entrené y optimicé modelos de ML con datos reales, incluidas redes neuronales de grafos."
                         },
                         {
                             "name": "Java",
-                            "description": "Utilizado para desarrollar aplicaciones empresariales robustas como sistemas de punto de venta."
+                            "description": "He usado Java para crear aplicaciones de negocio como sistemas de punto de venta, donde un buen diseño orientado a objetos mantiene la lógica mantenible."
                         },
                         {
                             "name": "C#",
-                            "description": "Utilizado para desarrollar aplicaciones .NET."
+                            "description": "He trabajado con C# para desarrollar aplicaciones .NET."
                         }
                     ]
                 },
                 {
                     "name": "Lenguajes de Desarrollo Web",
-                    "description": "Junto con Python, estos son los principales lenguajes con los que trabajo para el desarrollo web.",
+                    "description": "Junto con Python, son con los que entrego productos web, tanto en proyectos para clientes como en HPT.",
                     "children": [
                         {
                             "name": "JavaScript",
-                            "description": "Utilizado para desarrollar aplicaciones del lado del cliente más responsivas."
+                            "description": "La uso para que las interfaces respondan: vistas Blade interactivas en HPT, front ends en Vue para mis proyectos con Flask y este mismo portafolio."
                         },
                         {
                             "name": "PHP",
-                            "description": "Utilizado para aplicaciones web dinámicas."
+                            "description": "El lenguaje detrás de la mayor parte de mi trabajo web profesional: los módulos de CRM e inventario que construí como freelance y el ERP en el que trabajé en HPT."
                         },
                         {
                             "name": "HTML",
-                            "description": "El marco básico para la estructura de cualquier página web, esencial para el desarrollo frontend."
+                            "description": "La base de cada interfaz que he construido, desde mi primera landing page en el CETI hasta plantillas Blade en producción."
                         }
                     ]
                 },
                 {
                     "name": "Lenguajes de Sistemas y Rendimiento",
-                    "description": "Lenguajes diseñados para un control preciso del hardware o alto rendimiento.",
+                    "description": "Donde la eficiencia importa: algoritmos ajustados y hablar directamente con los datos.",
                     "children": [
                         {
                             "name": "C/C++",
-                            "description": "Principalmente utilizado para resolver problemas de ICPC y aplicaciones de consola, con una sólida base en estructuras de datos en este lenguaje."
+                            "description": "Mi lenguaje para los retos del ICPC en mi campus: soluciones rápidas bajo límite de tiempo, apoyadas en un buen dominio de estructuras de datos y algoritmos."
                         },
                         {
                             "name": "SQL",
-                            "description": "Utilizado para crear consultas y actualizar información en las bases de datos de mis proyectos."
+                            "description": "Escribo las consultas que capturan, almacenan y reportan los datos de mis proyectos, como las funciones de CRM e inventario que construí como freelance."
                         }
                     ]
                 }
@@ -60,101 +60,101 @@
         },
         {
             "name": "Tecnologías",
-            "description": "Herramientas y plataformas frecuentemente utilizadas en el desarrollo para aumentar la productividad y la calidad del software.",
+            "description": "Las herramientas y frameworks de mi flujo diario, elegidos por lo que me permiten entregar.",
             "children": [
                 {
                     "name": "Git",
-                    "description": "Un sistema de control de versiones para gestionar bases de código."
+                    "description": "Está en cada proyecto que toco. En HPT lo usé a diario para colaborar en el código compartido de un ERP."
                 },
                 {
                     "name": "LaTeX",
-                    "description": "Utilizado para crear documentos técnicos de alta calidad."
+                    "description": "Uso LaTeX para redactar documentos técnicos limpios y bien estructurados."
                 },
                 {
                     "name": "ClickUp",
-                    "description": "Una herramienta de colaboración y gestión de proyectos."
+                    "description": "He usado ClickUp para organizar tareas y dar seguimiento al avance de proyectos en equipo."
                 },
                 {
                     "name": "Docker",
-                    "description": "Una plataforma de contenedores para construir y desplegar aplicaciones."
+                    "description": "En HPT usé Docker como parte del desarrollo de nuestras aplicaciones en Laravel."
                 },
                 {
                     "name": "Vue.js",
-                    "description": "Un framework progresivo de JavaScript para construir interfaces de usuario."
+                    "description": "Mi framework front-end favorito. Lo combiné con Flask en mis aplicaciones full-stack freelance, y este portafolio está hecho con Vue 3."
                 },
                 {
                     "name": "React.js",
-                    "description": "Una biblioteca de JavaScript para interfaces de usuario basadas en componentes."
+                    "description": "He usado React para construir interfaces basadas en componentes."
                 },
                 {
                     "name": "Laravel",
-                    "description": "Un framework de PHP para el desarrollo backend."
+                    "description": "El framework que más he usado en producción: módulos a la medida, middleware y APIs RESTful en HPT, y funciones de CRM e inventario como freelance."
                 },
                 {
                     "name": "MSSQL",
-                    "description": "Un sistema de gestión de bases de datos relacional."
+                    "description": "He trabajado con Microsoft SQL Server como base de datos relacional para mis aplicaciones."
                 }
             ]
         },
         {
             "name": "Desarrollo Web",
-            "description": "Habilidades para crear aplicaciones web, tanto frontend como backend.",
+            "description": "Trabajo full-stack de punta a punta, desde las tablas de la base de datos hasta la pantalla en la que el usuario hace clic.",
             "children": [
                 {
                     "name": "Frontend",
-                    "description": "Tecnologías para crear la interfaz de usuario de aplicaciones web.",
+                    "description": "Interfaces responsivas, claras y agradables de usar.",
                     "children": [
                         {
                             "name": "React",
-                            "description": "Una biblioteca de JavaScript para crear interfaces de usuario interactivas."
+                            "description": "He usado React para construir interfaces interactivas basadas en componentes."
                         },
                         {
                             "name": "Vue",
-                            "description": "Un framework progresivo para el desarrollo frontend."
+                            "description": "Construí los front ends de mis aplicaciones con Flask en Vue, y reconstruí este portafolio en Vue 3 con Tailwind y D3."
                         },
                         {
                             "name": "HTML",
-                            "description": "El lenguaje de marcado que forma la base de cualquier página web."
+                            "description": "El marcado semántico es donde empieza cada página que construyo, desde plantillas Blade en HPT hasta este sitio."
                         },
                         {
                             "name": "CSS",
-                            "description": "Utilizado para diseñar y maquetar páginas web."
+                            "description": "Creé interfaces escalables y responsivas con CSS y Bootstrap en HPT; este portafolio usa Tailwind."
                         }
                     ]
                 },
                 {
                     "name": "Backend",
-                    "description": "Herramientas y frameworks para el desarrollo backend.",
+                    "description": "Lógica de negocio, APIs y datos: la parte que el usuario no ve pero de la que depende.",
                     "children": [
                         {
                             "name": "PHP",
-                            "description": "Un framework de lenguaje de scripting del lado del servidor."
+                            "description": "PHP en el servidor impulsó los sistemas de CRM, inventario y ERP en los que he participado."
                         },
                         {
                             "name": "Laravel",
-                            "description": "Un framework de PHP para el desarrollo rápido de aplicaciones web."
+                            "description": "En HPT desarrollé y mantuve apps en Laravel con módulos y middleware a la medida, y construí y documenté APIs para integraciones con terceros."
                         },
                         {
                             "name": "Flask",
-                            "description": "Un framework ligero de Python para el desarrollo web."
+                            "description": "Mi elección para back ends ligeros en Python. Como freelance construí apps full-stack y APIs de uso interno y externo con Flask y MySQL."
                         }
                     ]
                 },
                 {
                     "name": "Bases de Datos",
-                    "description": "Habilidades relacionadas con el diseño y la optimización de bases de datos.",
+                    "description": "Diseñar modelos de datos que se mantengan consistentes y rápidos conforme crece el negocio.",
                     "children": [
                         {
                             "name": "MSSQL",
-                            "description": "Un sistema de gestión de bases de datos relacional."
+                            "description": "He usado Microsoft SQL Server para almacenar y consultar datos de aplicaciones."
                         },
                         {
                             "name": "Normalización de SQL",
-                            "description": "Un método para organizar bases de datos para una eficiencia óptima."
+                            "description": "Al ampliar el sistema de un cliente como freelance, normalicé las nuevas tablas para proteger la integridad de los datos y mantener las consultas eficientes."
                         },
                         {
                             "name": "Diseño de Tablas",
-                            "description": "Creación de estructuras de tablas de bases de datos efectivas y escalables."
+                            "description": "Diseñé nuevas tablas para cubrir requerimientos reales de negocio en sistemas de CRM e inventario, equilibrando integridad y rendimiento."
                         }
                     ]
                 }
@@ -162,79 +162,79 @@
         },
         {
             "name": "Habilidades Blandas",
-            "description": "Me ayudan a trabajar de manera eficiente y amigable en equipo.",
+            "description": "Lo que he aprendido trabajando en empresas, equipos freelance, competencias y en el extranjero.",
             "children": [
                 {
                     "name": "Trabajo en Equipo",
-                    "description": "Capacidad para colaborar con otros para lograr objetivos comunes."
+                    "description": "Desde el código compartido del ERP en HPT hasta los grupos de estudio de machine learning en Colonia, doy lo mejor de mí trabajando con otros."
                 },
                 {
                     "name": "Liderazgo",
-                    "description": "La capacidad de liderar y motivar equipos."
+                    "description": "He liderado proyectos durante mi carrera en la UdeG, organizando el trabajo y manteniendo al equipo enfocado en la meta."
                 },
                 {
                     "name": "Resolución de Problemas",
-                    "description": "Enfoques analíticos para abordar desafíos."
+                    "description": "El ICPC me enseñó a descomponer problemas difíciles bajo presión; aplico el mismo enfoque a bugs y requerimientos en el trabajo."
                 },
                 {
                     "name": "Adaptabilidad",
-                    "description": "Adaptarse rápidamente a nuevos entornos o tecnologías."
+                    "description": "Pasé de análisis en recursos humanos al desarrollo web, y estudié un semestre en Colonia trabajando en alemán e inglés."
                 },
                 {
                     "name": "Ingenio",
-                    "description": "Pensamiento creativo para encontrar soluciones innovadoras."
+                    "description": "En HCL reemplacé el manejo manual de datos con macros que almacenaban la información de los empleados automáticamente."
                 },
                 {
                     "name": "Curiosidad",
-                    "description": "Búsqueda constante de conocimiento y mejora."
+                    "description": "Me llevó a la investigación en machine learning en la UdeG y a las redes neuronales de grafos en Colonia, y me mantiene aprendiendo nuevas herramientas."
                 },
                 {
                     "name": "Pensamiento Analítico",
-                    "description": "Análisis estructurado y metódico de problemas."
+                    "description": "Desde reportes de RR. HH. en HCL hasta análisis de datos en grafos y modelos de ranking en Colonia, me gusta convertir datos en decisiones claras."
                 },
                 {
                     "name": "Creatividad",
-                    "description": "La capacidad de desarrollar ideas originales e innovadoras."
+                    "description": "Mis primeros proyectos en el CETI fueron una landing page, un foro y un DEX para un proyecto de criptomonedas, construidos desde cero."
                 }
             ]
         },
         {
             "name": "Idiomas",
-            "description": "Habilidades lingüísticas que utilizo para la comunicación.",
+            "description": "Los idiomas en los que vivo y trabajo.",
             "children": [
                 {
                     "name": "Inglés",
-                    "description": "Nivel de idioma: C1. Ideal para proyectos internacionales y comunicación técnica avanzada."
+                    "description": "C1. Trabajo a diario con documentación y código en inglés, y estudié en inglés durante mi intercambio en Colonia."
                 },
                 {
                     "name": "Alemán",
-                    "description": "Nivel de idioma: B2. Útil para la interacción en entornos de habla alemana y documentos técnicos."
+                    "description": "B2. Lo fortalecí viviendo y estudiando en Colonia de 2025 a 2026."
                 },
                 {
                     "name": "Español",
-                    "description": "Idioma nativo. Esencial para colaborar con equipos de habla hispana y clientes locales."
+                    "description": "Nativo. El idioma de mis clientes y equipos locales en Guadalajara."
                 }
             ]
         },
         {
             "name": "Herramientas y Metodologías",
-            "description": "Software y métodos utilizados en el desarrollo profesional para garantizar calidad y eficiencia.",
+            "description": "Cómo organizo el trabajo para que se entregue a tiempo y siga siendo mantenible.",
             "children": [
                 {
                     "name": "Desarrollo Ágil",
-                    "description": "Un enfoque iterativo para el desarrollo de software."
+                    "description": "Trabajo en iteraciones cortas, definiendo, construyendo y entregando funcionalidades junto con el equipo, como lo hice como desarrollador full-stack freelance."
                 },
                 {
                     "name": "Control de Versiones con Git",
-                    "description": "Un sistema para rastrear cambios en el código fuente."
+                    "description": "Commits limpios y ramas son mi forma de mantener bajo control código compartido, como el ERP de HPT."
                 },
                 {
                     "name": "Herramientas de Colaboración como ClickUp",
-                    "description": "Plataformas para la organización del equipo y el seguimiento de proyectos."
+                    "description": "He usado herramientas como ClickUp para dividir el trabajo en tareas y mantener a todos alineados sobre el avance."
                 },
                 {
                     "name": "Modelado y Optimización de Bases de Datos",
-                    "description": "Diseño y gestión eficiente de bases de datos."
+                    "description": "Modelo datos para sistemas de CRM, inventario y ERP pensando en la integridad y el rendimiento de las consultas."
                 }
             ]
         }
