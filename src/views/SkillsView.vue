@@ -15,7 +15,7 @@ const mindMap = ref(0);
 const skillsData = ref(null);
 
 const lines = [
-  'skills = ["Python", "JavaScript", "Vue.js", "Data Analysis", "Machine Learning"]',
+  'skills = ["Python", "Laravel", "SQL", "LLM agents", "Linux"]',
   'for skill in skills:',
   '    print(f"Skill: {skill}")',
 ];

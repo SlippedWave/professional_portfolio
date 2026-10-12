@@ -1,53 +1,59 @@
 {
     "experiences": [
         {
-            "title": "Software Development Technician",
-            "period": "8/2018 - 6/2022",
-            "company": "Centro de Enseñanza Técnica Industrial Colomos",
-            "position": "Software Development Technician",
+            "title": "B.Sc. in Computer Engineering",
+            "period": "8/2022 - 12/2026 (expected)",
+            "company": "Universidad de Guadalajara (CUCEI)",
+            "position": "B.Sc. in Computer Engineering",
+            "location": "Guadalajara, Mexico",
+            "current": true,
             "activities": [
-                "Developed a landing page, forum and dex for a criptocurrency project.",
-                "Collabored on the IT department by repairing and mantaining IT equipment.",
-                "Joined the team of physics at the campus."
+                "Cohort ICOM 22B.",
+                "Collaborated on research in the field of machine learning.",
+                "Took part in the ICPC challenges on my campus."
             ],
             "technologies": [
-                "Project Management",
-                "Data Structures",
+                "Data structures & algorithms",
                 "OOP",
-                "Teamwork"
+                "Databases",
+                "Machine learning"
             ]
         },
         {
-            "title": "B.sc. in Computer Engineering",
-            "period": "8/2022 - 6/2026",
-            "company": "Universidad de Guadalajara",
-            "position": "B.sc. in Computer Engineering",
-            "activities": [
-                "Developed some web applications on my own.",
-                "Collabored on a Investigation in the field of machine learning.",
-                "Took part in the ICPC challenges of my campus."
-            ],
-            "technologies": [
-                "Web development",
-                "Machine Learning",
-                "Computer Architecture",
-                "Project leadership"
-            ]
-        },
-        {
-            "title": "Exchange Semester with focus on ML/AI",
+            "title": "Exchange Semester",
             "period": "10/2025 - 3/2026",
-            "company": "University of Cologne",
-            "position": "Exchange Student in computer science department",
+            "company": "University of Cologne (Universität zu Köln)",
+            "position": "Exchange Semester",
+            "location": "Cologne, Germany",
+            "current": false,
             "activities": [
-                "Implemented, trained, and optimized machine learning models using real-world datasets.",
-                "Developed projects focused on graph data analysis and modeling, including generative models, ranking, and graph neural networks (GNNs).",
-                "Improved my German and English language skills.",
-                "Participated in collaborative study groups focused on machine learning."
+                "Semester abroad during cycle 25B.",
+                "Implemented, trained and optimized machine learning models on real-world datasets, including graph neural networks.",
+                "Studied and worked in German and English."
             ],
             "technologies": [
-                "AI",
-                "ML"
+                "Machine learning",
+                "Graph neural networks",
+                "German",
+                "English"
+            ]
+        },
+        {
+            "title": "Technical Diploma in Software Development",
+            "period": "8/2018 - 6/2022",
+            "company": "CETI Colomos",
+            "position": "Technical Diploma in Software Development",
+            "location": "Guadalajara, Mexico",
+            "current": false,
+            "activities": [
+                "Where I started programming in 2018.",
+                "Built DEEMU, a blockchain-based platform for transparent charitable transactions with a community-governed forum."
+            ],
+            "technologies": [
+                "Software development",
+                "OOP",
+                "React",
+                "Blockchain"
             ]
         }
     ]

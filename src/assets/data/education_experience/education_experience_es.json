@@ -1,52 +1,59 @@
 {
     "experiences": [
         {
+            "title": "Ingeniería en Computación",
+            "period": "8/2022 - 12/2026 (previsto)",
+            "company": "Universidad de Guadalajara (CUCEI)",
+            "position": "Ingeniería en Computación",
+            "location": "Guadalajara, México",
+            "current": true,
+            "activities": [
+                "Generación ICOM 22B.",
+                "Colaboré en una investigación en el campo del machine learning.",
+                "Participé en los retos del ICPC de mi campus."
+            ],
+            "technologies": [
+                "Estructuras de datos y algoritmos",
+                "POO",
+                "Bases de datos",
+                "Machine learning"
+            ]
+        },
+        {
+            "title": "Semestre de intercambio",
+            "period": "10/2025 - 3/2026",
+            "company": "University of Cologne (Universität zu Köln)",
+            "position": "Semestre de intercambio",
+            "location": "Colonia, Alemania",
+            "current": false,
+            "activities": [
+                "Semestre en el extranjero durante el ciclo 25B.",
+                "Implementé, entrené y optimicé modelos de machine learning con datos reales, incluidas redes neuronales de grafos.",
+                "Estudié y trabajé en alemán e inglés."
+            ],
+            "technologies": [
+                "Machine learning",
+                "Redes neuronales de grafos",
+                "Alemán",
+                "Inglés"
+            ]
+        },
+        {
             "title": "Tecnólogo en Desarrollo de Software",
             "period": "8/2018 - 6/2022",
-            "company": "Centro de Enseñanza Técnica Industrial Colomos",
+            "company": "CETI Colomos",
             "position": "Tecnólogo en Desarrollo de Software",
+            "location": "Guadalajara, México",
+            "current": false,
             "activities": [
-                "Desarrollé una página de promoción, un foro y un dex para un proyecto de criptomonedas.",
-                "Colaboré en el departamento de TI reparando y manteniendo equipos informáticos.",
-                "Me uní al equipo de física del campus."
+                "Donde empecé a programar en 2018.",
+                "Construí DEEMU, una plataforma basada en blockchain para donaciones transparentes con un foro de gobernanza comunitaria."
             ],
             "technologies": [
-                "Gestión de Proyectos",
-                "Estructuras de Datos",
+                "Desarrollo de software",
                 "POO",
-                "Trabajo en equipo"
-            ]
-        },
-        {
-            "title": "Licenciatura en Ingeniería en Computación",
-            "period": "8/2022 - 6/2026",
-            "company": "Universidad de Guadalajara",
-            "position": "Estudiante de Ingeniería en Computación",
-            "activities": [
-                "Desarrollé algunas aplicaciones web por mi cuenta.",
-                "Colaboré en una investigación en el campo del machine learning.",
-                "Participé en los desafíos ICPC de mi campus."
-            ],
-            "technologies": [
-                "Desarrollo web",
-                "Machine Learning",
-                "Liderazgo de proyectos"
-            ]
-        },
-        {
-            "title": "Semestre de Intercambio con enfoque en ML/AI",
-            "period": "10/2025 - 3/2026",
-            "company": "Universidad de Colonia",
-            "position": "Estudiante de Intercambio en departamento de informática",
-            "activities": [
-                "Implementé, entrené y optimicé modelos de aprendizaje automático utilizando conjuntos de datos del mundo real.",
-                "Desarrollé proyectos enfocados en el análisis y modelado de datos en grafos, incluyendo modelos generativos, ranking y redes neuronales en grafos (GNNs).",
-                "Mejoré mis habilidades en idioma alemán e inglés.",
-                "Participé en grupos de estudio colaborativos enfocados en el aprendizaje automático."
-            ],
-            "technologies": [
-                "AI",
-                "ML"
+                "React",
+                "Blockchain"
             ]
         }
     ]

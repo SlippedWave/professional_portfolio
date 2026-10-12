@@ -8,7 +8,7 @@
             class="relative pb-10 pl-8 last:pb-0 sm:pl-10" v-motion :initial="{ opacity: 0, x: -20 }"
             :visible-once="{ opacity: 1, x: 0, transition: { delay: index * 80, duration: 400 } }">
             <span class="absolute top-5 -left-[7.5px] size-4 rounded-full border-2 border-accent bg-canvas"
-                :class="{ 'bg-accent shadow-[0_0_12px] shadow-accent/70': index === 0 }" aria-hidden="true"></span>
+                :class="{ 'bg-accent shadow-[0_0_12px] shadow-accent/70': experience.current }" aria-hidden="true"></span>
             <TimeLineCard :experience="experience" />
         </li>
         </ol>
@@ -26,9 +26,10 @@ const props = defineProps({
     }
 });
 
-// "M/YYYY - M/YYYY" -> sortable number from the start date
+// "M/YYYY - ..." or "YYYY - ..." -> sortable number from the start date (year-only counts as January)
 const startKey = (period) => {
-    const [month, year] = period.split('-')[0].trim().split('/').map(Number);
+    const parts = period.split('-')[0].trim().split('/').map(Number);
+    const [month, year] = parts.length === 2 ? parts : [1, parts[0]];
     return year * 12 + month;
 };
 

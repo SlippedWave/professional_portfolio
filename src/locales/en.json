@@ -26,10 +26,10 @@
   },
   "owners_info": {
     "name": "Francisco Javier González Barriga",
-    "title": "Data Scientist and Software Engineer",
-    "degree": "Bachelor of Science in Computer Engineering",
-    "university": "Universidad de Guadalajara",
-    "location": "Guadalajara, Jalisco, Mexico."
+    "title": "Software Engineer · AI & Backend",
+    "degree": "B.Sc. in Computer Engineering",
+    "university": "Universidad de Guadalajara (CUCEI)",
+    "location": "Guadalajara, Jalisco, Mexico"
   },
   "projects_view": {
     "projectsTitle": "Projects",
@@ -39,25 +39,28 @@
     "card": {
       "open_repo": "Open repo",
       "open_demo": "View demo",
-      "private": "Private"
+      "private": "Private",
+      "visit": "Visit site"
     },
     "loading": "Loading projects...",
-    "error": "Couldn't load projects from GitHub. Please try again later."
+    "error": "Couldn't load projects from GitHub. Please try again later.",
+    "featured": "Featured projects",
+    "more_on_github": "More on GitHub"
   },
   "home_view": {
     "aboutMeTitle": "About Me",
     "greetingConsoleLines": [
       "print(\"Francisco González\")",
-      "print(\"Data Scientist and Software Engineer\")",
+      "print(\"Software Engineer · AI & Backend\")",
       "print(\"Welcome to my professional portfolio!\")"
     ],
-    "aboutMeText": "I'm a passionate Data Scientist and Software Engineer with 4+ years of experience in Computer Science. I specialize in tackling complex challenges, crafting innovative solutions, and delivering high-quality products.",
-    "getToKnowMeTitle": "Get to know me",
-    "getToKnowMeText": "I'm a curious person who loves to learn something new everyday, with my expertise in languages like Python, Java, and SQL, and a knack for teamwork and problem-solving, I'm always eager to push boundaries and make an impact. Let's work on something extraordinary together!",
+    "aboutMeText": "I'm a software engineer from Guadalajara with about 3 years of professional experience building backend services, APIs and data-driven applications. Today I'm an AI Engineering Intern at Intel, building LLM-powered assistants and agents for internal engineering teams, while I build and run production software for clients on the side. I've been programming since 2018 and I'm finishing my B.Sc. in Computer Engineering at CUCEI.",
+    "getToKnowMeTitle": "How I work",
+    "getToKnowMeText": "Most of my career has been remote and asynchronous with distributed teams. I like understanding how a whole system works, I verify assumptions and audit the data before building on top of it, and I prefer a thorough investigation over a quick fix. I write things down: specs, findings and reference docs are part of the work. I spent a semester studying in Germany and work comfortably in Spanish, English and German.",
     "hobbiesTitle": "Hobbies",
     "hobbiesText": "In my free time, I love exploring new technologies, reading books on various topics, and learning new languages. I also enjoy hiking and spending time in nature.",
     "interestsTitle": "Interests",
-    "interestsText": "I am particularly interested in artificial intelligence, machine learning, and data visualization. I am always eager to learn new things and stay updated with the latest trends in technology.",
+    "interestsText": "AI engineering: practical LLM agents and toolchains that real engineering teams use. Backend and data systems: APIs, database design and data-heavy applications. Self-hosting and Linux: running my own production servers. Web3 and decentralized systems, which I explored with DEEMU.",
     "cta": {
       "projects": "View projects",
       "contact": "Contact me"

@@ -1,53 +1,59 @@
 {
     "experiences": [
         {
-            "title": "Softwareentwicklung Techniker",
-            "period": "8/2018 - 6/2022",
-            "company": "Centro de Enseñanza Técnica Industrial Colomos",
-            "position": "Softwareentwicklung Techniker",
+            "title": "B.Sc. in Technischer Informatik",
+            "period": "8/2022 - 12/2026 (voraussichtlich)",
+            "company": "Universidad de Guadalajara (CUCEI)",
+            "position": "B.Sc. in Technischer Informatik",
+            "location": "Guadalajara, Mexiko",
+            "current": true,
             "activities": [
-                "Entwicklung einer Landingpage, eines Forums und eines Dex für ein Kryptowährungsprojekt.",
-                "Mitarbeit in der IT-Abteilung durch Reparatur und Wartung von IT-Geräten.",
-                "Beitritt zum Physikteam des Campus."
+                "Jahrgang ICOM 22B.",
+                "Mitarbeit an einem Forschungsprojekt im Bereich Machine Learning.",
+                "Teilnahme an den ICPC-Wettbewerben meines Campus."
             ],
             "technologies": [
-                "Projektmanagement",
-                "Datenstrukturen",
+                "Datenstrukturen & Algorithmen",
                 "OOP",
-                "Teamarbeit"
+                "Datenbanken",
+                "Machine Learning"
             ]
         },
         {
-            "title": "Bachelor in Computer Engineering",
-            "period": "8/2022 - 6/2026",
-            "company": "Universidad de Guadalajara",
-            "position": "Bachelor in Computer Engineering",
-            "activities": [
-                "Entwicklung Webpages in Eigenregie.",
-                "Mitarbeit an einer Forschung im Bereich Machine Learning.",
-                "Teilnahme an den ICPC-Challenges meines Campus."
-            ],
-            "technologies": [
-                "Webentwicklung",
-                "Machine Learning",
-                "Computerarchitektur",
-                "Projektführung"
-            ]
-        },
-        {
-            "title": "Austauschsemester mit Schwerpunkt ML/AI",
+            "title": "Austauschsemester",
             "period": "10/2025 - 3/2026",
-            "company": "Universität zu Köln",
-            "position": "Austauschstudent im Fachbereich Informatik",
+            "company": "University of Cologne (Universität zu Köln)",
+            "position": "Austauschsemester",
+            "location": "Köln, Deutschland",
+            "current": false,
             "activities": [
-                "Implementierung, Training und Optimierung von Machine-Learning-Modellen mit realen Datensätzen.",
-                "Entwicklung von Projekten mit Fokus auf Graphdatenanalyse und -modellierung, einschließlich generativer Modelle, Ranking und Graph Neural Networks (GNNs).",
-                "Verbesserung meiner Deutsch- und Englischkenntnisse.",
-                "Teilnahme an kollaborativen Lerngruppen mit Fokus auf Machine Learning."
+                "Auslandssemester im Zyklus 25B.",
+                "Machine-Learning-Modelle mit realen Datensätzen implementiert, trainiert und optimiert, darunter Graph Neural Networks.",
+                "Studium und Arbeit auf Deutsch und Englisch."
             ],
             "technologies": [
-                "AI",
-                "ML"
+                "Machine Learning",
+                "Graph Neural Networks",
+                "Deutsch",
+                "Englisch"
+            ]
+        },
+        {
+            "title": "Technisches Diplom in Softwareentwicklung",
+            "period": "8/2018 - 6/2022",
+            "company": "CETI Colomos",
+            "position": "Technisches Diplom in Softwareentwicklung",
+            "location": "Guadalajara, Mexiko",
+            "current": false,
+            "activities": [
+                "Hier habe ich 2018 mit dem Programmieren begonnen.",
+                "DEEMU entwickelt, eine Blockchain-Plattform für transparente Spenden mit einem gemeinschaftlich verwalteten Forum."
+            ],
+            "technologies": [
+                "Softwareentwicklung",
+                "OOP",
+                "React",
+                "Blockchain"
             ]
         }
     ]

@@ -1,0 +1,67 @@
+{
+    "projects": [
+        {
+            "name": "Nutriplatanos",
+            "url": "https://app.nutriplatanos.com",
+            "period": "Ongoing",
+            "stack": [
+                "Laravel 12",
+                "PHP",
+                "Blade",
+                "Ubuntu Linux",
+                "Git"
+            ],
+            "summary": "Production web application that I self-host and administer on my own Ubuntu server.",
+            "highlights": [
+                "Safe deployment workflow: local, then GitHub, then pull-only on the server (never push from production).",
+                "A legacy branch acts as a backup before major refactors land on master."
+            ]
+        },
+        {
+            "name": "Professional Portfolio",
+            "url": "https://frgonz.dev",
+            "period": "2024 – 2026",
+            "stack": [
+                "Vue",
+                "Vite",
+                "JavaScript",
+                "Tailwind CSS",
+                "D3"
+            ],
+            "summary": "This site: a responsive, trilingual portfolio with a terminal look.",
+            "highlights": [
+                "Reduced page load time by 35% (2.1s to 1.3s).",
+                "Interactive skills map built with D3 and content in English, Spanish and German."
+            ]
+        },
+        {
+            "name": "Beaver Deliver",
+            "url": null,
+            "period": "Aug 2024",
+            "stack": [
+                "Python",
+                "Flask",
+                "SQL",
+                "JavaScript"
+            ],
+            "summary": "Flask backend for delivery route optimization using external APIs.",
+            "highlights": [
+                "Designed routing algorithms to reduce logistics costs.",
+                "Implemented authentication and role-based access control for secure API access."
+            ]
+        },
+        {
+            "name": "DEEMU",
+            "url": null,
+            "period": "Apr 2022",
+            "stack": [
+                "React",
+                "Blockchain"
+            ],
+            "summary": "Blockchain-based platform for transparent charitable transactions.",
+            "highlights": [
+                "Decentralized governance through a community-driven forum."
+            ]
+        }
+    ]
+}

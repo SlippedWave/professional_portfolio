@@ -1,77 +1,110 @@
 {
     "experiences": [
         {
+            "title": "AI Engineering Intern",
+            "period": "6/2026 - Actualidad",
+            "company": "Intel",
+            "position": "AI Engineering Intern",
+            "location": "Jalisco, México",
+            "current": true,
+            "activities": [
+                "Diseño toolchains privadas de IA para agilizar flujos de trabajo internos de ingeniería.",
+                "Construyo y mantengo asistentes y agentes a la medida basados en LLMs para las necesidades internas de ingeniería de Intel.",
+                "Desarrollo y despliego soluciones con IA en varios equipos de validación post-silicio, manteniendo estándares de herramientas consistentes y apoyando la colaboración entre equipos.",
+                "Completé la capacitación interna de validación de seguridad (herramientas de fuzz testing y metodología integral de evaluación de seguridad)."
+            ],
+            "technologies": [
+                "LLMs",
+                "Agentes de IA",
+                "Toolchains de IA",
+                "Validación post-silicio",
+                "Pruebas de seguridad"
+            ]
+        },
+        {
+            "title": "Desarrollador de Software (Contrato)",
+            "period": "2026 - Actualidad",
+            "company": "ELI Schools / Work & Study Travel LATAM",
+            "position": "Desarrollador de Software (Contrato)",
+            "location": "Remoto",
+            "current": true,
+            "activities": [
+                "Construyo el Sales Dashboard de Orion 2.0, un CRM para una empresa internacional de educación y viajes: pipeline global por país, control de leads por agente, pipeline por campaña, país y estatus, y objetivos diarios por agente.",
+                "Modelé la jerarquía de equipos (grupos, equipos y agentes con líderes y directores) y las etapas del pipeline de leads.",
+                "Audité los datos de producción antes de construir, identificando y documentando huecos de integridad como campos de etapa vacíos, joins faltantes entre leads de marketing y leads, y estados de reserva ambiguos.",
+                "Traduje requerimientos de los stakeholders, tomados de un video de recorrido, a especificaciones técnicas y escribí documentación de referencia del modelo de datos.",
+                "Trabajé en el módulo Email Editor (listas de texto enriquecido, columnas de imagen y texto), reporté bugs y resolví problemas de compatibilidad con clientes de correo, como la falta de soporte de Outlook para border-radius y object-fit."
+            ],
+            "technologies": [
+                "Base44",
+                "Desarrollo asistido por IA",
+                "Modelado de datos",
+                "Auditoría de datos",
+                "Documentación técnica",
+                "Email HTML"
+            ]
+        },
+        {
+            "title": "Desarrollador Full Stack",
+            "period": "3/2025 - 6/2025",
+            "company": "HPT Center and Planning",
+            "position": "Desarrollador Full Stack",
+            "location": "Remoto",
+            "current": false,
+            "activities": [
+                "Construí y desplegué APIs RESTful en Laravel dentro de una arquitectura modular orientada a servicios.",
+                "Diseñé servicios backend y middleware reutilizables, mejorando la escalabilidad y la mantenibilidad.",
+                "Reduje 30% los tiempos de carga del frontend optimizando plantillas Blade.",
+                "Desplegué aplicaciones en entornos Linux con flujos automatizados basados en Git y Docker.",
+                "Escribí la documentación de la arquitectura del sistema."
+            ],
+            "technologies": [
+                "Laravel",
+                "PHP",
+                "Blade",
+                "REST APIs",
+                "Linux",
+                "Docker",
+                "Git"
+            ]
+        },
+        {
+            "title": "Desarrollador de Software",
+            "period": "1/2023 - 3/2025",
+            "company": "ITEKNIA Equipamiento",
+            "position": "Desarrollador de Software",
+            "location": "Remoto",
+            "current": false,
+            "activities": [
+                "Diseñé e implementé sistemas backend para CRM y gestión de inventario.",
+                "Modelé y optimicé bases de datos relacionales, mejorando la eficiencia de las consultas y el rendimiento del sistema.",
+                "Entregué aplicaciones full-stack con interfaces limpias y servicios backend confiables.",
+                "Construí servicios backend para operaciones de datos en tiempo real."
+            ],
+            "technologies": [
+                "PHP",
+                "Laravel",
+                "SQL",
+                "Diseño de bases de datos",
+                "JavaScript",
+                "HTML/CSS"
+            ]
+        },
+        {
             "title": "Analista de Recursos Humanos",
             "period": "9/2022 - 1/2023",
             "company": "HCL Technologies",
             "position": "Analista de Recursos Humanos",
+            "location": "Jalisco, México",
+            "current": false,
             "activities": [
-                "Apoyar las operaciones de RR. HH. para mantener la información y los documentos de los empleados en línea con las políticas de la empresa.",
-                "Recuperar información del archivo de la empresa y crear macros para almacenarla automáticamente.",
-                "Crear informes y presentaciones para el departamento de RR. HH."
+                "Automaticé flujos de reportes con macros de Excel, reduciendo el tiempo de procesamiento manual.",
+                "Construí dashboards para apoyar la toma de decisiones basada en datos de la dirección."
             ],
             "technologies": [
-                "Excel",
-                "Microsoft SharePoint",
-                "Habilidades de comunicación",
-                "Trabajo en equipo"
-            ]
-        },
-        {
-            "title": "Desarrollador Web",
-            "period": "1/2023 - 10/2024",
-            "company": "Freelance",
-            "position": "Desarrollador Web",
-            "activities": [
-                "Desarrollé el lado CRM del sistema y parte de la gestión de inventarios, desarrollando funcionalidades para capturar, almacenar y consultar información desde la base de datos.",
-                "Diseñé nuevas tablas para apoyar los requisitos del negocio, asegurando la integridad de los datos, la normalización y un rendimiento óptimo.",
-                "Participé en el equipo de desarrollo de un ERP de código abierto basado en la web de una empresa local.",
-                "Mantenimiento y mejora de la funcionalidad de los sistemas existentes."
-            ],
-            "technologies": [
-                "SQL",
-                "PHP Laravel",
-                "JavaScript",
-                "HTML/CSS"
-            ]
-        },
-        {
-            "title": "Desarrollador de Software",
-            "period": "10/2024 - 03/2025",
-            "company": "Freelance",
-            "position": "Desarrollador de Software",
-            "activities": [
-                "Desarrollar aplicaciones web Full-Stack.",
-                "Diseñar sitios web, aplicaciones, bases de datos y software desde cero utilizando las mejores prácticas.",
-                "Construir nuevas funcionalidades de productos y APIs para uso interno y externo.",
-                "Colaborar con equipos para definir, diseñar y lanzar nuevas funcionalidades o productos."
-            ],
-            "technologies": [
-                "Flask",
-                "Vue Js",
-                "HTML/CSS",
-                "Python",
-                "MySQL"
-            ]
-        },
-        {
-            "title": "Desarrollador de Software",
-            "period": "03/2025 - 06/2025",
-            "company": "HPT Center and Planning",
-            "position": "Desarrollador de Software",
-            "activities": [
-                "Desarrollé y mantuve aplicaciones web basadas en Laravel, incluyendo módulos personalizados, middleware y APIs RESTful.",
-                "Colaboré en un sistema ERP de código abierto, contribuyendo tanto al desarrollo front-end como back-end.",
-                "Creé interfaces de usuario escalables y responsivas utilizando plantillas Blade, CSS y Bootstrap.",
-                "Construí y documenté APIs para la integración con servicios de terceros."
-            ],
-            "technologies": [
-                "Laravel",
-                "MySQL",
-                "Docker",
-                "Git",
-                "JavaScript",
-                "HTML/CSS"
+                "Macros de Excel",
+                "Dashboards",
+                "Automatización de reportes"
             ]
         }
     ]

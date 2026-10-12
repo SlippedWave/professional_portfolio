@@ -1,240 +1,230 @@
 {
     "name": "Skills",
-    "description": "The tools and abilities I've actually put to work: in freelance projects, at HPT Center and Planning, in research at UdeG and during my exchange in Cologne.",
+    "description": "What I actually work with: at Intel, on client projects like Orion 2.0 and Nutriplatanos, and in my studies at CUCEI and Cologne.",
     "children": [
         {
             "name": "Programming Languages",
-            "description": "The languages I write every day, from production web apps to competitive programming and machine learning experiments.",
+            "description": "The languages I write, from production backends to competitive programming.",
             "children": [
                 {
-                    "name": "High-Level Languages",
-                    "description": "My go-to languages when I need to move fast without sacrificing structure.",
-                    "children": [
-                        {
-                            "name": "Python",
-                            "description": "My main language. I built Flask back ends and APIs as a freelancer, and at the University of Cologne I implemented, trained and tuned ML models on real datasets, including graph neural networks."
-                        },
-                        {
-                            "name": "Java",
-                            "description": "I've used Java to build business applications such as point-of-sale systems, where solid object-oriented design keeps the logic maintainable."
-                        },
-                        {
-                            "name": "C#",
-                            "description": "I've worked with C# to build .NET applications."
-                        }
-                    ]
+                    "name": "Python",
+                    "description": "My go-to for data and AI work, and the language behind Beaver Deliver's Flask backend. In Cologne I used it to implement and train ML models on real datasets."
                 },
                 {
-                    "name": "Web Development Languages",
-                    "description": "Together with Python, these are what I ship web products with, both on client projects and at HPT.",
-                    "children": [
-                        {
-                            "name": "JavaScript",
-                            "description": "I use it to make interfaces respond: interactive Blade views at HPT, Vue front ends for my Flask projects, and this portfolio itself."
-                        },
-                        {
-                            "name": "PHP",
-                            "description": "The language behind most of my professional web work: the CRM and inventory modules I built as a freelancer and the ERP I worked on at HPT."
-                        },
-                        {
-                            "name": "HTML",
-                            "description": "The foundation of every interface I've built, from my first landing page at CETI to Blade templates in production."
-                        }
-                    ]
+                    "name": "Java",
+                    "description": "I've used Java for business applications such as point-of-sale systems, where solid object-oriented design keeps the logic maintainable."
                 },
                 {
-                    "name": "Systems and Performance Languages",
-                    "description": "Where efficiency matters: tight algorithms and talking directly to the data.",
-                    "children": [
-                        {
-                            "name": "C/C++",
-                            "description": "My language for the ICPC challenges at my campus: fast solutions under time limits built on a solid grasp of data structures and algorithms."
-                        },
-                        {
-                            "name": "SQL",
-                            "description": "I write the queries that capture, store and report the data in my projects, like the CRM and inventory features I built as a freelancer."
-                        }
-                    ]
+                    "name": "SQL",
+                    "description": "At ITEKNIA I modeled and optimized relational databases for CRM and inventory systems to make queries faster."
+                },
+                {
+                    "name": "JavaScript",
+                    "description": "The client side of my full-stack work: ITEKNIA's applications, Beaver Deliver and this portfolio."
+                },
+                {
+                    "name": "PHP",
+                    "description": "The language behind most of my production web work: Laravel APIs at HPT, the CRM and inventory systems at ITEKNIA, and Nutriplatanos."
+                },
+                {
+                    "name": "C",
+                    "description": "I use C to work close to the machine and understand how memory and data structures really work."
+                },
+                {
+                    "name": "C++",
+                    "description": "My language for the ICPC challenges on my campus: fast solutions under time limits built on data structures and algorithms."
+                },
+                {
+                    "name": "C#",
+                    "description": "I've worked with C# to build .NET applications."
                 }
             ]
         },
         {
-            "name": "Technologies",
-            "description": "The tools and frameworks in my daily workflow, chosen for what they let me ship.",
+            "name": "Frameworks & Libraries",
+            "description": "The frameworks I build backends, interfaces and data pipelines with.",
             "children": [
-                {
-                    "name": "Git",
-                    "description": "Part of every project I touch. At HPT I used it daily to collaborate on a shared ERP codebase."
-                },
-                {
-                    "name": "LaTeX",
-                    "description": "I use LaTeX to write clean, well-structured technical documents."
-                },
-                {
-                    "name": "ClickUp",
-                    "description": "I've used ClickUp to organize tasks and keep track of project progress with a team."
-                },
-                {
-                    "name": "Docker",
-                    "description": "At HPT I used Docker as part of developing our Laravel applications."
-                },
-                {
-                    "name": "Vue.js",
-                    "description": "My favourite front-end framework. I paired it with Flask in my freelance full-stack apps, and this portfolio is built with Vue 3."
-                },
-                {
-                    "name": "React.js",
-                    "description": "I've used React to build component-based interfaces."
-                },
-                {
-                    "name": "Laravel",
-                    "description": "The framework I've used most in production: custom modules, middleware and RESTful APIs at HPT, and CRM and inventory features as a freelancer."
-                },
-                {
-                    "name": "MSSQL",
-                    "description": "I've worked with Microsoft SQL Server as a relational database for my applications."
-                }
-            ]
-        },
-        {
-            "name": "Web Development",
-            "description": "Full-stack work end to end, from database tables to the screen the user clicks.",
-            "children": [
-                {
-                    "name": "Frontend",
-                    "description": "Interfaces that are responsive, clear and pleasant to use.",
-                    "children": [
-                        {
-                            "name": "React",
-                            "description": "I've used React to build interactive, component-based user interfaces."
-                        },
-                        {
-                            "name": "Vue",
-                            "description": "I built the front ends of my Flask applications with Vue, and rebuilt this portfolio in Vue 3 with Tailwind and D3."
-                        },
-                        {
-                            "name": "HTML",
-                            "description": "Semantic markup is where every page I build starts, from Blade templates at HPT to this site."
-                        },
-                        {
-                            "name": "CSS",
-                            "description": "I created scalable, responsive interfaces with CSS and Bootstrap at HPT; this portfolio uses Tailwind."
-                        }
-                    ]
-                },
                 {
                     "name": "Backend",
-                    "description": "Business logic, APIs and data: the part users don't see but rely on.",
+                    "description": "APIs and services: the part users don't see but rely on.",
                     "children": [
                         {
-                            "name": "PHP",
-                            "description": "Server-side PHP powered the CRM, inventory and ERP systems I've contributed to."
-                        },
-                        {
                             "name": "Laravel",
-                            "description": "At HPT I developed and maintained Laravel apps with custom modules and middleware, and built and documented APIs for third-party integrations."
+                            "description": "The framework I've shipped the most with: RESTful APIs in a service-oriented architecture at HPT, and Nutriplatanos, a Laravel 12 app I self-host and run in production."
                         },
                         {
                             "name": "Flask",
-                            "description": "My choice for lightweight Python back ends. As a freelancer I built full-stack apps and APIs for internal and external use with Flask and MySQL."
+                            "description": "I built Beaver Deliver's backend in Flask: delivery route optimization with external APIs, plus authentication and role-based access control."
+                        },
+                        {
+                            "name": "FastAPI",
+                            "description": "I use FastAPI for lightweight, typed Python APIs."
                         }
                     ]
                 },
                 {
-                    "name": "Databases",
-                    "description": "Designing data models that stay consistent and fast as the business grows.",
+                    "name": "Frontend",
+                    "description": "Interfaces that are fast, clear and pleasant to use.",
                     "children": [
                         {
-                            "name": "MSSQL",
-                            "description": "I've used Microsoft SQL Server to store and query application data."
+                            "name": "React",
+                            "description": "I built DEEMU, a blockchain-based platform for transparent charitable transactions with a community forum, in React."
                         },
                         {
-                            "name": "SQL Normalization",
-                            "description": "When I extended a client's system as a freelancer, I normalized the new tables to protect data integrity and keep queries efficient."
+                            "name": "Vue",
+                            "description": "This portfolio is built with Vue 3: the terminal intros, the timeline and this skills map."
                         },
                         {
-                            "name": "Table Design",
-                            "description": "I designed new tables to support real business requirements in CRM and inventory systems, balancing integrity and performance."
+                            "name": "Vite",
+                            "description": "The build tool behind this portfolio, which now loads in 1.3s instead of 2.1s (35% faster)."
+                        },
+                        {
+                            "name": "Blade",
+                            "description": "At HPT I optimized Blade templates and cut frontend load times by 30%. Nutriplatanos' views are Blade too."
+                        },
+                        {
+                            "name": "SCSS",
+                            "description": "I styled the first version of this portfolio with SCSS."
+                        }
+                    ]
+                },
+                {
+                    "name": "Data & AI",
+                    "description": "From cleaning datasets to shipping LLM agents that engineers use every day.",
+                    "children": [
+                        {
+                            "name": "Pandas",
+                            "description": "I use Pandas to clean, explore and prepare datasets before modeling."
+                        },
+                        {
+                            "name": "PySpark",
+                            "description": "I use PySpark when data is too big to process on a single machine."
+                        },
+                        {
+                            "name": "TensorFlow",
+                            "description": "I've used TensorFlow to build and train neural network models."
+                        },
+                        {
+                            "name": "LLM assistants & agents",
+                            "description": "My day-to-day at Intel: building and maintaining custom LLM-powered assistants and agents for post-silicon validation teams, on private AI toolchains."
                         }
                     ]
                 }
             ]
         },
         {
-            "name": "Soft Skills",
-            "description": "What I've learned working in companies, freelance teams, competitions and abroad.",
+            "name": "Infrastructure & Tools",
+            "description": "What I use to deploy, run and automate software.",
             "children": [
                 {
-                    "name": "Teamwork",
-                    "description": "From the shared ERP codebase at HPT to machine learning study groups in Cologne, I do my best work with others."
+                    "name": "Linux (Ubuntu server)",
+                    "description": "I administer my own Ubuntu server end to end, where Nutriplatanos runs in production, and deployed HPT's applications on Linux."
                 },
                 {
-                    "name": "Leadership",
-                    "description": "I've led projects during my degree at UdeG, organizing the work and keeping the team moving toward the goal."
+                    "name": "Git & GitHub",
+                    "description": "For Nutriplatanos I follow a safe flow: local, then GitHub, then pull-only on the server, with a legacy branch as backup before big refactors."
                 },
                 {
-                    "name": "Problem Solving",
-                    "description": "ICPC taught me to break hard problems down under pressure; I apply the same approach to bugs and requirements at work."
+                    "name": "Docker",
+                    "description": "At HPT I deployed applications with automated Git- and Docker-based workflows."
                 },
                 {
-                    "name": "Adaptability",
-                    "description": "I moved from HR analytics to web development, and studied a semester in Cologne working in German and English."
+                    "name": "Excel macros",
+                    "description": "At HCL I automated reporting workflows with Excel macros and built dashboards for management."
                 },
                 {
-                    "name": "Resourcefulness",
-                    "description": "At HCL I replaced manual data handling with macros that stored employee information automatically."
+                    "name": "Base44",
+                    "description": "The platform I'm building Orion 2.0's Sales Dashboard and Email Editor on for ELI Schools."
                 },
                 {
-                    "name": "Curiosity",
-                    "description": "It led me into machine learning research at UdeG and graph neural networks in Cologne, and it keeps me learning new tools."
-                },
-                {
-                    "name": "Analytical Thinking",
-                    "description": "From HR reports at HCL to graph data analysis and ranking models in Cologne, I like turning data into clear decisions."
-                },
-                {
-                    "name": "Creativity",
-                    "description": "My first projects at CETI were a landing page, a forum and a DEX for a cryptocurrency project, built from scratch."
+                    "name": "AI-assisted development",
+                    "description": "Part of my workflow on Orion 2.0: AI speeds up the building, while I keep verifying the data and the results."
                 }
             ]
         },
         {
-            "name": "Languages",
+            "name": "Core Concepts",
+            "description": "The fundamentals I rely on regardless of the stack.",
+            "children": [
+                {
+                    "name": "RESTful API design",
+                    "description": "I built and deployed RESTful APIs in Laravel at HPT and designed Beaver Deliver's API in Flask."
+                },
+                {
+                    "name": "Service-oriented architecture",
+                    "description": "At HPT I worked in a modular, service-oriented architecture and designed reusable backend services and middleware."
+                },
+                {
+                    "name": "Relational database design",
+                    "description": "I modeled and optimized the relational databases behind ITEKNIA's CRM and inventory systems."
+                },
+                {
+                    "name": "Data modeling",
+                    "description": "For Orion 2.0 I modeled the team hierarchy (groups, teams, agents, leaders and directors) and the lead pipeline stages."
+                },
+                {
+                    "name": "Data structures & algorithms",
+                    "description": "Sharpened in ICPC challenges and applied in Beaver Deliver's routing algorithms."
+                },
+                {
+                    "name": "OOP",
+                    "description": "Object-oriented design is how I structure business logic, from Java applications to Laravel services."
+                },
+                {
+                    "name": "UML",
+                    "description": "I use UML diagrams to reason about a system before building it."
+                },
+                {
+                    "name": "Authentication & RBAC",
+                    "description": "I implemented authentication and role-based access control to secure Beaver Deliver's API."
+                },
+                {
+                    "name": "Performance optimization",
+                    "description": "30% faster frontend loads at HPT, 35% faster page loads on this portfolio, and faster queries at ITEKNIA."
+                },
+                {
+                    "name": "Technical documentation",
+                    "description": "I wrote the architecture documentation at HPT and the specs and data model reference for Orion 2.0. Writing things down is part of the work."
+                }
+            ]
+        },
+        {
+            "name": "Spoken Languages",
             "description": "The languages I live and work in.",
             "children": [
                 {
+                    "name": "Spanish",
+                    "description": "Native."
+                },
+                {
                     "name": "English",
-                    "description": "C1. I work with English documentation and code daily and studied in English during my exchange in Cologne."
+                    "description": "C1. My working language with distributed teams and at Intel."
                 },
                 {
                     "name": "German",
-                    "description": "B2. I strengthened it living and studying in Cologne from 2025 to 2026."
-                },
-                {
-                    "name": "Spanish",
-                    "description": "Native. The language of my local clients and teams in Guadalajara."
+                    "description": "C1. Strengthened during my exchange semester at the University of Cologne."
                 }
             ]
         },
         {
-            "name": "Tools and Methodologies",
-            "description": "How I organize work so it ships on time and stays maintainable.",
+            "name": "Working Style",
+            "description": "How I approach the work, whatever the stack.",
             "children": [
                 {
-                    "name": "Agile Development",
-                    "description": "I work in short iterations, defining, building and shipping features together with the team, as I did as a freelance full-stack developer."
+                    "name": "Remote & async",
+                    "description": "Remote and asynchronous by default; most of my professional experience has been with distributed teams."
                 },
                 {
-                    "name": "Version Control with Git",
-                    "description": "Clean commits and branches are how I keep shared codebases, like the ERP at HPT, under control."
+                    "name": "Verify before building",
+                    "description": "I run diagnostics and audit the data before building on top of it, like the integrity audit I did on Orion 2.0's production data."
                 },
                 {
-                    "name": "Collaboration Tools like ClickUp",
-                    "description": "I've used tools like ClickUp to split work into tasks and keep everyone aligned on progress."
+                    "name": "Thorough investigation",
+                    "description": "I prefer finding the root cause over a quick fix."
                 },
                 {
-                    "name": "Database Modeling and Optimization",
-                    "description": "I model data for CRM, inventory and ERP systems with integrity and query performance in mind."
+                    "name": "Write things down",
+                    "description": "Specs, findings and reference docs are part of the work, not an afterthought."
                 }
             ]
         }

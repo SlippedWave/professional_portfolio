@@ -9,7 +9,6 @@ const year = new Date().getFullYear();
 const socials = [
   { label: 'gh', value: 'SlippedWave', href: 'https://github.com/SlippedWave' },
   { label: 'in', value: 'frgonz', href: 'https://www.linkedin.com/in/frgonz' },
-  { label: 'fiverr', value: 'frgonz', href: 'https://www.fiverr.com/frgonz' },
 ];
 </script>
 

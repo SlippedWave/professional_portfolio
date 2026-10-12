@@ -1,77 +1,110 @@
 {
     "experiences": [
         {
+            "title": "AI Engineering Intern",
+            "period": "6/2026 - Present",
+            "company": "Intel",
+            "position": "AI Engineering Intern",
+            "location": "Jalisco, Mexico",
+            "current": true,
+            "activities": [
+                "Designing private AI toolchains to streamline internal engineering workflows.",
+                "Building and maintaining custom LLM-powered assistants and agents tailored to Intel's internal engineering needs.",
+                "Developing and rolling out AI-enhanced solutions across multiple post-silicon validation teams, keeping tooling standards consistent and supporting cross-team collaboration.",
+                "Completed internal security validation training (fuzz testing tools and holistic security assessment methodology)."
+            ],
+            "technologies": [
+                "LLMs",
+                "AI agents",
+                "AI toolchains",
+                "Post-silicon validation",
+                "Security testing"
+            ]
+        },
+        {
+            "title": "Software Developer (Contract)",
+            "period": "2026 - Present",
+            "company": "ELI Schools / Work & Study Travel LATAM",
+            "position": "Software Developer (Contract)",
+            "location": "Remote",
+            "current": true,
+            "activities": [
+                "Building the Sales Dashboard of Orion 2.0, a CRM for an international education and travel company: global pipeline by country, lead control by agent, pipeline by campaign, country and status, and daily agent objectives.",
+                "Modeled the team hierarchy (groups, teams and agents with leaders and directors) and the lead pipeline stages.",
+                "Audited production data before building, identifying and documenting integrity gaps such as unpopulated stage fields, missing joins between marketing leads and leads, and ambiguous booking states.",
+                "Translated stakeholder requirements from a recorded walkthrough into technical specifications and wrote reference documentation for the data model.",
+                "Worked on the Email Editor module (rich-text lists, image and text columns), filed bug reports and fixed email-client compatibility issues such as Outlook's lack of support for border-radius and object-fit."
+            ],
+            "technologies": [
+                "Base44",
+                "AI-assisted development",
+                "Data modeling",
+                "Data auditing",
+                "Technical documentation",
+                "HTML email"
+            ]
+        },
+        {
+            "title": "Full Stack Developer",
+            "period": "3/2025 - 6/2025",
+            "company": "HPT Center and Planning",
+            "position": "Full Stack Developer",
+            "location": "Remote",
+            "current": false,
+            "activities": [
+                "Built and deployed RESTful APIs in Laravel within a modular, service-oriented architecture.",
+                "Designed reusable backend services and middleware, improving scalability and maintainability.",
+                "Reduced frontend load times by 30% by optimizing Blade templates.",
+                "Deployed applications on Linux environments with automated Git- and Docker-based workflows.",
+                "Wrote system documentation for the architecture."
+            ],
+            "technologies": [
+                "Laravel",
+                "PHP",
+                "Blade",
+                "REST APIs",
+                "Linux",
+                "Docker",
+                "Git"
+            ]
+        },
+        {
+            "title": "Software Developer",
+            "period": "1/2023 - 3/2025",
+            "company": "ITEKNIA Equipamiento",
+            "position": "Software Developer",
+            "location": "Remote",
+            "current": false,
+            "activities": [
+                "Designed and implemented backend systems for CRM and inventory management.",
+                "Modeled and optimized relational databases, improving query efficiency and system performance.",
+                "Delivered full-stack applications with clean UIs and reliable backend services.",
+                "Built backend services supporting real-time data operations."
+            ],
+            "technologies": [
+                "PHP",
+                "Laravel",
+                "SQL",
+                "Database design",
+                "JavaScript",
+                "HTML/CSS"
+            ]
+        },
+        {
             "title": "HR Analyst",
             "period": "9/2022 - 1/2023",
             "company": "HCL Technologies",
             "position": "HR Analyst",
+            "location": "Jalisco, Mexico",
+            "current": false,
             "activities": [
-                "Support HR operations to keep employee information and documents in line with company policies.",
-                "Retrieve information from the company's file and create macros to store it automatically.",
-                "Create reports and presentations for the HR department."
+                "Automated reporting workflows with Excel macros, reducing manual processing time.",
+                "Built dashboards to support data-driven decisions by management."
             ],
             "technologies": [
-                "Excel",
-                "Microsoft SharePoint",
-                "Communication skills",
-                "Teamwork"
-            ]
-        },
-        {
-            "title": "Web Developer",
-            "period": "1/2023 - 10/2024",
-            "company": "Freelance",
-            "position": "Web Developer",
-            "activities": [
-                "Developed the CRM side of the system and part of the inventory management, developing functionalities to capture, store and query information from the database.",
-                "Designed new tables to support business requirements, ensuring data integrity, normalization, and optimal performance.",
-                "Involved in the development team of a web-based open source ERP of a local company.",
-                "Maintaining and improving the functionality of existing systems."
-            ],
-            "technologies": [
-                "SQL",
-                "PHP Laravel",
-                "JavaScript",
-                "HTML/CSS"
-            ]
-        },
-        {
-            "title": "Software Developer",
-            "period": "10/2024 - 03/2025",
-            "company": "Freelance",
-            "position": "Software Developer",
-            "activities": [
-                "Develop Full-Stack Web Applications.",
-                "Design websites, applications, databases and software from scratch using the best practices.",
-                "Building new product features and APIs for internal and external use.",
-                "Collaborate with teams to define, design, and ship new features or products."
-            ],
-            "technologies": [
-                "Flask",
-                "Vue Js",
-                "HTML/CSS",
-                "Python",
-                "MySQL"
-            ]
-        },
-        {
-            "title": "Software Developer",
-            "period": "03/2025 - 06/2025",
-            "company": "HPT Center and Planning",
-            "position": "Software Developer",
-            "activities": [
-                "Developed and maintained Laravel-based web applications, including custom modules, middleware, and RESTful APIs.",
-                "Collaborated on an open-source ERP system, contributing to both front-end and back-end development.",
-                "Created scalable, responsive user interfaces using Blade templates, CSS and Bootstrap.",
-                "Built and documented APIs for integration with third-party services."
-            ],
-            "technologies": [
-                "Laravel",
-                "MySQL",
-                "Docker",
-                "Git",
-                "JavaScript",
-                "HTML/CSS"
+                "Excel macros",
+                "Dashboards",
+                "Reporting automation"
             ]
         }
     ]

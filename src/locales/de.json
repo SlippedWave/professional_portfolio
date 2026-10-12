@@ -26,10 +26,10 @@
   },
   "owners_info": {
     "name": "Francisco Javier González Barriga",
-    "title": "Datenwissenschaftler und Softwareentwickler",
-    "degree": "Bachelor of Science in Computer Engineering",
-    "university": "Universidad de Guadalajara",
-    "location": "Guadalajara, Jalisco, Mexiko."
+    "title": "Software Engineer · KI & Backend",
+    "degree": "B.Sc. in Technischer Informatik",
+    "university": "Universidad de Guadalajara (CUCEI)",
+    "location": "Guadalajara, Jalisco, Mexiko"
   },
   "projects_view": {
     "projectsTitle": "Projekte",
@@ -39,25 +39,28 @@
     "card": {
       "open_repo": "Repository öffnen",
       "open_demo": "Demo ansehen",
-      "private": "Privat"
+      "private": "Privat",
+      "visit": "Website besuchen"
     },
     "loading": "Projekte werden geladen...",
-    "error": "Projekte konnten nicht von GitHub geladen werden. Bitte versuchen Sie es später erneut."
+    "error": "Projekte konnten nicht von GitHub geladen werden. Bitte versuchen Sie es später erneut.",
+    "featured": "Ausgewählte Projekte",
+    "more_on_github": "Mehr auf GitHub"
   },
   "home_view": {
     "aboutMeTitle": "Über mich",
     "greetingConsoleLines": [
       "print(\"Francisco González\")",
-      "print(\"Datenwissenschaftler und Softwareentwickler\")",
-      "print(\"Willkommen in meinem beruflichen Portfolio!\")"
+      "print(\"Software Engineer · KI & Backend\")",
+      "print(\"Willkommen in meinem Portfolio!\")"
     ],
-    "aboutMeText": "Ich bin ein leidenschaftlicher Datenwissenschaftler und Softwareentwickler mit über 4 Jahren Erfahrung in der Informatik. Ich spezialisiere mich auf die Lösung komplexer Herausforderungen, die Entwicklung innovativer Lösungen und die Bereitstellung hochwertiger Produkte.",
-    "getToKnowMeTitle": "Lern mich kennen",
-    "getToKnowMeText": "Ich bin eine neugierige Person, die es liebt, jeden Tag etwas Neues zu lernen. Mit meiner Erfahrung in Sprachen wie Python, Java und SQL sowie meiner Fähigkeit zur Teamarbeit und Problemlösung bin ich stets bestrebt, Grenzen zu überschreiten und einen Unterschied zu machen. Lassen Sie uns gemeinsam etwas Außergewöhnliches schaffen!",
+    "aboutMeText": "Ich bin Software Engineer aus Guadalajara mit rund 3 Jahren Berufserfahrung in Backend-Services, APIs und datengetriebenen Anwendungen. Derzeit bin ich AI Engineering Intern bei Intel und baue LLM-basierte Assistenten und Agenten für interne Engineering-Teams; nebenbei entwickle und betreibe ich Produktivsoftware für Kunden. Ich programmiere seit 2018 und schließe gerade meinen B.Sc. in Technischer Informatik am CUCEI ab.",
+    "getToKnowMeTitle": "Wie ich arbeite",
+    "getToKnowMeText": "Den Großteil meiner Laufbahn habe ich remote und asynchron mit verteilten Teams gearbeitet. Ich will verstehen, wie ein ganzes System funktioniert, prüfe Annahmen und die Daten, bevor ich darauf aufbaue, und ziehe gründliche Analyse einem schnellen Workaround vor. Ich dokumentiere: Spezifikationen, Erkenntnisse und Referenzdokumentation gehören zur Arbeit. Ich habe ein Semester in Deutschland studiert und arbeite sicher auf Spanisch, Englisch und Deutsch.",
     "hobbiesTitle": "Hobbys",
     "hobbiesText": "In meiner Freizeit liebe ich es, neue Technologien zu erkunden, verschiedenen Themen von Bücher zu lesen und neue Sprachen zu lernen. Außerdem genieße ich Wandern und Zeit in der Natur.",
     "interestsTitle": "Interessen",
-    "interestsText": "Ich interessiere mich besonders für künstliche Intelligenz, maschinelles Lernen und Datenvisualisierungs. Ich bin immer bereit, um Etwas neues zu lernen und mich über die neuesten technologischen Trends auf dem Laufenden zu halten.",
+    "interestsText": "KI-Engineering: praxistaugliche LLM-Agenten und Toolchains, die echte Engineering-Teams nutzen. Backend- und Datensysteme: APIs, Datenbankdesign und datenintensive Anwendungen. Self-Hosting und Linux: eigene Produktivserver betreiben. Web3 und dezentrale Systeme, die ich mit DEEMU erkundet habe.",
     "cta": {
       "projects": "Projekte ansehen",
       "contact": "Kontakt aufnehmen"

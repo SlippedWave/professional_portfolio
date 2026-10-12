@@ -2,7 +2,6 @@
 import { useI18n } from 'vue-i18n';
 import linkedinIcon from '@/assets/icons/linkedin-icon.svg';
 import githubIcon from '@/assets/icons/github-icon.svg';
-import fiverrIcon from '@/assets/icons/fiverr-icon.svg';
 
 const { t } = useI18n();
 
@@ -11,7 +10,6 @@ const year = new Date().getFullYear();
 const socials = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/frgonz', icon: linkedinIcon },
   { label: 'GitHub', href: 'https://github.com/SlippedWave', icon: githubIcon, invert: true },
-  { label: 'Fiverr', href: 'https://www.fiverr.com/frgonz', icon: fiverrIcon },
 ];
 </script>
 

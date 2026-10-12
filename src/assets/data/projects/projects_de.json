@@ -1,0 +1,67 @@
+{
+    "projects": [
+        {
+            "name": "Nutriplatanos",
+            "url": "https://app.nutriplatanos.com",
+            "period": "Laufend",
+            "stack": [
+                "Laravel 12",
+                "PHP",
+                "Blade",
+                "Ubuntu Linux",
+                "Git"
+            ],
+            "summary": "Produktive Webanwendung, die ich auf meinem eigenen Ubuntu-Server selbst hoste und administriere.",
+            "highlights": [
+                "Sicherer Deployment-Ablauf: lokal, dann GitHub, dann nur Pull auf dem Server (nie Push aus der Produktion).",
+                "Ein legacy-Branch dient als Backup, bevor große Refactorings in master landen."
+            ]
+        },
+        {
+            "name": "Professional Portfolio",
+            "url": "https://frgonz.dev",
+            "period": "2024 – 2026",
+            "stack": [
+                "Vue",
+                "Vite",
+                "JavaScript",
+                "Tailwind CSS",
+                "D3"
+            ],
+            "summary": "Diese Website: ein responsives, dreisprachiges Portfolio im Terminal-Look.",
+            "highlights": [
+                "Ladezeit um 35 % reduziert (von 2,1 s auf 1,3 s).",
+                "Interaktive Skill-Map mit D3 und Inhalte auf Englisch, Spanisch und Deutsch."
+            ]
+        },
+        {
+            "name": "Beaver Deliver",
+            "url": null,
+            "period": "Aug. 2024",
+            "stack": [
+                "Python",
+                "Flask",
+                "SQL",
+                "JavaScript"
+            ],
+            "summary": "Flask-Backend zur Optimierung von Lieferrouten mit externen APIs.",
+            "highlights": [
+                "Routing-Algorithmen zur Senkung der Logistikkosten entworfen.",
+                "Authentifizierung und rollenbasierte Zugriffskontrolle für sicheren API-Zugriff implementiert."
+            ]
+        },
+        {
+            "name": "DEEMU",
+            "url": null,
+            "period": "Apr. 2022",
+            "stack": [
+                "React",
+                "Blockchain"
+            ],
+            "summary": "Blockchain-basierte Plattform für transparente Spenden.",
+            "highlights": [
+                "Dezentrale Governance über ein von der Community getragenes Forum."
+            ]
+        }
+    ]
+}

@@ -27,9 +27,10 @@ const loadExperience = async () => {
 
 const lines = [
   'experience = {',
-  '    "Company A": "Role - Duration",',
-  '    "Company B": "Role - Duration",',
-  '    "Company C": "Role - Duration"',
+  '    "Intel": "AI Engineering Intern",',
+  '    "ELI Schools": "Software Developer",',
+  '    "HPT": "Full Stack Developer",',
+  '    "ITEKNIA": "Software Developer"',
   '}',
   'for company, details in experience.items():',
   '    print(f"{company}: {details}")',

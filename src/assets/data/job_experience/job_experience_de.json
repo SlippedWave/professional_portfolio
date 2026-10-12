@@ -1,77 +1,110 @@
 {
     "experiences": [
         {
+            "title": "AI Engineering Intern",
+            "period": "6/2026 - Heute",
+            "company": "Intel",
+            "position": "AI Engineering Intern",
+            "location": "Jalisco, Mexiko",
+            "current": true,
+            "activities": [
+                "Entwurf privater KI-Toolchains zur Optimierung interner Engineering-Workflows.",
+                "Aufbau und Pflege maßgeschneiderter LLM-basierter Assistenten und Agenten für Intels interne Engineering-Anforderungen.",
+                "Entwicklung und Rollout KI-gestützter Lösungen in mehreren Post-Silicon-Validation-Teams mit einheitlichen Tooling-Standards und teamübergreifender Zusammenarbeit.",
+                "Interne Schulung zur Sicherheitsvalidierung abgeschlossen (Fuzz-Testing-Tools und ganzheitliche Methodik zur Sicherheitsbewertung)."
+            ],
+            "technologies": [
+                "LLMs",
+                "KI-Agenten",
+                "KI-Toolchains",
+                "Post-Silicon-Validation",
+                "Sicherheitstests"
+            ]
+        },
+        {
+            "title": "Softwareentwickler (Vertrag)",
+            "period": "2026 - Heute",
+            "company": "ELI Schools / Work & Study Travel LATAM",
+            "position": "Softwareentwickler (Vertrag)",
+            "location": "Remote",
+            "current": true,
+            "activities": [
+                "Aufbau des Sales Dashboards von Orion 2.0, einem CRM für ein internationales Bildungs- und Reiseunternehmen: globale Pipeline nach Land, Lead-Steuerung nach Agent, Pipeline nach Kampagne, Land und Status sowie tägliche Agentenziele.",
+                "Modellierung der Teamhierarchie (Gruppen, Teams und Agenten mit Leitern und Direktoren) und der Phasen der Lead-Pipeline.",
+                "Prüfung der Produktivdaten vor der Entwicklung; Integritätslücken wie leere Phasenfelder, fehlende Verknüpfungen zwischen Marketing-Leads und Leads sowie mehrdeutige Buchungsstatus identifiziert und dokumentiert.",
+                "Anforderungen der Stakeholder aus einem aufgezeichneten Walkthrough in technische Spezifikationen übersetzt und Referenzdokumentation zum Datenmodell geschrieben.",
+                "Mitarbeit am Email-Editor-Modul (Rich-Text-Listen, Bild- und Textspalten), Bugreports erstellt und Kompatibilitätsprobleme mit E-Mail-Clients behoben, etwa fehlende Unterstützung von border-radius und object-fit in Outlook."
+            ],
+            "technologies": [
+                "Base44",
+                "KI-gestützte Entwicklung",
+                "Datenmodellierung",
+                "Datenaudit",
+                "Technische Dokumentation",
+                "HTML-E-Mail"
+            ]
+        },
+        {
+            "title": "Full-Stack-Entwickler",
+            "period": "3/2025 - 6/2025",
+            "company": "HPT Center and Planning",
+            "position": "Full-Stack-Entwickler",
+            "location": "Remote",
+            "current": false,
+            "activities": [
+                "RESTful APIs in Laravel innerhalb einer modularen, serviceorientierten Architektur entwickelt und deployt.",
+                "Wiederverwendbare Backend-Services und Middleware entworfen und so Skalierbarkeit und Wartbarkeit verbessert.",
+                "Frontend-Ladezeiten durch optimierte Blade-Templates um 30 % reduziert.",
+                "Anwendungen auf Linux-Umgebungen mit automatisierten Git- und Docker-Workflows deployt.",
+                "Systemdokumentation zur Architektur verfasst."
+            ],
+            "technologies": [
+                "Laravel",
+                "PHP",
+                "Blade",
+                "REST APIs",
+                "Linux",
+                "Docker",
+                "Git"
+            ]
+        },
+        {
+            "title": "Softwareentwickler",
+            "period": "1/2023 - 3/2025",
+            "company": "ITEKNIA Equipamiento",
+            "position": "Softwareentwickler",
+            "location": "Remote",
+            "current": false,
+            "activities": [
+                "Backend-Systeme für CRM und Lagerverwaltung entworfen und umgesetzt.",
+                "Relationale Datenbanken modelliert und optimiert, mit effizienteren Abfragen und besserer Systemleistung.",
+                "Full-Stack-Anwendungen mit klaren Oberflächen und zuverlässigen Backend-Services ausgeliefert.",
+                "Backend-Services für Echtzeit-Datenoperationen gebaut."
+            ],
+            "technologies": [
+                "PHP",
+                "Laravel",
+                "SQL",
+                "Datenbankdesign",
+                "JavaScript",
+                "HTML/CSS"
+            ]
+        },
+        {
             "title": "HR-Analyst",
             "period": "9/2022 - 1/2023",
             "company": "HCL Technologies",
             "position": "HR-Analyst",
+            "location": "Jalisco, Mexiko",
+            "current": false,
             "activities": [
-                "Unterstützung der HR-Abteilung, um Mitarbeiterinformationen und -dokumente gemäß den Unternehmensrichtlinien zu verwalten.",
-                "Abrufen von Informationen aus den Unternehmensakten und Erstellen von Makros zur automatischen Speicherung.",
-                "Erstellung von Berichten und Präsentationen für die Personalabteilung."
+                "Reporting-Workflows mit Excel-Makros automatisiert und so manuellen Aufwand reduziert.",
+                "Dashboards für datengetriebene Entscheidungen des Managements erstellt."
             ],
             "technologies": [
-                "Excel",
-                "Microsoft SharePoint",
-                "Kommunikationsfähigkeiten",
-                "Teamarbeit"
-            ]
-        },
-        {
-            "title": "Webentwickler",
-            "period": "1/2023 - 10/2024",
-            "company": "Freelance",
-            "position": "Webentwickler",
-            "activities": [
-                "Entwicklung des CRM-Bereichs des Systems und teilweise der Lagerverwaltung, mit Funktionen zum Erfassen, Speichern und Abfragen von Daten aus der Datenbank.",
-                "Entwurf neuer Tabellen zur Unterstützung von Geschäftsanforderungen unter Gewährleistung von Datenintegrität, Normalisierung und optimaler Leistung.",
-                "Mitarbeit im Entwicklungsteam eines webbasierten Open-Source-ERP-Systems eines lokalen Unternehmens.",
-                "Wartung und Verbesserung bestehender Systemfunktionen."
-            ],
-            "technologies": [
-                "SQL",
-                "PHP Laravel",
-                "JavaScript",
-                "HTML/CSS"
-            ]
-        },
-        {
-            "title": "Softwareentwickler",
-            "period": "10/2024 - 03/2025",
-            "company": "Freelance",
-            "position": "Softwareentwickler",
-            "activities": [
-                "Entwicklung von Full-Stack-Webanwendungen.",
-                "Design von Websites, Anwendungen, Datenbanken und Software von Grund auf unter Anwendung bewährter Methoden.",
-                "Erstellung neuer Produktfunktionen und APIs für den internen und externen Gebrauch.",
-                "Zusammenarbeit mit Teams zur Definition, Gestaltung und Auslieferung neuer Funktionen oder Produkte."
-            ],
-            "technologies": [
-                "Flask",
-                "Vue Js",
-                "HTML/CSS",
-                "Python",
-                "MySQL"
-            ]
-        },
-        {
-            "title": "Softwareentwickler",
-            "period": "03/2025 - 06/2025",
-            "company": "HPT Center and Planning",
-            "position": "Softwareentwickler",
-            "activities": [
-                "Entwicklung und Wartung von Laravel-basierten Webanwendungen, einschließlich benutzerdefinierter Module, Middleware und RESTful-APIs.",
-                "Mitarbeit an einem Open-Source-ERP-System mit Beiträgen sowohl im Frontend- als auch im Backend-Bereich.",
-                "Erstellung skalierbarer, responsiver Benutzeroberflächen mit Blade-Templates, CSS und Bootstrap.",
-                "Erstellung und Dokumentation von APIs zur Integration mit Drittanbieterdiensten."
-            ],
-            "technologies": [
-                "Laravel",
-                "MySQL",
-                "Docker",
-                "Git",
-                "JavaScript",
-                "HTML/CSS"
+                "Excel-Makros",
+                "Dashboards",
+                "Reporting-Automatisierung"
             ]
         }
     ]

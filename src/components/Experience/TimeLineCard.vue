@@ -4,8 +4,10 @@
             <div>
                 <h3 class="text-lg font-bold text-ink">{{ experience.position }}</h3>
                 <p class="text-accent">{{ experience.company }}</p>
+                <p v-if="experience.location" class="text-sm text-ink-muted">{{ experience.location }}</p>
             </div>
-            <span class="chip self-start whitespace-nowrap">{{ experience.period }}</span>
+            <span class="chip self-start whitespace-nowrap"
+                :class="{ 'border-accent/50 text-accent': experience.current }">{{ experience.period }}</span>
         </header>
 
         <ul class="mt-4 space-y-2">

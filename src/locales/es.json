@@ -26,10 +26,10 @@
   },
   "owners_info": {
     "name": "Francisco Javier González Barriga",
-    "title": "Científico de Datos y Desarrollador de Software",
-    "degree": "Licenciatura en Ingeniería en Computación",
-    "university": "Universidad de Guadalajara",
-    "location": "Guadalajara, Jalisco, México."
+    "title": "Ingeniero de Software · IA y Backend",
+    "degree": "Ingeniería en Computación",
+    "university": "Universidad de Guadalajara (CUCEI)",
+    "location": "Guadalajara, Jalisco, México"
   },
   "projects_view": {
     "projectsTitle": "Proyectos",
@@ -39,25 +39,28 @@
     "card": {
       "open_repo": "Abrir repositorio",
       "open_demo": "Ver demo",
-      "private": "Privado"
+      "private": "Privado",
+      "visit": "Visitar sitio"
     },
     "loading": "Cargando proyectos...",
-    "error": "No se pudieron cargar los proyectos de GitHub. Inténtalo más tarde."
+    "error": "No se pudieron cargar los proyectos de GitHub. Inténtalo más tarde.",
+    "featured": "Proyectos destacados",
+    "more_on_github": "Más en GitHub"
   },
   "home_view": {
     "aboutMeTitle": "Sobre mí",
     "greetingConsoleLines": [
       "print(\"Francisco González\")",
-      "print(\"Científico de Datos y Desarrollador de Software\")",
+      "print(\"Ingeniero de Software · IA y Backend\")",
       "print(\"¡Bienvenido a mi portafolio profesional!\")"
     ],
-    "aboutMeText": "Soy un apasionado Científico de Datos y Desarrollador de Software con más de 4 años de experiencia en Ciencias de la Computación. Me especializo en resolver desafíos complejos, crear soluciones innovadoras y entregar productos de alta calidad.",
-    "getToKnowMeTitle": "Conóceme",
-    "getToKnowMeText": "Soy una persona curiosa que disfruta aprender algo nuevo todos los días. Con mi experiencia en lenguajes como Python, Java y SQL, y una habilidad innata para el trabajo en equipo y la resolución de problemas, siempre estoy dispuesto a superar límites y generar impacto. ¡Trabajemos juntos en algo extraordinario!",
+    "aboutMeText": "Soy ingeniero de software de Guadalajara con cerca de 3 años de experiencia profesional construyendo servicios backend, APIs y aplicaciones basadas en datos. Hoy soy AI Engineering Intern en Intel, donde construyo asistentes y agentes basados en LLMs para equipos internos de ingeniería, y en paralelo desarrollo y opero software en producción para clientes. Programo desde 2018 y estoy terminando Ingeniería en Computación en el CUCEI.",
+    "getToKnowMeTitle": "Cómo trabajo",
+    "getToKnowMeText": "La mayor parte de mi carrera ha sido remota y asíncrona, con equipos distribuidos. Me gusta entender cómo funciona un sistema completo, verifico supuestos y audito los datos antes de construir sobre ellos, y prefiero una investigación a fondo a un arreglo rápido. Documento lo que hago: especificaciones, hallazgos y documentación de referencia son parte del trabajo. Estudié un semestre en Alemania y trabajo con soltura en español, inglés y alemán.",
     "hobbiesTitle": "Pasatiempos",
     "hobbiesText": "En mi tiempo libre, me encanta explorar nuevas tecnologías 👨🏻‍💻, leer libros sobre diversos temas y aprender nuevos idiomas. También disfruto hacer senderismo y pasar tiempo en la naturaleza.",
     "interestsTitle": "Intereses",
-    "interestsText": "Estoy particularmente interesado en la inteligencia artificial, el aprendizaje automático y la visualización de datos. Siempre estoy dispuesto a aprender cosas nuevas y mantenerme actualizado con las últimas tendencias tecnológicas.",
+    "interestsText": "Ingeniería de IA: agentes y herramientas con LLMs que equipos de ingeniería reales usan. Sistemas backend y de datos: APIs, diseño de bases de datos y aplicaciones con mucho manejo de datos. Self-hosting y Linux: administrar mis propios servidores en producción. Web3 y sistemas descentralizados, que exploré con DEEMU.",
     "cta": {
       "projects": "Ver proyectos",
       "contact": "Contáctame"
