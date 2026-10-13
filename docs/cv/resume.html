@@ -1,0 +1,123 @@
+<!doctype html>
+<!--
+  CV source (layout mirrors the original LaTeX "Jake's Resume" style).
+  Kept under docs/ (gitignored) because it contains phone + email.
+  Build: print to PDF (Letter, no margins override) -> src/assets/docs/resumeFranciscoJavierGonzalez.pdf
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Francisco Javier González Barriga — Resume</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/font/Serif/cmun-serif.css">
+<style>
+  @page { size: Letter; margin: 0.35in 0.5in; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Computer Modern Serif', 'Latin Modern Roman', Georgia, serif; font-size: 9.3pt; line-height: 1.15; color: #000; }
+  a { color: inherit; text-decoration: underline; text-underline-offset: 1.5px; text-decoration-thickness: 0.5px; }
+  header { text-align: center; margin-bottom: 4pt; }
+  h1 { font-size: 24pt; font-weight: normal; font-variant: small-caps; letter-spacing: 0.5px; margin: 0; line-height: 1.1; }
+  .loc { margin: 1pt 0 2pt; }
+  .contact span + span::before { content: "  |  "; white-space: pre; }
+  h2 { font-size: 11.5pt; font-weight: bold; font-variant: small-caps; letter-spacing: 0.3px; margin: 5pt 0 2.5pt; padding-bottom: 1pt; border-bottom: 0.6pt solid #000; }
+  .entry { margin: 0 0 2.5pt; }
+  .row { display: flex; justify-content: space-between; gap: 12pt; }
+  .row .r { white-space: nowrap; }
+  .sub { font-style: italic; }
+  .sub .r { font-size: 9.6pt; }
+  ul { margin: 1.5pt 0 0; padding-left: 15pt; }
+  li { margin: 0 0 0.6pt; }
+  p.summary { margin: 0; text-align: justify; }
+  .skills p { margin: 0 0 1.5pt; padding-left: 6pt; }
+  .proj .row .l b + span::before { content: " — "; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Francisco Javier González Barriga</h1>
+  <div class="loc">Guadalajara, Jalisco, Mexico</div>
+  <div class="contact">
+    <span>+52 33 2815 2559</span><span><a href="mailto:frgonz03@gmail.com">frgonz03@gmail.com</a></span><span><a href="https://linkedin.com/in/frgonz">linkedin.com/in/frgonz</a></span><span><a href="https://github.com/SlippedWave">github.com/SlippedWave</a></span><span><a href="https://frgonz.dev">frgonz.dev</a></span>
+  </div>
+</header>
+
+<h2>Summary</h2>
+<p class="summary">Software engineer with about 3 years of experience in backend services, APIs and data-driven applications, now building LLM-powered agents as an AI Engineering Intern at Intel. Remote-first; I audit data before building and document as I go. Trilingual.</p>
+
+<h2>Experience</h2>
+<div class="entry">
+  <div class="row"><b>Intel</b><b class="r">Jun 2026 – Present</b></div>
+  <div class="row sub"><span>AI Engineering Intern</span><span class="r">Jalisco, Mexico</span></div>
+  <ul>
+    <li>Designing private AI toolchains to streamline internal engineering workflows.</li>
+    <li>Building and maintaining custom LLM-powered assistants and agents for Intel's internal engineering teams.</li>
+    <li>Rolling out AI-enhanced solutions across multiple post-silicon validation teams with consistent tooling standards; completed internal security validation training (fuzz testing, holistic security assessment).</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><b>ELI Schools / Work &amp; Study Travel LATAM</b><b class="r">2026 – Present</b></div>
+  <div class="row sub"><span>Software Developer (Contract) — Orion 2.0 CRM</span><span class="r">Remote</span></div>
+  <ul>
+    <li>Building the Sales Dashboard: pipeline by country, campaign and status, lead control by agent, and daily agent objectives.</li>
+    <li>Modeled the team hierarchy (groups → teams → agents) and lead pipeline stages; audited production data first, documenting integrity gaps (empty stage fields, missing lead joins, ambiguous booking states).</li>
+    <li>Turned stakeholder requirements into technical specs and data-model reference docs; fixed Email Editor compatibility issues (e.g., Outlook's lack of <i>border-radius</i> / <i>object-fit</i> support). Stack: Base44, AI-assisted development.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><b>HPT Center and Planning</b><b class="r">Mar 2025 – Jun 2025</b></div>
+  <div class="row sub"><span>Full Stack Developer</span><span class="r">Remote</span></div>
+  <ul>
+    <li>Built and deployed RESTful APIs in Laravel in a modular, service-oriented architecture with reusable services and middleware.</li>
+    <li>Cut frontend load times by 30% optimizing Blade templates; deployed on Linux with Git/Docker; documented the architecture.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><b>ITEKNIA Equipamiento</b><b class="r">Jan 2023 – Mar 2025</b></div>
+  <div class="row sub"><span>Software Developer</span><span class="r">Remote</span></div>
+  <ul>
+    <li>Designed and implemented backend systems for CRM and inventory management, including real-time data services.</li>
+    <li>Modeled and optimized relational databases for faster queries; delivered full-stack apps with clean UIs.</li>
+  </ul>
+</div>
+<div class="entry">
+  <div class="row"><b>HCL Technologies</b><b class="r">Sep 2022 – Jan 2023</b></div>
+  <div class="row sub"><span>HR Analyst</span><span class="r">Jalisco, Mexico</span></div>
+  <ul>
+    <li>Automated reporting workflows with Excel macros, reducing manual work; built dashboards for data-driven management decisions.</li>
+  </ul>
+</div>
+
+<h2>Education</h2>
+<div class="entry">
+  <div class="row"><span><b>Universidad de Guadalajara, CUCEI</b> — <i>B.Sc. in Computer Engineering</i>, Guadalajara</span><b class="r">Aug 2022 – Dec 2026 (expected)</b></div>
+  <div class="row"><span><b>University of Cologne</b> — <i>Exchange Semester</i>, Cologne</span><b class="r">Oct 2025 – Mar 2026</b></div>
+  <div class="row"><span><b>CETI Colomos</b> — <i>Technical Diploma in Software Development</i>, Guadalajara</span><b class="r">Aug 2018 – Jun 2022</b></div>
+</div>
+
+<h2>Projects</h2>
+<div class="entry proj">
+  <div class="row"><span class="l"><b>Nutriplatanos</b><span><i>Laravel 12, PHP, Blade, Ubuntu Linux, Git</i> · <a href="https://app.nutriplatanos.com">app.nutriplatanos.com</a></span></span><b class="r">Ongoing</b></div>
+  <ul><li>Production app self-hosted on my Ubuntu server; safe deploys (local → GitHub → pull-only) with a <i>legacy</i> backup branch.</li></ul>
+</div>
+<div class="entry proj">
+  <div class="row"><span class="l"><b>Professional Portfolio</b><span><i>Vue, Vite, JavaScript, Tailwind CSS, D3</i> · <a href="https://frgonz.dev">frgonz.dev</a></span></span><b class="r">2024 – 2026</b></div>
+  <ul><li>Responsive, trilingual personal website; reduced page load time by 35% (2.1s → 1.3s).</li></ul>
+</div>
+<div class="entry proj">
+  <div class="row"><span class="l"><b>Beaver Deliver</b><span><i>Python, Flask, SQL, JavaScript</i></span></span><b class="r">Aug 2024</b></div>
+  <ul><li>Flask backend optimizing delivery routes via external APIs; routing algorithms to cut logistics costs, auth with RBAC.</li></ul>
+</div>
+<div class="entry proj">
+  <div class="row"><span class="l"><b>DEEMU</b><span><i>React, Blockchain</i></span></span><b class="r">Apr 2022</b></div>
+  <ul><li>Blockchain platform for transparent charitable transactions with community-forum governance.</li></ul>
+</div>
+
+<h2>Skills</h2>
+<div class="skills">
+  <p><b>Languages:</b> Python, Java, SQL, JavaScript, PHP, C, C++, C#</p>
+  <p><b>Frameworks:</b> Laravel, Flask, FastAPI · React, Vue, Vite, Blade, SCSS · Pandas, PySpark, TensorFlow, LLM agents</p>
+  <p><b>Infrastructure &amp; Tools:</b> Linux (Ubuntu server admin), Git &amp; GitHub, Docker, Excel macros, Base44, AI-assisted development</p>
+  <p><b>Core Concepts:</b> REST API design, service-oriented architecture, relational DB design, data modeling, DSA, OOP, UML, auth &amp; RBAC, performance optimization, technical documentation</p>
+  <p><b>Spoken Languages:</b> Spanish (Native), English (C1), German (C1)</p>
+</div>
+</body>
+</html>

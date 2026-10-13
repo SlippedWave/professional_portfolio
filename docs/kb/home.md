@@ -3,7 +3,7 @@
 ## Flow
 Console (normal speed, intro duration 600) types `home_view.greetingConsoleLines` (3). Then:
 1. `#presentation` — `PresentationCard` hero (fade-visible-once).
-2. `#about-me` — 3-col grid (md+) of `IntroductionCard`s with staggered reveal: about.md, hobbies.md, interests.md.
+2. `#about-me` — 3-col grid (md+) of `IntroductionCard`s with staggered reveal: about.md (`getToKnowMe*` = "How I work", persona working style), hobbies.md (old user text, persona has no hobbies yet), interests.md (persona General Interests).
 
 ## PresentationCard.vue
 Props `name, title, aboutme, text, imageref`. Two-column hero (photo first on mobile):

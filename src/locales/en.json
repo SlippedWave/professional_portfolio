@@ -39,13 +39,10 @@
     "card": {
       "open_repo": "Open repo",
       "open_demo": "View demo",
-      "private": "Private",
-      "visit": "Visit site"
+      "private": "Private"
     },
     "loading": "Loading projects...",
-    "error": "Couldn't load projects from GitHub. Please try again later.",
-    "featured": "Featured projects",
-    "more_on_github": "More on GitHub"
+    "error": "Couldn't load projects from GitHub. Please try again later."
   },
   "home_view": {
     "aboutMeTitle": "About Me",

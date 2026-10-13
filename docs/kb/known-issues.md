@@ -5,6 +5,7 @@
 - Turnstile token never sent to backend → CAPTCHA not enforced server-side.
 
 ## Open
+- CV PDF regenerated from `docs/cv/resume.html` via headless Chrome (playwright-core script in scratchpad, not in repo); rebuild when persona changes. Contains phone + email.
 - Email still in git history (old ContactView commits) and likely inside the CV PDF; robots.txt is advisory only (bad bots ignore it).
 - `components/__tests__/HelloWorld.spec.js` imports nonexistent `HelloWorld.vue` → test suite fails.
 - `.eslintrc.js` legacy CommonJS config; ESLint 10 + `"type": "module"` need flat `eslint.config.js`.

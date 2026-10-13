@@ -1,6 +1,6 @@
 {
     "name": "Fähigkeiten",
-    "description": "Womit ich tatsächlich arbeite: bei Intel, in Kundenprojekten wie Orion 2.0 und Nutriplatanos und im Studium am CUCEI und in Köln.",
+    "description": "Womit ich tatsächlich arbeite: bei Intel, in Kundenprojekten für ELI Schools, in Projekten wie Nutriplatanos und im Studium am CUCEI und in Köln.",
     "children": [
         {
             "name": "Programmiersprachen",
@@ -134,11 +134,11 @@
                 },
                 {
                     "name": "Base44",
-                    "description": "Die Plattform, auf der ich das Sales Dashboard und den Email-Editor von Orion 2.0 für ELI Schools baue."
+                    "description": "Die Plattform, auf der ich das Sales Dashboard und den Email-Editor des CRM von ELI Schools baue."
                 },
                 {
                     "name": "KI-gestützte Entwicklung",
-                    "description": "Teil meines Workflows bei Orion 2.0: KI beschleunigt das Bauen, während ich Daten und Ergebnisse weiterhin selbst prüfe."
+                    "description": "Teil meines Workflows bei ELI Schools: KI beschleunigt das Bauen, während ich Daten und Ergebnisse weiterhin selbst prüfe."
                 }
             ]
         },
@@ -160,7 +160,7 @@
                 },
                 {
                     "name": "Datenmodellierung",
-                    "description": "Für Orion 2.0 habe ich die Teamhierarchie (Gruppen, Teams, Agenten, Leiter und Direktoren) und die Phasen der Lead-Pipeline modelliert."
+                    "description": "Für das CRM von ELI Schools habe ich die Teamhierarchie (Gruppen, Teams, Agenten, Leiter und Direktoren) und die Phasen der Lead-Pipeline modelliert."
                 },
                 {
                     "name": "Datenstrukturen & Algorithmen",
@@ -184,7 +184,7 @@
                 },
                 {
                     "name": "Technische Dokumentation",
-                    "description": "Ich habe die Architekturdokumentation bei HPT sowie Spezifikationen und die Datenmodell-Referenz für Orion 2.0 geschrieben. Dokumentieren gehört zur Arbeit."
+                    "description": "Ich habe die Architekturdokumentation bei HPT sowie Spezifikationen und die Datenmodell-Referenz für das CRM von ELI Schools geschrieben. Dokumentieren gehört zur Arbeit."
                 }
             ]
         },
@@ -216,7 +216,7 @@
                 },
                 {
                     "name": "Erst prüfen, dann bauen",
-                    "description": "Ich führe Diagnosen durch und prüfe die Daten, bevor ich darauf aufbaue – wie beim Integritätsaudit der Produktivdaten von Orion 2.0."
+                    "description": "Ich führe Diagnosen durch und prüfe die Daten, bevor ich darauf aufbaue – wie beim Integritätsaudit der Produktivdaten des CRM von ELI Schools."
                 },
                 {
                     "name": "Gründliche Analyse",

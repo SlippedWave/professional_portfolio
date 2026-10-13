@@ -1,23 +1,14 @@
 <script setup>
 import Console from '@/components/shared/Console.vue';
 import Icon from '@/components/shared/Icon.vue';
-import { ref, onMounted, computed, watch } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import ProjectCard from '@/components/Projects/ProjectCard.vue';
-import FeaturedProject from '@/components/Projects/FeaturedProject.vue';
-import getJsonFile from '@/assets/js/locale_functions.js';
 import { useConsoleIntro } from '@/composables/useConsoleIntro.js';
 import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n();
+const { t } = useI18n();
 
 const { consoleContainer, isConsolePoppedOut, handleTypingCompleted } = useConsoleIntro();
-
-// Curated highlights (local data, per locale) shown above the live GitHub list
-const featured = ref([]);
-const loadFeatured = async () => {
-  featured.value = (await getJsonFile('projects', locale.value)).projects;
-};
-watch(locale, loadFeatured);
 
 const projects = ref([]);
 const isLoading = ref(true);
@@ -134,10 +125,7 @@ const filterClass = (active) => (active
   ? 'border-accent bg-accent/15 text-ink'
   : 'border-edge text-ink-muted hover:border-ink-muted/50 hover:text-ink');
 
-onMounted(() => {
-  loadFeatured();
-  fetchProjects();
-});
+onMounted(fetchProjects);
 </script>
 
 <template>
@@ -155,15 +143,6 @@ onMounted(() => {
       <h1 class="section-title mt-2">{{ t('projects_view.projectsTitle') }}</h1>
       <p class="mt-2 text-lg text-ink-muted">{{ t('projects_view.subtitle') }}</p>
     </header>
-
-    <section v-if="featured.length" class="flex flex-col gap-4">
-      <h2 class="font-mono text-sm tracking-widest text-ink-muted uppercase">{{ t('projects_view.featured') }}</h2>
-      <div class="grid gap-6 md:grid-cols-2">
-        <FeaturedProject v-for="project in featured" :key="project.name" :project="project" />
-      </div>
-    </section>
-
-    <h2 class="mt-4 font-mono text-sm tracking-widest text-ink-muted uppercase">{{ t('projects_view.more_on_github') }}</h2>
 
     <!-- Language filters -->
     <div v-if="uniqueLanguages.length" class="flex flex-wrap gap-2">

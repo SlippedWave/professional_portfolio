@@ -1,6 +1,6 @@
 {
     "name": "Skills",
-    "description": "What I actually work with: at Intel, on client projects like Orion 2.0 and Nutriplatanos, and in my studies at CUCEI and Cologne.",
+    "description": "What I actually work with: at Intel, on client work for ELI Schools, on projects like Nutriplatanos, and in my studies at CUCEI and Cologne.",
     "children": [
         {
             "name": "Programming Languages",
@@ -134,11 +134,11 @@
                 },
                 {
                     "name": "Base44",
-                    "description": "The platform I'm building Orion 2.0's Sales Dashboard and Email Editor on for ELI Schools."
+                    "description": "The platform I'm building a CRM Sales Dashboard and Email Editor on for ELI Schools."
                 },
                 {
                     "name": "AI-assisted development",
-                    "description": "Part of my workflow on Orion 2.0: AI speeds up the building, while I keep verifying the data and the results."
+                    "description": "Part of my workflow at ELI Schools: AI speeds up the building, while I keep verifying the data and the results."
                 }
             ]
         },
@@ -160,7 +160,7 @@
                 },
                 {
                     "name": "Data modeling",
-                    "description": "For Orion 2.0 I modeled the team hierarchy (groups, teams, agents, leaders and directors) and the lead pipeline stages."
+                    "description": "For ELI Schools' CRM I modeled the team hierarchy (groups, teams, agents, leaders and directors) and the lead pipeline stages."
                 },
                 {
                     "name": "Data structures & algorithms",
@@ -184,7 +184,7 @@
                 },
                 {
                     "name": "Technical documentation",
-                    "description": "I wrote the architecture documentation at HPT and the specs and data model reference for Orion 2.0. Writing things down is part of the work."
+                    "description": "I wrote the architecture documentation at HPT and the specs and data model reference for ELI Schools' CRM. Writing things down is part of the work."
                 }
             ]
         },
@@ -216,7 +216,7 @@
                 },
                 {
                     "name": "Verify before building",
-                    "description": "I run diagnostics and audit the data before building on top of it, like the integrity audit I did on Orion 2.0's production data."
+                    "description": "I run diagnostics and audit the data before building on top of it, like the integrity audit I did on ELI Schools' production CRM data."
                 },
                 {
                     "name": "Thorough investigation",

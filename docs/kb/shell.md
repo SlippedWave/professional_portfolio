@@ -14,7 +14,7 @@ Views render `<div>` roots (no nested `<main>`).
 Flag buttons (en US, es MX, de DE), selected ring accent. Persists to `localStorage('locale')`, restores on mount, sets `<html lang>`.
 
 ## Footer.vue
-Static footer: name, degree · university, location; social buttons (LinkedIn, GitHub inverted, Fiverr); `footer.rights` with `{year}` = current year.
+Static footer: name, degree · university, location; social buttons (LinkedIn, GitHub inverted; Fiverr removed — not in persona); `footer.rights` with `{year}` = current year.
 
 ## MatrixBackground.vue
 Fixed `-z-10` layer: canvas rain (`FONT_SIZE` 18, `FRAME_MS` 70, katakana) + gradient overlays. Prop `letterColor`.
