@@ -1,14 +1,14 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
-import americanFlag from '@/assets/icons/american-flag.svg';
+import ukFlag from '@/assets/icons/uk-flag.svg';
 import mexicanFlag from '@/assets/icons/mexican-flag.svg';
 import germanFlag from '@/assets/icons/german-flag.svg';
 
 const { locale, availableLocales } = useI18n();
 
 const languages = [
-  { code: 'en', label: 'English', flag: americanFlag },
+  { code: 'en', label: 'English', flag: ukFlag },
   { code: 'es', label: 'Español', flag: mexicanFlag },
   { code: 'de', label: 'Deutsch', flag: germanFlag },
 ];
